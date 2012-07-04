@@ -1,0 +1,457 @@
+#LyX 1.6.9 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[left=4cm]{geometry}
+\end_preamble
+\options notitlepage
+\use_default_options false
+\language czech
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic true
+\paperorientation portrait
+\leftmargin 4cm
+\topmargin 4cm
+\rightmargin 4cm
+\bottommargin 4cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 15mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+Univerzita Karlova v Praze
+\begin_inset Newline newline
+\end_inset
+
+Matematicko-fyzikální fakulta
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+BAKALÁŘSKÁ PRÁCE
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename logo.eps
+	scale 30
+
+\end_inset
+
+
+\begin_inset VSpace 15mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size larger
+Tomáš Křen 
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+Nástroj pro programování ve fyzikálním prostředí
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+Katedra softwarového inženýrství
+\begin_inset VSpace 15mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+Vedoucí bakalářské práce: RNDr.
+ Petr Hnětynka Ph.D.
+ 
+\begin_inset VSpace 1mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+Studijní program: Informatika, Programování
+\begin_inset VSpace 20mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+Praha 2011
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Poděkování...
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Prohlašuji, že jsem svou bakalářskou práci napsal samostatně a výhradně
+ s použitím citovaných pramenů.
+ Souhlasím se zapůjčováním práce a jejím zveřejňováním.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+V Praze dne 
+\begin_inset space \hfill{}
+\end_inset
+
+Tomáš Křen
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Název práce: Nástroj pro programování ve fyzikálním prostředí
+\begin_inset Newline newline
+\end_inset
+
+Autor: Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+Katedra (ústav): Katedra softwarového inženýrství
+\begin_inset Newline newline
+\end_inset
+
+Vedoucí bakalářské práce: RNDr.
+ Petr Hnětynka Ph.D., Katedra distribuovaných a spolehlivých systémů
+\begin_inset Newline newline
+\end_inset
+
+e-mail vedoucího: hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Abstrakt: Cílem práce je vytvořit program fungující jako nástroj pro programován
+í v dvojrozměrném fyzikálním prostředí.
+ Z hlediska uživatelského rozhraní bude podobny hře The Incredible Machine.
+ Program bude umožňovat uživateli interaktivně vytvářet stroje sestavené
+ z předmětů různých typů.
+ Interakci předmětů mezi sebou navzájem bude zajišťovat fyzikální simulátor.
+ Důležitou vlastností programu bude, že bude možno stroje vkládat do "krabičky
+ se vstupem a výstupem", (...)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Klíčová slova: klíčová slova...
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Title: Tool for programming in a physical environment
+\begin_inset Newline newline
+\end_inset
+
+Author: Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+Department: Department of software engineering
+\begin_inset Newline newline
+\end_inset
+
+Supervisor: RNDr.
+ Petr Hnětynka Ph.D., Department of Distributed and Dependable Systems
+\end_layout
+
+\begin_layout Standard
+\noindent
+Supervisor's e-mail address: hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Abstract: In the present work we study ...
+ Cílem práce je vytvořit program fungující jako nástroj pro programování
+ v dvojrozměrném fyzikálním prostředí.
+ Z hlediska uživatelského rozhraní bude podobny hře The Incredible Machine.
+ Program bude umožňovat uživateli interaktivně vytvářet stroje sestavené
+ z předmětů různých typů.
+ Interakci předmětů mezi (...)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Keywords: klíčová slova...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Úvod
+\end_layout
+
+\begin_layout Section
+Úvodek
+\end_layout
+
+\begin_layout Section
+Úvodeček
+\end_layout
+
+\begin_layout Chapter
+Pozadí
+\end_layout
+
+\begin_layout Section
+Poz1
+\end_layout
+
+\begin_layout Section
+Poz2
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "abraham-marsden"
+
+\end_inset
+
+Abraham R., Marsden J.
+ E.: 
+\emph on
+Foundations of Mechanics
+\emph default
+, Addison-Wesley, Reading, 1985.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "derbes"
+
+\end_inset
+
+Derbes D.: 
+\emph on
+Reinventing the wheel: Hodographic solutions to the Kepler problems
+\emph default
+, Am.
+ J.
+ Phys.
+ 
+\series bold
+69
+\series default
+ (2001) 481--489.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kvasnica"
+
+\end_inset
+
+Kvasnica J.: 
+\emph on
+Teorie elektromagnetického pole
+\emph default
+, Academia, Praha, 1985.
+ 
+\end_layout
+
+\end_body
+\end_document

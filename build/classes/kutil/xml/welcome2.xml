@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+    <object type="time" ups="81">
+      
+
+        <object id="$svet" pos="0 0">
+            <object pos="0 0" id="$item1" />
+            <object pos="30 30" id="$item2" />
+            <object pos="50 50" id="$item3" />
+        </object>
+
+        <object type="frame" cam="200 200" size="700 700" pos="350 50" target="$svet" title2="okno do $svet"/>
+
+
+    </object>
+</kutil>
+
+

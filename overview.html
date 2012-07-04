@@ -1,0 +1,198 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+
+<h1>Dokumentace programu Kutil.</h1>
+
+<p>
+Balíčky začínající "kutil." tvoří kód programu Kutil, balíčky začínající "net.phys2d." jsou balíčky
+knihovny pro fyzikální simulaci, kterou program využívá.   <br>
+(Phys2D - a 2D physics engine based on the work of Erin Catto. <a href="http://www.cokeandcode.com/phys2d/">
+http://www.cokeandcode.com/phys2d/</a>)
+</p>
+
+<p>
+V následujícím přehledu zmíníme některé důležité aspekty architektury programu Kutil, 
+zbytek dokumentace je tvořen automaticky vygenerovanou dokumentací pomocí javadoc.
+</p>
+
+<p>
+Třídy reprezentující objekty virtuálního světa implementují rozhraní KObject. 
+Metody tohoto rozhraní pokrývají mnoho činností jako vykreslování, tvoření kopií objektu, 
+převádění objektu do XML, atd. Ale patrně nejpodstatnější metodou tohoto rozhraní je metoda step(). 
+Po zavolání této metody objekt udělá jeden krok své činnosti. 
+</p>
+<p>
+Základní typ objektu, který implementuje rozhraní KObject a od kterého jsou odvozeny prakticky všechny ostatní 
+třídy implementující toto rozhraní, je třída Basic. Základní vlastností objektu třídy Basic je, že se skládá 
+z vnitřních objektů. Při zavolání metody step() zavolá tuto metodu i u svých vnitřních objektů. 
+</p>
+
+<hr>
+
+<h2>Basic</h2>
+Třída Basic představuje základní typ objektu virtuálního světa, od něhož všechny ostatní typy předmětů dědí.
+Na příkladě si ukážeme, jaké může mít vlastnosti:
+
+<h2>Time</h2>
+
+Výše jsme uvedli, že aby objekt provedl krok simulace, musí být zavolána jeho metoda step(). 
+Tu typicky volá rodič objektu. Problém nastává, když objekt nemá rodiče, tedy když je kořenem hierarchie. 
+K tomuto účelu slouží instance třídy Time.
+
+Při startu programu jsou všechny kořenové objekty tohoto typu předány jednoduchému plánovači. 
+Ten potom v pravidelných intervalech volá metodu step těchto objektů. 
+To jak často je ten který objekt zavolán je dáno jeho položkou ups (updates per second). 
+Pokud chceme jen určitý počet iterací (tzn. nechceme, aby se volání tohoto objektu opakovalo donekonečna) 
+můžeme to specifikovat položkou iterations.
+
+<h2>Frame</h2>
+
+Další důležitou třídou je Frame. Ta zajišťuje základní prvky uživatelského rozhraní, 
+její objekty se totiž manifestují jako okna.
+Pokud je rodičem framu přímo time, pak se frame manifestuje jako okno programu. 
+Pokud ne, je takzvaným vnořeným oknem a zobrazí se až uvnitř jiného okna, podobně jako ostatní objekty.
+Frame má položku target, což je id objektu, jehož vnitřek toto okno zobrazuje. 
+Pokud není uveden, je automaticky targetem tento frame samotný. 
+Dále má položku cam, která určuje pozici, kterou ve vnitřku target objektu zobrazuje. 
+
+<hr>
+
+<p>
+Virtuální svět je tedy tvořen hierarchií KObjectů, jejíž dynamiku zajišťuje metoda step().
+   </p>
+<p>
+Jádro programu tvoří tři objekty; instance tříd Scheduler, IdDB a Rucksack.
+   </p>
+<p>
+Scheduler je jednoduchý plánovač, který můžeme chápat jako kořen celé hierarchie KObjectů, 
+který volá u nejvyšších KObjectů z hierarchie metodu step(). Toto volání pak kaskádovitě 
+projde celou hierarchií a má za důsledek všechny akce provedené v tomto kroku běhu virtuálního světa. 
+Všechny akce pak jsou projevem jednotlivých KObjectů, které mají možnost manipulovat i se strukturou hierarchie. 
+Moc manipulovat se strukturou hierarchie mají díky tomu, že mají jednak přímé reference na své vnitřní objekty i 
+rodičovský objekt, dále pak mají nepřímý přistup k libovolnému jinému objektu skrze jeho unikátní id.
+Tento nepřímý přístup je zprostředkován díky výše jmenované instanci třídy IdDB. 
+IdDB slouží jako aktuální databáze všech objektů, kteréžto jsou zde přístupné pod svým unikátním id.
+   </p>
+<p>
+Instance třídy Rucksack má důležitou roli při interakci s uživatelem. Umožňuje manipulaci s objekty pomocí myši, 
+implementuje schránku, zajišťuje ovládání běhu simulace (tzn. „play/pause“), zajišťuje pohyb zpět či vpřed 
+v historii editačních změn, zajišťuje interakci s textovou konzolí programu, zajišťuje dialog pro ukládání a 
+otevírání stavu, drží informaci o označených objektech, atd. 
+</p>
+<p>
+Jak již bylo zmíněno, GUI programu je realizováno přes speciální třídu Frame implementující KObject . 
+Třída Frame úzce spolupracuje s instancí třídy Rucksack, čímž společně zajišťují interakci s uživatelem.
+</p>
+<p>
+Podívejme se ještě podrobněji na třídu Function implementující KObject: Její instance zastávají roli funkcí 
+programovacího jazyka. Rozlišujeme dvě základní varianty funkcí: bílou a černou .
+ Černé funkce jsou definovány strukturou svých vnitřních objektů, zatímco bílé jsou definovány výrazem 
+ jazyka Kisp definovaným v programu. Podívejme se blíže na bílé funkce. Výraz jazyka Kisp je předpisem, podle 
+ kterého se vyrobí objekt implementující rozhraní FunctionImplemetation. V tomto rozhraní je hlavně 
+ důležitá metoda počítající pro pole vstupů pole výstupů dané funkce:
+
+</p>
+
+<p>
+<pre>public KObject[] compute( KObject[] objects );</pre>
+</p>
+
+<p>
+
+Výraz jazyka Kisp je složen ze speciálních znaků (tj. \,'), mezer, závorek a symbolů atomických funkcí 
+(např. +, head, pair, if,...). Převod Kispových výrazů na objekty implementující rozhraní 
+FunctionImplementation má na starosti třída Kisp. Uvnitř těla statické metody newAtomImplementation(...)
+ je možno přiřadit nový symbol ke konkrétní FunctionImplementation.
+</p>
+<p>
+Pro různé typy funkcí  existují různé abstraktní třídy implementující FunctionImplementation 
+(např. UnarImplementation, BinarImplementation, UnarBinarImplementation, atd.).
+</p>
+<p>
+Předveďme příklad implementace jednoduché binární funkce; jedná se o implementaci sčítání:
+
+</p>
+
+<p>
+<pre>
+class Plus extends BinarImplementation {     
+   public Plus(){ super("+"); }
+   public KObject compute( KObject o1 , KObject o2 ) {         
+      if( o1 instanceof Num && o2 instanceof Num ){                          
+         num1.set( ((Num) o1).get() + ((Num) o2).get()  );         
+      }         
+      return o1;     
+   } 
+}
+</pre>
+</p>
+
+
+<p>
+
+Ještě se ve stručnosti podívejme na to, jak spolu jednotlivé funkce komunikují. 
+Výstupy funkcí můžeme napojovat na vstupy jiných funkcí. Mechanizmus propojení funkcí je zajištěn tím,
+ že funkce implementují rozhraní Imputable, jehož nejdůležitější metodou je metoda: 
+</p>
+
+<p>
+<pre>
+public void  handleInput( KObject input , int port );
+</pre>
+</p>
+
+<p>
+Tato metoda slouží k dosazení vstupního KObjectu na konkrétní vstup funkce. 
+Pokud má funkce všechny potřebné vstupy, vypočítá na základě své FunctionImplementation výstupy, 
+které pak pošle dalším funkcím, se kterými je propojená, znovu voláním jejich metody handleInput.
+To má za důsledek kaskádu výpočtů končící typicky „vypadnutím“ výsledku.
+</p>
+
+
+<h2>Stručný rozbor fází běhu programu</h2>
+<p>
+Nyní se podíváme na velice stručný přehled jednotlivých fází běhu programu; od jeho spuštění po jeho ukončení. 
+Podrobnější rozbor jednotlivostí pak následuje v dalších částech této kapitoly.
+</p>
+
+<p>
+První akcí programu po jeho spuštění je nahrání XML reprezentace virtuálního světa ze souboru. 
+Pokud je program zavolán s parametrem, interpretuje se první parametr jako jméno souboru, který bude nahrán. 
+Pokud je program zavolán bez parametrů, načte se implicitní interní soubor.
+   </p>
+
+<p>
+Tento soubor popisuje strukturu objektů virtuálního světa, kterážto koresponduje se strukturou objektů 
+v rámci jazyku Java, ve kterém je program napsán. Objekty tvoří hierarchii na jejímž vršku je jednoduchý 
+plánovač, který vybízí jednotlivé objekty k akci; analogicky každý další objekt vybízí k akci objekty v hierarchii pod ním.
+   </p>
+
+<p>
+Součástí této hierarchie je i popis GUI včetně oken, ve kterých se vše zobrazuje. Tato okna mohou být navzájem vnořená. 
+   </p>
+
+<p>
+Uživatel interaguje s programem pomocí myši a klávesnice, případně pomocí integrované textové konzole (ta není součástí hierarchie). 
+   </p>
+
+<p>
+Pokud je zavřeno okno, které není vnořené (tzn. to které vystupuje jako okno programu), program je ukončen.
+</p>
+
+<h2>Současný stav komentářů kódu</h2> 
+
+<p>
+
+Každá public třída je okomentována, dále pak velká část
+public metod uvnitř tříd. U některých nedůležitých, nebo evidentních metod 
+však komentář chybí, nebo u overriden metod, které jen lehce doplňují původní definici.
+Málo okomentované jsou hlavně balíčky kutil.shape a kutil.items, které však nehrají
+zásadní roli v principu fungování programu.
+</p>
+
+
+  </body>
+</html>

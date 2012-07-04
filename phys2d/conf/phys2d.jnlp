@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://www.cokeandcode.com/phys2d"
+  href="phys2d.jnlp">
+  <information>
+    <title>Phys2D Demo Box</title>
+    <vendor>Kev Glass - New Dawn Software</vendor>
+    <homepage href="http://www.cokeandcode.com"/>
+    <description>Phys2D Demo Box</description>
+    <description kind="short">Phys2D Demo Box</description>
+    <icon href="icon.gif"/>
+  </information> 
+  <resources>
+    <j2se href="http://java.sun.com/products/autodl/j2se" version="1.4+" max-heap-size="128m"/>
+    <jar href="phys2d-test.jar"/>   
+    <jar href="phys2d.jar"/>      
+    <jar href="vecmath.jar"/>      
+  </resources>  
+  <application-desc main-class="net.phys2d.raw.test.DemoBox"/>
+</jnlp>

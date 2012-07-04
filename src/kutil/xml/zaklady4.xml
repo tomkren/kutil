@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+        <object type="comment" pos="-85 49">
+       <val>
+        Vezměme postupně vrchní řadu odkazů a podívejme se, k čemu slouží:#
+        #
+        pause/play - řídí běh simulace#
+        hide/show info - zobrazuje/schovává u objektů stručné info#
+        matrix/normal mode - přepíná pravé okno do zobrazeni XML reprezentace a zpět#
+        console - zapne textovou konzoli programu#
+        undo, redo - pohyb v editační historii#
+        save - uloží obsah pravého okna do souboru#
+        load - načte obsah pravého okna ze souboru#
+        #
+        Když se klikne pravým tlačítkem na nějaký objekt, objeví se nabídka:#
+        #
+        add in and out - (jen u funkcí) přídá ke vstupům a výstupům iny a outy#
+        undo - zpět v editační historii#
+        copy - kopíruje do schránky#
+        paste to cursor - vloží ze schránky na kurzor#
+        copy to cursor - zkopíruje na krutzor#
+        show XML - otevře okno s XML reprezentací objektu#
+        show Kisp -otevře okno s Kispovou reprezentací objektu#
+        
+       </val>
+    </object>
+</kutil>

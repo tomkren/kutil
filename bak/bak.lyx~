@@ -1,0 +1,5151 @@
+#LyX 1.6.9 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[left=4cm]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\AtBeginDocument{%
+\addto\captionsczech{%
+\renewcommand{\refname}{Reference}%
+}}
+\end_preamble
+\options notitlepage
+\use_default_options false
+\language czech
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\leftmargin 4cm
+\topmargin 4cm
+\rightmargin 4cm
+\bottommargin 4cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace 15mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+Univerzita Karlova v Praze
+\begin_inset Newline newline
+\end_inset
+
+Matematicko-fyzikální fakulta
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+BAKALÁŘSKÁ PRÁCE
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename logo.eps
+	scale 30
+
+\end_inset
+
+
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size larger
+Tomáš Křen 
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+Nástroj pro programování ve fyzikálním prostředí
+\begin_inset VSpace 5mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+Katedra softwarového inženýrství
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+Vedoucí bakalářské práce: RNDr.
+ Petr Hnětynka Ph.D.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\begin_inset VSpace 1mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+Studijní program: Informatika, Programování
+\begin_inset VSpace 21mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size large
+Praha 2011
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Děkuji vedoucímu práce RNDr.
+ Petru Hnětynkovi Ph.D.
+ za rady, které mi pomohly při této práci.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Prohlašuji, že jsem svou bakalářskou práci napsal samostatně a výhradně
+ s použitím citovaných pramenů.
+ Souhlasím se zapůjčováním práce a jejím zveřejňováním.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+V Praze dne 24.
+ května 2011
+\begin_inset space \hfill{}
+\end_inset
+
+Tomáš Křen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Název práce: 
+\series default
+Nástroj pro programování ve fyzikálním prostředí
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Autor:
+\series default
+ Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Katedra:
+\series default
+ Katedra softwarového inženýrství
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Vedoucí bakalářské práce:
+\series default
+ RNDr.
+ Petr Hnětynka Ph.D., Katedra distribuovaných a spolehlivých systémů
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+e-mail vedoucího:
+\series default
+ hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Abstrakt:
+\series default
+ Předmětem této práce je implementovat hru pojatou jako interaktivní fyzikální
+ prostředí, ve kterém vkládáním, přesouváním a propojováním objektů v dvourozměr
+ném hierarchickém prostoru uživatel vytváří virtuální svět.
+ Tento svět, nebo případně jeho části, však zároveň reprezentují syntaxi
+ programu.
+ Toho je docíleno především tím, že ve hře jsou různé druhy objektů nazývané
+\emph on
+ funkce
+\emph default
+, které zastávají stejnou roli, jako funkce v klasických programovacích
+ jazycích.
+ Dále program obsahuje aktivní agenty řízené vnitřním programem, který je
+ poskládán z funkcí.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Klíčová slova:
+\series default
+ hra, programovací jazyk, virtuální svět
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Title:
+\series default
+ Tool for programming in a physical environment
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Author:
+\series default
+ Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Department:
+\series default
+ Department of Software Engineering
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Supervisor:
+\series default
+ RNDr.
+ Petr Hnětynka Ph.D., Department of Distributed and Dependable Systems
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Supervisor's e-mail address:
+\series default
+ hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Abstract: 
+\series default
+The subject of this work is to implement the game conceived as an interactive
+ physical environment in which a user creates a virtual world in hierarchical
+ two-dimensional space by inserting, moving and connecting objects.
+ However, the world, or his parts, also represents the syntax of a program.
+ This is achieved mainly because the game includes different kinds of objects
+ called functions, which occupy the same role, as a function in classic
+ programming languages.
+ The program also includes active agents controlled by an internal program,
+ which is made up of these functions.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+Keywords:
+\series default
+ game, programming language, virtual world
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Úvod
+\end_layout
+
+\begin_layout Standard
+Schopnost programovat je považována za věc, která je netriviální a člověk
+ se jí učí dlouho a pracně.
+ Jaké jsou možnosti toho, jak naučit děti programovat? 
+\end_layout
+
+\begin_layout Standard
+Jedna z možností je učit je přímo reálně používané jazyky.
+ Ty však trpí nedostatkem, že nejsou navrženy tak, aby byly jednoduše pochopitel
+né pro nováčky.
+ Proto se nabízí možnost slevit z reálné používanosti a učit děti nějaký
+ méně praktický, ale za to názornější jazyk.
+ 
+\end_layout
+
+\begin_layout Standard
+Naprostá většina reálně používaných jazyků má textovou formu - program v
+ nich má formu textu.
+ Tato forma se zdá velice efektivní, otázkou však zůstává zda je to také
+ forma názorná.
+ Nebylo by možné navrhnout jazyk, který by měl místo textového základu nějaký
+ názornější?
+\end_layout
+
+\begin_layout Standard
+Pokus o navržení a implementaci takového jazyka je předmětem této práce.
+ Jako alternativu k textovému popisu programu práce navrhuje popisovat program
+ jakožto vzájemně propojené objekty virtuálního světa, podobající se spíše
+ než slovům stavebnici.
+ Snahou je udělat programovací jazyk, který se navenek tváří jako hra, tak
+ aby si ten, kdo si v něm hraje, nemusel všimnou toho, že se učí programovat.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Program 
+\emph on
+Kutil
+\emph default
+ je hra pojatá jako interaktivní fyzikální prostředí, ve kterém vkládáním,
+ přesouváním a propojováním objektů pomocí myši v dvourozměrném prostoru
+ hráč vytváří virtuální svět.
+ Tento virtuální svět je hierarchický; tím myslíme to, že 
+\emph on
+uvnitř
+\emph default
+ každého objektu se nachází opět prostor, kam je možno vkládat další objekty.
+ Hráč má možnost se touto hierarchií volně pohybovat.
+\end_layout
+
+\begin_layout Standard
+Celý takto vytvořený svět, nebo případně jeho části, však zároveň reprezentují
+ syntaxi programu.
+ Toho je docíleno především tím, že ve hře jsou různé druhy objektů nazývané
+\emph on
+ funkce
+\emph default
+, které zastávají stejnou roli, jako funkce v klasických programovacích
+ jazycích.
+ Jsou to navzájem propojitelné 
+\begin_inset Quotes gld
+\end_inset
+
+krabičky
+\begin_inset Quotes grd
+\end_inset
+
+ s různým počtem vstupů (kterými objekty v roli argumentů padají dovnitř)
+ a výstupů (ze kterých objekty v roli výsledků vypadávají ven).
+\end_layout
+
+\begin_layout Standard
+Vedle těchto pasivních funkcí reagujících na vstup, jsou zde i aktivní objekty
+ zastávající roli agentů ve virtuálním světě.
+ Ti jsou řízeni buďto programem v podobě soustavy navzájem propojených funkcí
+ ve vnitřku těchto agentů, nebo přímo hráčem z klávesnice.
+\end_layout
+
+\begin_layout Standard
+Hráč má možnost kdykoliv spustit či zastavit běh simulace virtuálního světa,
+ nebo se pohybovat zpět či vpřed v historii editačních změn podobně, jako
+ je to běžné například v textových editorech.
+ 
+\end_layout
+
+\begin_layout Standard
+Výše jsme naznačili dva pohledy, jak se na hru Kutil můžeme dívat: Buďto
+ jako na 
+\emph on
+interpret
+\emph default
+ programovacího jazyka, nebo jako na 
+\emph on
+prohlížeč
+\emph default
+ virtuálního světa.
+ Jeho role prohlížeče, je v mnohém podobná webovému prohlížeči: V každém
+ kroku simulace je k dispozici XML reprezentace aktuálního stavu virtuálního
+ světa.
+ Cílem této XML reprezentace je snaha o 
+\begin_inset Quotes gld
+\end_inset
+
+uživatelskou přívětivost
+\begin_inset Quotes grd
+\end_inset
+
+ pro čtení a ruční editování člověkem.
+ Dále pak je cílem snaha o dostatečnou modularitu této reprezentace, tak
+ aby nebránila přidávání dalších nových typů objektů v budoucnu.
+ Program také podporuje jednoduchou síťovou komunikaci skrze minimalistický
+ webový server.
+\end_layout
+
+\begin_layout Standard
+Samotné GUI programu je stejného charakteru jako ostatní prvky virtuálního
+ světa, tedy není zde pevná hranice mezi GUI a virtuálním světem, který
+ je skrze GUI editován - tyto dvě věci v sebe volně přecházejí.
+\end_layout
+
+\begin_layout Standard
+Vedle základní manipulace s objekty pomocí myši program umožňuje pokročilejší
+ variantu interakce; pomocí textové konzole.
+ Interakce skrze konzoli umožňuje jednak zadávat programu nejrůznější příkazy,
+ hlavně je však prostředkem pro vkládání složitějších objektů.
+ Pro tento účel je v programu obsažen jednoduchý minimalistický programovací
+ jazyk Kisp, inspirovaný programovacím jazykem Lisp.
+ Ten na jedné straně umožňuje vkládat složitější objekty reprezentující
+ hierarchické datové struktury, dále však také umožňuje vkládat složené
+ funkce; tedy funkce složené z elementárních nebo uživatelsky definovaných
+ funkcí.
+ Toto skládání funkcí funguje na základě 
+\emph on
+částečné aplikace funkce
+\emph default
+ a definice funkcí pomocí 
+\emph on
+lambda
+\emph default
+ 
+\emph on
+výrazů
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+Cílem této práce je vytvoření programu přibližujícího dětem svět programování
+ skrze intuitivnost fyzikálního světa.
+ Pojem hra se zde chápe spíše jako 
+\begin_inset Quotes gld
+\end_inset
+
+stavebnice
+\begin_inset Quotes grd
+\end_inset
+
+, než klasická počítačová hra s vyvíjejícím se příběhem nebo sadou úkolů.
+ Více než hotovou hrou s příběhem se program snaží být nástrojem na tvorbu
+ takovýchto her.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analýza problému
+\end_layout
+
+\begin_layout Subsection
+Výběr programovacího jazyka
+\end_layout
+
+\begin_layout Standard
+Program byl naprogramován v jazyce 
+\emph on
+Java
+\emph default
+.
+ Jeho výhodou je multiplatformnost, rozsáhlost standardních knihoven a také
+ relativně dobrá spolupráce s prohlížeči (to pro možnost udělat program
+ i ve formě appletu).
+ Další podstatnou výhodou je schopnost Javy dynamicky přidávat nahrané třídy
+ za běhu programu a další vlastnosti podobné této, které zatím nebyly v
+ programu použity, ale při výběru jazyka na to byl brán zřetel.
+ Tato vlastnost by pak umožnila ještě těsnější provázání Kutila a Javy,
+ což by bylo dobře využitelné při použití uživatelem vytvořených definic
+ objektů virtuálního světa.
+\end_layout
+
+\begin_layout Standard
+Proberme ještě krátce výhody jiných jazyků, které byly nakonec zavrženy.
+ Zajímavou možností by bylo použít platformu 
+\emph on
+Adobe Flash
+\emph default
+, pro její úzkou provázanost s grafickou stránkou a pro její velice dobrou
+ spolupráci s prohlížeči, nevýhodou je však po mnoha stránkách řádově horší
+ programovací jazyk 
+\emph on
+ActionScript.
+\end_layout
+
+\begin_layout Standard
+Pokud by prioritou byla rychlost a efektivita kódu, patrně by bylo vybráno
+ 
+\emph on
+C++
+\emph default
+, to však prioritou nebylo.
+\end_layout
+
+\begin_layout Standard
+Pokud by nezáleželo na mé schopnosti programovat v daném jazyce, vybral
+ bych nejspíš jazyk 
+\emph on
+Haskell
+\emph default
+, pro jeho matematickou krásu a pro zajímavost výzvy, kterou přináši naprogramov
+at něco takového jako je Kutil v tak striktně funkcionálním jazyce.
+ 
+\end_layout
+
+\begin_layout Subsection
+Snaha o uchopení obecných principů na úkor popisu principů v reálných jazycích
+\end_layout
+
+\begin_layout Standard
+Důležitým rozhodnutím při návrhu programu na výuku programování je rozhodnutí,
+ zda dát přednost snaze o vysvětlení principů reálně používaných jazyků,
+ nebo zda raději dát přednost snaze o vysvětlení obecných principů.
+ V této otázce jsem se rozhodl pro plnou podporu snahy o uchopení obecných
+ principů a to z toho důvodu, že považuji tuto schopnost za mnohem cennější,
+ zvlášť v raném věku.
+\end_layout
+
+\begin_layout Standard
+To má za důsledek, že je hojně používána metoda 
+\begin_inset Quotes gld
+\end_inset
+
+rozpouštění hranic
+\begin_inset Quotes grd
+\end_inset
+
+ mezi pojmy, které se často nacházejí na různých hladinách abstrakce.
+ Jedná se o pojmy jako např.
+ 
+\emph on
+data
+\emph default
+ versus 
+\emph on
+program
+\emph default
+, 
+\emph on
+kód programu
+\emph default
+ versus 
+\emph on
+výstup programu
+\emph default
+ nebo 
+\emph on
+grafické uživatelské rozhraní
+\emph default
+ versus 
+\emph on
+to co je díky tomuto rozhraní editováno
+\emph default
+.
+ Snaha je, aby se hranice mezi těmito pojmy v programu moc neprojevovala.
+ Aby byl program chápán spíše jako virtuální svět jehož zákonitosti odrážejí
+ některé důležité obecné principy programování.
+\end_layout
+
+\begin_layout Subsection
+Teoretické koncepty na úkor počtu předmětů
+\end_layout
+
+\begin_layout Standard
+Při práci na programu bylo nutno rozhodnout, zda se spíš snažit rozvíjet
+ různé teoretické koncepty, které jdou v duchu toho, že se jedná o programovací
+ jazyk (jako vestavěný jazyk Kisp pro skládání základních funkcí nebo agenta
+ ovládaného vnitřní funkcí) nebo se spíš věnovat různým typům spíše mechanických
+ objektů (jako například ozubená kola, pružiny, kladky, atd.) v duchu hry
+ The Incredible Machines, kterou byla hra zásadně ovlivněna (podrobnější
+ srovnání v části 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:The-Incredible-Machine"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Toto rozhodnutí dopadlo tak, že se spíš rozvíjely teoretické koncepty, s
+ tím, že mechanické předměty lze přidat později, zatímco teoretické koncepty
+ by se přidávaly obtížněji, kdyby se s nimi nepočítalo od začátku.
+\end_layout
+
+\begin_layout Standard
+Dalo by se říci, že byla snaha o vyrovnanost pohledů na Kutila jako na prohlížeč
+ virtuálního fyzikálního světa a jako na interpret jazyka.
+\end_layout
+
+\begin_layout Subsection
+Poučení z minulé verze programu
+\end_layout
+
+\begin_layout Standard
+Program Kutil má předchozí verzi, která je na podobném stupni vývoje, přičemž
+ současná verze vznikla kompletním znovu napsáním a s původní verzí nemá
+ prakticky žádný společný kód.
+ Důvodem pro přepsání byla nespokojenost s návrhem architektury, kterou
+ bylo obtížné rozšiřovat požadovaným způsobem.
+\end_layout
+
+\begin_layout Standard
+Základní rozdíl mezi oběma verzemi je v tom, že původní verze byla centralizován
+a kolem konceptu fyzikální simulace a další koncepty byly přidávány do kontextu
+ této fyzikální simulace.
+ Zatímco současná verze je centralizována kolem hierarchické struktury objektů
+ virtuálního světa a simulace je relativně hodně skrytá.
+ Tato přílišná svázanost s uchopením celé věci v kontextu fyzikální simulace
+ neumožňovala moc dobrou modularitu.
+\end_layout
+
+\begin_layout Standard
+Další nevýhodou z pohledu metody 
+\begin_inset Quotes gld
+\end_inset
+
+rozpouštění hranic
+\begin_inset Quotes grd
+\end_inset
+
+ bylo pevné oddělení ovládacích prvků a světa virtuální simulace a nepříliš
+ kvalitní provázání XML reprezentace objektů virtuálního světa s objekty
+ Javy.
+\end_layout
+
+\begin_layout Standard
+Tím, že bylo už dopředu počítáno s některými problémy a tím, že návrh nové
+ architektury byl kvalitnější, byl vývoj nové verze o poznání rychlejší
+ a s lepšími výsledky.
+ Proto považuji rozhodnutí kompletního přepsání programu jako sice komplikované,
+ ale dobré rozhodnutí.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Popis řešení
+\end_layout
+
+\begin_layout Subsection
+Architektura programu
+\end_layout
+
+\begin_layout Standard
+V této podkapitole se ve stručnosti podíváme na program z pohledu programátora.
+ Zbytek textu pak bude spíše balancovat na pomezí programátorského a uživatelské
+ho pohledu na věc.
+ 
+\end_layout
+
+\begin_layout Standard
+Třídy reprezentující objekty virtuálního světa implementují rozhraní 
+\family typewriter
+KObject
+\family default
+.
+ Metody tohoto rozhraní pokrývají mnoho činností jako vykreslování, tvoření
+ kopií objektu, převádění objektu do XML, atd.
+ Ale patrně nejpodstatnější metodou tohoto rozhraní je metoda 
+\family typewriter
+step()
+\family default
+.
+ Po zavolání této metody objekt udělá jeden krok své činnosti.
+ 
+\end_layout
+
+\begin_layout Standard
+Základní typ objektu, který implementuje rozhraní 
+\family typewriter
+KObject
+\family default
+ a od kterého jsou odvozeny prakticky všechny ostatní třídy implementující
+ toto rozhraní, je třída 
+\family typewriter
+Basic
+\family default
+.
+ Základní vlastností objektu třídy 
+\family typewriter
+Basic
+\family default
+ je, že se skládá z vnitřních objektů.
+ Při zavolání metody 
+\family typewriter
+step()
+\family default
+ zavolá tuto metodu i u svých vnitřních objektů.
+ Více informací o třídě 
+\family typewriter
+Basic
+\family default
+ a o několika dalších důležitých třídách odvozených od třídy 
+\family typewriter
+Basic
+\family default
+ je v části 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Některé-základní-typy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Virtuální svět je tedy tvořen hierarchií 
+\family typewriter
+KObjectů
+\family default
+, jejíž dynamiku zajišťuje metoda 
+\family typewriter
+step()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Jádro programu tvoří tři objekty; instance tříd 
+\family typewriter
+Scheduler
+\family default
+, 
+\family typewriter
+IdDB
+\family default
+ a 
+\family typewriter
+Rucksack
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Scheduler
+\family default
+ je jednoduchý plánovač, který můžeme chápat jako kořen celé hierarchie
+ 
+\family typewriter
+KObjectů
+\family default
+, který volá u nejvyšších 
+\family typewriter
+KObjectů
+\family default
+ z hierarchie metodu 
+\family typewriter
+step()
+\family default
+.
+ Toto volání pak kaskádovitě projde celou hierarchií a má za důsledek všechny
+ akce provedené v tomto kroku běhu virtuálního světa.
+ Všechny akce pak jsou projevem jednotlivých 
+\family typewriter
+KObjectů
+\family default
+, které mají možnost manipulovat i se strukturou hierarchie.
+ Moc manipulovat se strukturou hierarchie mají díky tomu, že mají jednak
+ přímé reference na své vnitřní objekty i rodičovský objekt, dále pak mají
+ nepřímý přistup k libovolnému jinému objektu skrze jeho 
+\emph on
+unikátní id
+\emph default
+.
+ Tento nepřímý přístup je zprostředkován díky výše jmenované instanci třídy
+ 
+\family typewriter
+IdDB
+\family default
+.
+ 
+\family typewriter
+IdDB
+\family default
+ slouží jako aktuální databáze všech objektů, kteréžto jsou zde přístupné
+ pod svým unikátním id.
+\end_layout
+
+\begin_layout Standard
+Instance třídy 
+\family typewriter
+Rucksack
+\family default
+ má důležitou roli při interakci s uživatelem.
+ Umožňuje manipulaci s objekty pomocí myši, implementuje schránku, zajišťuje
+ ovládání běhu simulace (tzn.
+ 
+\begin_inset Quotes gld
+\end_inset
+
+play/pause
+\begin_inset Quotes grd
+\end_inset
+
+), zajišťuje pohyb zpět či vpřed v historii editačních změn, zajišťuje interakci
+ s textovou konzolí programu, zajišťuje dialog pro ukládání a otevírání
+ stavu, drží informaci o označených objektech, atd.
+ 
+\end_layout
+
+\begin_layout Standard
+GUI programu je realizováno přes speciální třídu 
+\family typewriter
+Frame
+\family default
+ implementující 
+\family typewriter
+KObject
+\family default
+ (podrobněji viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Frame"
+
+\end_inset
+
+).
+ 
+\family typewriter
+Frame
+\family default
+ je okno zobrazující vnitřek nějakého 
+\family typewriter
+KObjectu
+\family default
+.
+ Pokud 
+\family typewriter
+Frame
+\family default
+ splňuje podmínky popsané v 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Frame"
+
+\end_inset
+
+, manifestuje se jako okno programu.
+ Protože je 
+\family typewriter
+Frame
+\family default
+ 
+\family typewriter
+KObject
+\family default
+, může být prvkem vnitřku právě zobrazovaného 
+\family typewriter
+KObjectu
+\family default
+; potom se zobrazí jako vnořené okno a je s ním možno manipulovat podobně,
+ jako s jinými 
+\family typewriter
+KObjecty
+\family default
+.
+ Třída 
+\family typewriter
+Frame
+\family default
+ úzce spolupracuje s instancí třídy 
+\family typewriter
+Rucksack
+\family default
+, čímž společně zajišťují interakci s uživatelem.
+\end_layout
+
+\begin_layout Standard
+Podívejme se ještě podrobněji na třídu 
+\family typewriter
+Function
+\family default
+ implementující 
+\family typewriter
+KObject
+\family default
+: Její instance zastávají roli funkcí programovacího jazyka.
+ Rozlišujeme dvě základní varianty funkcí: 
+\emph on
+bílou
+\emph default
+ a 
+\emph on
+černou
+\emph default
+ (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Funkce-a-Kisp"
+
+\end_inset
+
+).
+ Černé funkce jsou definovány strukturou svých vnitřních objektů, zatímco
+ bílé jsou definovány výrazem jazyka Kisp (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Kisp"
+
+\end_inset
+
+).
+ Podívejme se blíže na bílé funkce.
+ Výraz jazyka Kisp je předpisem, podle kterého se vyrobí objekt implementující
+ rozhraní 
+\family typewriter
+FunctionImplemetation
+\family default
+.
+ V tomto rozhraní je hlavně důležitá metoda počítající pro pole vstupů pole
+ výstupů dané funkce:
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+
+\family typewriter
+public KObject[] compute( KObject[] objects );
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+Výraz jazyka Kisp je složen ze speciálních znaků (tj.
+ 
+\family typewriter
+
+\backslash
+
+\family default
+,
+\family typewriter
+'
+\family default
+), mezer, závorek a symbolů atomických funkcí (např.
+ 
+\family typewriter
++
+\family default
+, 
+\family typewriter
+head
+\family default
+, 
+\family typewriter
+pair
+\family default
+, 
+\family typewriter
+if
+\family default
+,...).
+ Převod Kispových výrazů na objekty implementující rozhraní 
+\family typewriter
+FunctionImplementation
+\family default
+ má na starosti třída 
+\family typewriter
+Kisp
+\family default
+.
+ Uvnitř těla statické metody 
+\family typewriter
+newAtomImplementation(...)
+\family default
+ je možno přiřadit nový symbol ke konkrétní 
+\family typewriter
+FunctionImplementation
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Pro různé typy funkcí 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Typem funkce zde chápeme počet vstupů a výstupů.
+\end_layout
+
+\end_inset
+
+ existují různé abstraktní třídy implementující
+\begin_inset Newline newline
+\end_inset
+
+ 
+\family typewriter
+FunctionImplementation
+\family default
+ (např.
+ 
+\family typewriter
+UnarImplementation,
+\family default
+ 
+\family typewriter
+BinarImplementation
+\family default
+, 
+\family typewriter
+UnarBinarImplementation
+\family default
+, atd.).
+\end_layout
+
+\begin_layout Standard
+Předveďme příklad implementace jednoduché binární funkce; jedná se o implementac
+i sčítání:
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+class Plus extends BinarImplementation {     
+\end_layout
+
+\begin_layout LyX-Code
+   public Plus(){ super("+"); }
+\end_layout
+
+\begin_layout LyX-Code
+   public KObject compute( KObject o1 , KObject o2 ) {         
+\end_layout
+
+\begin_layout LyX-Code
+      if( o1 instanceof Num && o2 instanceof Num ){                    
+      
+\end_layout
+
+\begin_layout LyX-Code
+         num1.set( ((Num) o1).get() + ((Num) o2).get()  );         
+\end_layout
+
+\begin_layout LyX-Code
+      }         
+\end_layout
+
+\begin_layout LyX-Code
+      return o1;     
+\end_layout
+
+\begin_layout LyX-Code
+   } 
+\end_layout
+
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+Ještě se ve stručnosti podívejme na to, jak spolu jednotlivé funkce komunikují.
+ Výstupy funkcí můžeme napojovat na vstupy jiných funkcí.
+ Mechanizmus propojení funkcí je zajištěn tím, že funkce implementují rozhraní
+ 
+\family typewriter
+Imputable
+\family default
+, jehož nejdůležitější metodou je metoda: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+
+\family typewriter
+public void  handleInput( KObject input , int port );
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tato metoda slouží k dosazení vstupního 
+\family typewriter
+KObjectu
+\family default
+ na konkrétní vstup funkce.
+ Pokud má funkce všechny potřebné vstupy, vypočítá na základě své
+\begin_inset Newline newline
+\end_inset
+
+ 
+\family typewriter
+FunctionImplementation
+\family default
+ výstupy, které pak pošle dalším funkcím, se kterými je propojená, znovu
+ voláním jejich metody 
+\family typewriter
+handleInput
+\family default
+.
+ To má za důsledek kaskádu výpočtů končící typicky 
+\begin_inset Quotes gld
+\end_inset
+
+vypadnutím
+\begin_inset Quotes grd
+\end_inset
+
+ výsledku.
+\end_layout
+
+\begin_layout Subsection
+Stručný rozbor fází běhu programu
+\end_layout
+
+\begin_layout Standard
+Nyní se podíváme na velice stručný přehled jednotlivých fází běhu programu;
+ od jeho spuštění po jeho ukončení.
+ Podrobnější rozbor jednotlivostí pak následuje v dalších částech této kapitoly.
+\end_layout
+
+\begin_layout Standard
+První akcí programu po jeho spuštění je nahrání XML reprezentace virtuálního
+ světa ze souboru.
+ Pokud je program zavolán s parametrem, interpretuje se první parametr jako
+ jméno souboru, který bude nahrán.
+ Pokud je program zavolán bez parametrů, načte se implicitní interní soubor.
+\end_layout
+
+\begin_layout Standard
+Tento soubor popisuje strukturu objektů virtuálního světa, kterážto koresponduje
+ se strukturou objektů v rámci jazyku Java, ve kterém je program napsán.
+ Objekty tvoří hierarchii na jejímž vršku je jednoduchý plánovač, který
+ vybízí jednotlivé objekty k akci; analogicky každý další objekt vybízí
+ k akci objekty v hierarchii pod ním.
+\end_layout
+
+\begin_layout Standard
+Součástí této hierarchie je i popis GUI včetně oken, ve kterých se vše zobrazuje.
+ Tato okna mohou být navzájem vnořená.
+ 
+\end_layout
+
+\begin_layout Standard
+Uživatel interaguje s programem pomocí myši a klávesnice, případně pomocí
+ integrované textové konzole (ta není součástí hierarchie).
+ 
+\end_layout
+
+\begin_layout Standard
+Pokud je zavřeno okno, které není vnořené (tzn.
+ to které vystupuje jako okno programu), program je ukončen.
+\end_layout
+
+\begin_layout Subsection
+Provázanost XML reprezentace a objektů jazyka Java
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Provázanost-XML-reprezentace"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nyní popíšeme mechanizmus jakým jsou provázány objekty v Javě (reprezentující
+ objekty prostředí) s jejich textovou XML reprezentací.
+\end_layout
+
+\begin_layout Standard
+Je možno rozlišit tři různé věci:
+\end_layout
+
+\begin_layout Itemize
+Objekt ve virtuálním světě hry,
+\end_layout
+
+\begin_layout Itemize
+objekt jazyka Java, který je v pozadí tohoto objektu
+\end_layout
+
+\begin_layout Itemize
+a XML reprezentaci objektu, kterou můžeme chápat jako předpis určující oba
+ tyto objekty.
+\end_layout
+
+\begin_layout Standard
+Program dělá to, že vezme XML reprezentaci a na jejím základě vytvoří nový
+ objekt Javy.
+ Během existence objektu Javy je pak kdykoliv k dispozici jeho aktuální
+ XML reprezentace.
+ Jinými slovy: XML reprezentaci můžeme přeložit na objekt Javy a obráceně,
+ objekt Javy můžeme přeložit na XML reprezentaci.
+\end_layout
+
+\begin_layout Subsubsection
+Představa abstraktního popisu objektů virtuálního světa
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Představa-abstraktního-popisu"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nyní popíšeme abstrakci objektů virtuálního světa na základě níž je pak
+ definována XML reprezentace těchto objektů.
+\end_layout
+
+\begin_layout Standard
+V rámci této abstrakce objektem chápeme:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Textový řetězec
+\emph default
+, nebo
+\end_layout
+
+\begin_layout Itemize
+seznam dvojic 
+\emph on
+( textový řetězec, objekt )
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+První možnost je 
+\emph on
+elementární objekt
+\emph default
+, sestávající pouze z textového řetězce.
+ Druhá možnost je 
+\emph on
+složený objekt
+\emph default
+, přičemž ony dvojice chápeme ve smyslu dvojice 
+\emph on
+klíč
+\emph default
+ (tj.
+ textový řetězec) a 
+\emph on
+hodnota
+\emph default
+ (tj.
+ objekt).
+ Takový objekt chápeme složený ze 
+\emph on
+součástek
+\emph default
+, kde každá součástka je jeden objekt.
+ A každá součástka má svůj klíč udávající, jakou roli v objektu má tato
+ součástka.
+ Více součástek může mít stejnou roli.
+\end_layout
+
+\begin_layout Standard
+Takto reprezentovaný objekt můžeme jednoduše zapsat.
+ (Seznam zapíšeme jako řadu hodnot v hranatých závorkách.)
+\end_layout
+
+\begin_layout Standard
+Jako příklad uveďme následující objekt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+
+\family typewriter
+[ ( key1, value1 ), 
+\end_layout
+
+\begin_layout LyX-Code
+
+\family typewriter
+  ( key2, [ ( key3, []      ) ] ), 
+\end_layout
+
+\begin_layout LyX-Code
+
+\family typewriter
+  ( key2, [ ( key4, value2  ) ] )
+\end_layout
+
+\begin_layout LyX-Code
+
+\family typewriter
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+XML reprezentace jako zápis abstraktního popisu objektu virtuálního světa
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:XML-jako-zapis-abstrakce"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podívejme se na to, jak je XML reprezentace používaná v programu Kutil pro
+ zápis výše popsané abstrakce objektu virtuálního světa.
+\end_layout
+
+\begin_layout Enumerate
+Textový řetězec zapíšeme jako textový řetězec, ve kterém nahradíme speciální
+ znaky XML odpovídajícím kódem.
+\end_layout
+
+\begin_layout Enumerate
+Složený objekt
+\family typewriter
+ 
+\begin_inset Newline newline
+\end_inset
+
+[ (key1 , 
+\emph on
+(...)
+\emph default
+ ) , (key2 , 
+\emph on
+(...)
+\emph default
+ ) , ...
+ , (keyN , 
+\emph on
+(...)
+\emph default
+ ) ]
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+ zapíšeme jako:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object>
+\end_layout
+
+\begin_layout LyX-Code
+  <key1> 
+\emph on
+(...)
+\emph default
+ </key1>
+\end_layout
+
+\begin_layout LyX-Code
+  <key2> 
+\emph on
+(...)
+\emph default
+ </key2>
+\end_layout
+
+\begin_layout LyX-Code
+  
+\emph on
+...
+\end_layout
+
+\begin_layout LyX-Code
+  <keyN> 
+\emph on
+(...)
+\emph default
+ </keyN>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Pokud je více objektů pod stejným klíčem, zapíšeme je za sebou v rámci tohoto
+ společného klíče:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<key>
+\end_layout
+
+\begin_layout LyX-Code
+  <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  
+\emph on
+...
+\end_layout
+
+\begin_layout LyX-Code
+  <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+</key>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro příklad z 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Představa-abstraktního-popisu"
+
+\end_inset
+
+ máme tedy následující zápis:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object>
+\end_layout
+
+\begin_layout LyX-Code
+  <key1>value1</key1>
+\end_layout
+
+\begin_layout LyX-Code
+  <key2>
+\end_layout
+
+\begin_layout LyX-Code
+    <object><key3><object/></key3></object>
+\end_layout
+
+\begin_layout LyX-Code
+    <object><key4>value2</key4></object>
+\end_layout
+
+\begin_layout LyX-Code
+  </key2>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+Využíváme dále toho, že v XML je pojem atribut.
+ Využijeme toho pokud nějaký objekt (v roli hodnota ve dvojici klíč - hodnota)
+ je textový řetězec.
+ V našem příkladu to splňuje například dvojice 
+\family typewriter
+(key1, value1 )
+\family default
+.
+ Potom můžeme psát:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object key1="value1">
+\end_layout
+
+\begin_layout LyX-Code
+  <key2>
+\emph on
+(...)
+\emph default
+</key2>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+Celá tato konstrukce má následující motivaci: V XML není nijak pevně stanoveno,
+ kdy pro nějaký konstrukt použít atribut a kdy vnořený element.
+ Je zde však jedno podstatné omezení: Atributy nemohou obsahovat strukturovaná
+ XML data, pouze textový řetězec.
+ Chápáním atributu jako 
+\begin_inset Quotes gld
+\end_inset
+
+syntaktického cukru
+\begin_inset Quotes grd
+\end_inset
+
+ nám umožňuje nesvazovat jednotlivé klíče s konkrétním typem objektu.
+\end_layout
+
+\begin_layout Standard
+Poslední 
+\begin_inset Quotes gld
+\end_inset
+
+syntaktický cukr
+\begin_inset Quotes grd
+\end_inset
+
+, o kterém budeme mluvit, je svázán s důležitým klíčem 
+\family typewriter
+inside
+\family default
+.
+ Pokud je nějaký element 
+\family typewriter
+object
+\family default
+ přímo v elementu 
+\family typewriter
+object
+\family default
+, znamená to, že je implicitně pod klíčem 
+\family typewriter
+inside
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Uvažme následující dva zápisy, podle tohoto pravidla jsou ekvivalentní:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object>
+\end_layout
+
+\begin_layout LyX-Code
+  <inside>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  </inside>
+\end_layout
+
+\begin_layout LyX-Code
+  <key1>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  </key1>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+Druhý ekvivalentní zápis:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object>
+\end_layout
+
+\begin_layout LyX-Code
+  <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  <key1>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+    <object>
+\emph on
+(...)
+\emph default
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+  </key1>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+XML reprezentace jako zápis objektu jazyka Java
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:XML-reprezentace-jako"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nyní se podíváme, jak jsou na základě XML reprezentace konstruovány objekty
+ Javy.
+ 
+\end_layout
+
+\begin_layout Standard
+První, co je potřeba určit, je konstruktor jaké třídy má být pro daný objekt
+ zavolán.
+ Tato informace se nachází v klíči 
+\emph on
+type
+\emph default
+.
+ Pokud tento klíč objekt nemá, nebo je-li obsahem tohoto klíče něco jiného
+ než platný kód třídy, je použit konstruktor třídy 
+\emph on
+Basic
+\emph default
+, což je základní typ objektu od kterého dědí všechny ostatní složitější
+ objekty.
+\end_layout
+
+\begin_layout Standard
+Tomuto konstruktoru se předají všechny dvojice 
+\emph on
+klíč - seznam objektů
+\emph default
+, které tento objekt obsahuje (
+\emph on
+seznam objektů
+\emph default
+ je seznam všech objektů, které jsou pod tímto klíčem v daném objektu).
+ Tyto objekty už dostává ve formě objektů Javy (tedy vnitřní objekty se
+ inicializují dříve, než samotný objekt).
+ Každý konstruktor tedy dostane balíček (implementovaný třídou 
+\emph on
+KAtts
+\emph default
+) dvojic 
+\emph on
+klíč -
+\emph default
+ 
+\emph on
+seznam objektů
+\emph default
+.
+ Není pevně určeno jak by měl konstruktor na tento balíček reagovat, v samotném
+ kódu programu se však všude dodržují jednoduché konvence pro správu těchto
+ záležitostí, tak aby každý objekt mohl jednoduše na požádání vrátit svou
+ aktuální XML reprezentaci.
+\end_layout
+
+\begin_layout Standard
+Dalším důležitým klíčem je klíč 
+\emph on
+id
+\emph default
+; předpokládá se, že je jeho hodnota textový řetězec.
+ Ten slouží jako unikátní identifikační symbol onoho objektu.
+ Díky 
+\emph on
+id 
+\emph default
+spolu můžou interagovat objekty nezávisle na své pozici v hierarchii.
+ Pokud objekt nemá uvedeno explicitní 
+\emph on
+id
+\emph default
+, dostane přiděleno nějaké unikátní.
+ Konvence je taková, že píšeme id začínající symbolem 
+\emph on
+$ 
+\emph default
+a dále obsahující jen alfanumerické znaky a podtržítko.
+ Program obsahuje globální databázi všech objektů přístupnou všem objektům,
+ v níž je přístup k objektům zajištěn na základě znalosti jejich 
+\emph on
+id
+\emph default
+.
+
+\emph on
+ Id 
+\emph default
+však sebou přináší problém, díky tomu, že v době konstrukce objektů ještě
+ není známo 
+\emph on
+id 
+\emph default
+nadřazených objektů v hierarchii.
+ To je v programu řešeno tak, že vytvoření objektu probíhá ve dvou fázích.
+ První fáze je zavolání konstruktoru a druhá fáze je zavolání funkce 
+\emph on
+init()
+\emph default
+.
+ Ve chvíli zavolání této funkce už jsou všechna 
+\emph on
+id 
+\emph default
+známá a tak může objekt dokončit své vytvoření.
+ Objekty nevyužívající přímé reference na jiné objekty tuto funkci mohou
+ ignorovat.
+\end_layout
+
+\begin_layout Standard
+Většina objektů v současném stavu programu využívá pouze klíče mající hodnotu
+ textový řetězec, nebo dříve zmíněný důležitý klíč 
+\emph on
+inside
+\emph default
+.
+ Proto se na klíč 
+\emph on
+inside
+\emph default
+ podívejme podrobněji.
+ Každý objekt mající svůj odraz v GUI programu je umístěn ve 
+\emph on
+vnitřku 
+\emph default
+nějakého objektu, a naopak má svůj 
+\emph on
+vnitřek, 
+\emph default
+v němž mohou být umístěny další objekty.
+ A součástí GUI je možnost volně se pohybovat hierarchií vzniklou tímto
+ vztahem 
+\emph on
+vnitřku 
+\emph default
+a 
+\emph on
+vnějšku.
+
+\emph default
+ Klíč 
+\emph on
+inside
+\emph default
+ je právě tento 
+\emph on
+vnitřek 
+\emph default
+chápaný v kontextu GUI.
+\end_layout
+
+\begin_layout Standard
+To, že většina objektů využívá pouze textové klíče nebo klíč 
+\emph on
+inside
+\emph default
+ neznamená to, že by koncept klíčů byl špatně navržený.
+ Znamená to, že objekty implementované v současné fázi programu jsou dostatečně
+ jednoduché a tak si s tím vystačí.
+ Tuto typickou jednoduchou strukturu porušují například objekty v roli agentů,
+ které využívají možnosti složitější struktury pro implementaci paměti oddělené
+ od programu.
+\end_layout
+
+\begin_layout Subsection
+Některé základní typy objektů
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Některé-základní-typy"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ve stručnosti se podíváme na některé typy objektů.
+\end_layout
+
+\begin_layout Subsubsection
+Basic
+\end_layout
+
+\begin_layout Standard
+Třída 
+\emph on
+Basic
+\emph default
+ představuje základní typ objektu virtuálního světa, od něhož všechny ostatní
+ typy předmětů dědí.
+\end_layout
+
+\begin_layout Standard
+Na příkladě si ukážeme, jaké může mít vlastnosti:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object type="basic" id="$1" pos="100 150" 
+\end_layout
+
+\begin_layout LyX-Code
+        shape="rectangle 200 100" 
+\end_layout
+
+\begin_layout LyX-Code
+        physical="true" attached="false">
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+<object id="$2" pos="0 0"/>
+\end_layout
+
+\begin_layout LyX-Code
+<object id="$3" pos="50 50"/> 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+Jedná se o základní objekt, který má ve svém vnitřku dva další základní
+ objekty (ty sice nemají uvedený typ, typ 
+\emph on
+basic 
+\emph default
+je však implicitní).
+ Unikátní id tohoto objektu je 
+\family typewriter
+$1
+\family default
+.
+ Pozice objektu v rámci svého 
+\emph on
+rodiče
+\emph default
+ (tzn.
+ objektu jehož vnitřku je součástí) je 
+\family typewriter
+[100, 150]
+\family default
+.
+ Má tvar obdélníku o stranách 200 × 100.
+ Položka 
+\family typewriter
+physical="true"
+\family default
+ určuje, že objekt je fyzický.
+ Tím se myslí to, že se účastní fyzikální simulace uvnitř svého rodiče,
+ a tedy interaguje s ostatními fyzickými předměty.
+ Položka 
+\family typewriter
+attached="false"
+\family default
+ určuje, že se může volně pohybovat (nemá pevně fixovanou pozici).
+\end_layout
+
+\begin_layout Standard
+Každý základní objekt má pro své vnitřní fyzické objekty svět fyzikální
+ simulace, ve kterém má každý vnitřní objekt odpovídající těleso, podle
+ kterého si aktualizuje svou pozici.
+\end_layout
+
+\begin_layout Standard
+Akce prováděné objektem v jednom kroku simulace se provedou zavoláním metody
+ 
+\family typewriter
+step()
+\family default
+.
+ To má mimo jiné za následek krok vnitřního světa fyzikální simulace a zavolání
+ metody 
+\family typewriter
+step()
+\family default
+ u svých vnitřních objektů.
+\end_layout
+
+\begin_layout Subsubsection
+Time
+\end_layout
+
+\begin_layout Standard
+Výše jsme uvedli, že aby objekt provedl krok simulace, musí být zavolána
+ jeho metoda 
+\family typewriter
+step()
+\family default
+.
+
+\emph on
+ 
+\emph default
+Tu typicky volá rodič objektu.
+ Problém nastává, když objekt nemá rodiče, tedy když je kořenem hierarchie.
+ K tomuto účelu slouží instance třídy 
+\family typewriter
+Time
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Při startu programu jsou všechny kořenové objekty tohoto typu předány jednoduché
+mu plánovači.
+ Ten potom v pravidelných intervalech volá metodu step těchto objektů.
+ To jak často je ten který objekt zavolán je dáno jeho položkou 
+\family typewriter
+ups
+\family default
+ (updates per second).
+ Pokud chceme jen určitý počet iterací (tzn.
+ nechceme, aby se volání tohoto objektu opakovalo donekonečna) můžeme to
+ specifikovat položkou 
+\family typewriter
+iterations
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Ukážeme to na příkladu:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<object type="time" ups="80">
+\end_layout
+
+\begin_layout LyX-Code
+  <object/>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\begin_layout LyX-Code
+<object type="time" ups="35" iterations="100">
+\end_layout
+
+\begin_layout LyX-Code
+  <object/>
+\end_layout
+
+\begin_layout LyX-Code
+  <object/>
+\end_layout
+
+\begin_layout LyX-Code
+</object>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+První 
+\family typewriter
+time
+\family default
+ bude volán 80 krát za sekundu stále dokola, zatímco druhý 
+\family typewriter
+time
+\family default
+ bude volán 35 krát za sekundu, ale jen celkově stokrát.
+\end_layout
+
+\begin_layout Subsubsection
+Frame
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Frame"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Další důležitou třídou je 
+\family typewriter
+Frame
+\family default
+.
+ Ta zajišťuje základní prvky uživatelského rozhraní, její objekty se totiž
+ manifestují jako okna.
+\end_layout
+
+\begin_layout Standard
+Pokud je rodičem 
+\family typewriter
+framu
+\family default
+ přímo 
+\family typewriter
+time
+\family default
+, pak se 
+\family typewriter
+frame
+\family default
+ manifestuje jako okno programu.
+ Pokud ne, je takzvaným vnořeným oknem a zobrazí se až uvnitř jiného okna,
+ podobně jako ostatní objekty.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Frame
+\family default
+ má položku 
+\family typewriter
+target
+\family default
+, což je id objektu, jehož vnitřek toto okno zobrazuje.
+ Pokud není uveden, je automaticky 
+\family typewriter
+targetem
+\family default
+ tento 
+\family typewriter
+frame
+\family default
+ samotný.
+ Dále má položku 
+\family typewriter
+cam
+\family default
+, která určuje pozici, kterou ve vnitřku 
+\family typewriter
+target
+\family default
+ objektu zobrazuje.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Příklad minimalistického GUI
+\end_layout
+
+\begin_layout Standard
+Na závěr této podkapitoly uvedeme příklad minimalistického GUI, které demonstruj
+e, jak se používají výše zmíněné konstrukty.
+ Následující XML kód je podoba celého souboru, který můžeme eventuálně spustit
+ programem:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<?xml version="1.0" encoding="UTF-8"?> 
+\end_layout
+
+\begin_layout LyX-Code
+<kutil> 
+\end_layout
+
+\begin_layout LyX-Code
+  <object type="time" ups="80"> 
+\end_layout
+
+\begin_layout LyX-Code
+    <object type="frame" main="true" id="$1" size="610 260" 
+\end_layout
+
+\begin_layout LyX-Code
+            pos="200 200"> 
+\end_layout
+
+\begin_layout LyX-Code
+      <object type="button" title="pause/play" cmd="play" pos="30 30" />
+ 
+\end_layout
+
+\begin_layout LyX-Code
+      <object type="button" title="Undo" cmd="undo" pos="30 60"/> 
+\end_layout
+
+\begin_layout LyX-Code
+      <object type="frame" id="$2" size="130 130" pos="10 100"> 
+\end_layout
+
+\begin_layout LyX-Code
+        <object pos="50 10" physical="true" attached="false"/> 
+\end_layout
+
+\begin_layout LyX-Code
+        <object pos="14 103" shape="rectangle 100 10" physical="true" 
+\end_layout
+
+\begin_layout LyX-Code
+                attached="true"/> 
+\end_layout
+
+\begin_layout LyX-Code
+      </object> 
+\end_layout
+
+\begin_layout LyX-Code
+      <object type="frame" target="$2" showXML="true" size="450 130" 
+\end_layout
+
+\begin_layout LyX-Code
+              pos="150 100" /> 
+\end_layout
+
+\begin_layout LyX-Code
+    </object> 
+\end_layout
+
+\begin_layout LyX-Code
+  </object> 
+\end_layout
+
+\begin_layout LyX-Code
+</kutil>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+Kdybychom spustili tento soubor programem (například pomocí 
+\family typewriter
+java -jar kutil.jar 
+\emph on
+filename.xml
+\family default
+\emph default
+), dostaneme následující GUI:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 01.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rozeberme tento příklad podrobněji.
+ Objekt s id 
+\family typewriter
+$1
+\family default
+ typu 
+\family typewriter
+frame
+\family default
+ zobrazuje svůj vlastní vnitřek.
+ Protože se nachází přímo v 
+\family typewriter
+time
+\family default
+, manifestuje se jako okno programu.
+ Jeho první dva vnitřní objekty jsou typu 
+\family typewriter
+button
+\family default
+.
+ 
+\family typewriter
+Button
+\family default
+ vypadá jako odkaz, po kliknutí na něj se provede akce s kódem v položce
+ 
+\family typewriter
+cmd
+\family default
+.
+ První tlačítko přepíná stav simulace mezi stavy 
+\begin_inset Quotes gld
+\end_inset
+
+play
+\begin_inset Quotes grd
+\end_inset
+
+ a 
+\begin_inset Quotes gld
+\end_inset
+
+pause
+\begin_inset Quotes grd
+\end_inset
+
+.
+ Druhé tlačítko vrátí stav o jednu editační změnu zpět tomu objektu, který
+ má položku 
+\family typewriter
+main
+\family default
+ nastavenu na 
+\family typewriter
+true
+\family default
+ (takový by měl být v celém GUI právě jeden a zde je to objekt
+\family typewriter
+ $1
+\family default
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Další dva objekty jsou oba typu 
+\family typewriter
+frame
+\family default
+.
+ První s id 
+\family typewriter
+$2
+\family default
+ má za 
+\family typewriter
+target
+\family default
+ implicitně sebe.
+ Druhý má za 
+\family typewriter
+target
+\family default
+ také objekt s id 
+\family typewriter
+$2
+\family default
+, navíc má položku 
+\family typewriter
+showXML
+\family default
+ nastavenou na 
+\family typewriter
+true
+\family default
+, což má za důsledek, že ukazuje svůj 
+\family typewriter
+target
+\family default
+ ve formě XML reprezentace.
+\end_layout
+
+\begin_layout Standard
+Obsah objektu 
+\family typewriter
+$2
+\family default
+ jsou dva fyzické předměty; první volný, druhý vázaný ke své pozici.
+ 
+\end_layout
+
+\begin_layout Standard
+Když spustíme simulaci stisknutím tlačítka 
+\emph on
+
+\begin_inset Quotes gld
+\end_inset
+
+play/pause
+\begin_inset Quotes grd
+\end_inset
+
+
+\emph default
+, vrchní fyzický předmět začne padat až se zastaví pádem na druhý fyzický
+ předmět.
+\end_layout
+
+\begin_layout Standard
+Stisknutím tlačítka 
+\emph on
+
+\begin_inset Quotes gld
+\end_inset
+
+Undo
+\begin_inset Quotes grd
+\end_inset
+
+
+\emph default
+ se stav vrátí do stavu před spuštěním simulace.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro srovnání ještě uvedeme obrázek toho, jak může vypadat složitější uživatelské
+ rozhraní:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 19.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Objekty reprezentující data
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Objekty-reprezentující-data"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+V programu jsou různé objekty reprezentující data.
+ Zde se zmíníme o následujících: čísla, symboly, seznamy, boolovské hodnoty
+ a směry.
+\end_layout
+
+\begin_layout Standard
+Všechny tyto objekty mají společné, že to jsou fyzické volné objekty.
+ Slouží pak jako vstup a výstup funkcí.
+\end_layout
+
+\begin_layout Standard
+K jejich rychlému vytvoření můžeme použít textovou konzoly programu.
+\end_layout
+
+\begin_layout Standard
+Nyní se na každý typ z výše zmíněných objektů velice stručně podíváme.
+\end_layout
+
+\begin_layout Subsubsection
+Čísla
+\end_layout
+
+\begin_layout Standard
+Čísla, přesněji celá čísla, jsou reprezentována takovýmito žlutými míčky:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 02.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Symboly
+\end_layout
+
+\begin_layout Standard
+Symboly (textové řetězce bez mezer) jsou reprezentovány takovýmito bílými
+ obdélníky: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 03.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Boolovské hodnoty
+\end_layout
+
+\begin_layout Standard
+Boolovské hodnoty jsou reprezentovány bílým, respektive černým, míčkem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 04.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Směry
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Směry"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Je pět druhů směru (nahoru, dolu, doleva, doprava, náhodně).
+ Směry jsou reprezentovány takovýmito čtverci:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 05.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Seznamy
+\end_layout
+
+\begin_layout Standard
+Seznam slouží jako uspořádaná posloupnost objektů.
+ Oproti chování základního objektu se jeho vnitřním objektům nevolá metoda
+ 
+\family typewriter
+step()
+\family default
+, tzn.
+ po dobu co je objekt uvnitř seznamu je 
+\begin_inset Quotes gld
+\end_inset
+
+zamrzlý
+\begin_inset Quotes grd
+\end_inset
+
+.
+ Seznam má tvar krabice, nad níž je napsána jeho reprezentace v Kispu (podrobně
+ o Kispu v části 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Funkce-a-Kisp"
+
+\end_inset
+
+).
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 06.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+První seznam na obrázku je prázdný.
+ Druhý obsahuje dva prázdné seznamy.
+ Třetí obsahuje čísla 1, 2 a 3.
+ Čtvrtý obsahuje číslo 1 a seznam obsahující čísla 2 a 3.
+ Pátý obsahuje symboly 
+\emph on
+foo
+\emph default
+, 
+\emph on
+bar
+\emph default
+ a 
+\emph on
+foobar
+\emph default
+.
+ Šestý obsahuje boolovské hodnoty 
+\emph on
+true
+\emph default
+ a 
+\emph on
+false
+\emph default
+.
+ A sedmý obsahuje symbol 
+\emph on
+
+\backslash
+
+\emph default
+, seznam obsahující symboly 
+\emph on
+x
+\emph default
+, 
+\emph on
+y
+\emph default
+ a 
+\emph on
+z
+\emph default
+ a seznam obsahující: symboly 
+\emph on
++
+\emph default
+ a 
+\emph on
+x
+\emph default
+ a seznam obsahující symboly 
+\emph on
++
+\emph default
+, 
+\emph on
+y
+\emph default
+ a 
+\emph on
+z
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Funkce a Kisp
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Funkce-a-Kisp"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Funkce je objekt který má na svém vršku několik vstupů a na svém spodku
+ několik výstupů.
+\end_layout
+
+\begin_layout Standard
+Následující obrázek ukazuje několik příkladů různých funkcí:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 07.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Každý vstup a výstup je označen šipkou.
+ Funkce můžeme navzájem napojovat tak, že klikneme na výstup nějaké funkce,
+ tím se nám u kurzoru objeví čára, která symbolizuje propojení, když nyní
+ klikneme na nějaký vstup, tak tím propojíme vstup a výstup.
+ 
+\end_layout
+
+\begin_layout Standard
+Na následujícím obrázku je tento princip naznačen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 08.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Funkce jsou implicitně nefyzické objekty (nejsou součástí simulace, tzn.
+ neinteragují s ostatními fyzickými předměty).
+ Pro to abychom mohli do funkce dosadit nějaký objekt se používá objekt
+ 
+\emph on
+in
+\emph default
+ (což je de facto speciální funkce s nula vstupy a jedním výstupem).
+ 
+\emph on
+In
+\emph default
+ je fyzický předmět s pevnou pozicí, kterého když se nějaký objekt dotkne,
+ tak ten dotyčný objekt zmizí a stává se 
+\begin_inset Quotes gld
+\end_inset
+
+daty
+\begin_inset Quotes grd
+\end_inset
+
+ dosazenými do funkce.
+ Jeho protějšek 
+\emph on
+out
+\emph default
+ naopak svůj vstup zhmotní.
+ 
+\end_layout
+
+\begin_layout Standard
+Čili objekty 
+\begin_inset Quotes gld
+\end_inset
+
+padají
+\begin_inset Quotes grd
+\end_inset
+
+ do objektu 
+\emph on
+in
+\emph default
+, následně s nimi funkce provedou nějaké operace, načež výstupní objekty
+ 
+\begin_inset Quotes gld
+\end_inset
+
+vypadnou
+\begin_inset Quotes grd
+\end_inset
+
+ z objektu 
+\emph on
+out
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Následující obrázek ukazuje příklad průběhu výpočtu funkce počítající součet
+ dvou čísel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 09.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rozlišujeme dva základní typy funkcí: 
+\emph on
+bíle
+\emph default
+ funkce a 
+\emph on
+černé
+\emph default
+ funkce.
+ To co je odlišuje, je způsob jakým je určeno jejich chování.
+ Chování bílých funkcí je určeno textově, je zapsáno pomocí jednoduchého
+ jazyka Kisp.
+ Naproti tomu chování černých funkcí je určeno strukturou jejich vnitřních
+ objektů.
+\end_layout
+
+\begin_layout Subsubsection
+Kisp
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Kisp"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Kisp je jednoduchý minimalistický programovací jazyk určený pro definování
+ bílých funkcí a pro rychlé vytváření složitějších objektů pomocí textové
+ konzole programu.
+ Syntaxí se víceméně jedná o zjednodušený Lisp.
+\end_layout
+
+\begin_layout Standard
+Kisp umožňuje skládání základních funkcí (s omezením, že musí mít jeden
+ výstup) a uživatelsky definovaných černých funkcí do složitějších funkcí.
+\end_layout
+
+\begin_layout Standard
+Z jazyku Haskell si Kisp vypůjčuje koncept částečné aplikace funkce: Ke
+ každé funkci se chová jako by to byla funkce jedné proměnné, pokud se jedná
+ o funkci 
+\family typewriter
+n
+\family default
+ proměnných, vrací tato funkce n proměnných jako výsledek funkci 
+\family typewriter
+n-1
+\family default
+ proměnných.
+ 
+\end_layout
+
+\begin_layout Standard
+Vezměme si jako příklad funkci 
+\family typewriter
++
+\family default
+, chápanou jako funkci dvou proměnných.
+ Všechny funkce v Kispu jsou brány jako prefixové.
+ Dosazení do funkce se zapisuje jako jméno funkce následované dosazovaným
+ výrazem, odděleno mezerou.
+ Mezeru můžeme chápat jako infixový operátor aplikace funkce.
+ Představme si, že chceme sečíst čísla 
+\family typewriter
+23
+\family default
+ a 
+\family typewriter
+42
+\family default
+.
+ Zápis této operace v Kispu je následující:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+( + 23 ) 42
+\end_layout
+
+\begin_layout Standard
+Protože aplikace funkce se chápe v Kispu jako asociativní zleva, je tento
+ výraz ekvivalentní výrazu:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
++ 23 42
+\end_layout
+
+\begin_layout Standard
+V našem příkladě po dosazení čísla 
+\family typewriter
+23
+\family default
+ do funkce 
+\family typewriter
++
+\family default
+ vzniká nová funkce 
+\begin_inset Quotes gld
+\end_inset
+
+
+\family typewriter
++
+\begin_inset space ~
+\end_inset
+
+23
+\family default
+
+\begin_inset Quotes grd
+\end_inset
+
+, do níž když dosadíme 
+\family typewriter
+42
+\family default
+ , tak sečte 
+\family typewriter
+23+42
+\family default
+ a vrátí 
+\family typewriter
+65
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Podobně jako v Lispu je v Kispu úzce provázán výraz v závorkách a seznam.
+ K odlišení seznamu od výrazu při vyhodnocování slouží symbol 
+\family typewriter
+'
+\family default
+.
+ Pro následující příklad využijeme funkci 
+\family typewriter
+head
+\family default
+, která vrací první prvek seznamu.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+head '( + 2 3 )
+\end_layout
+
+\begin_layout Standard
+Tento výraz se vyhodnotí na hodnotu symbol 
+\family typewriter
++
+\family default
+.
+ To díky tomu, že před výrazem 
+\family typewriter
+( + 2 3 )
+\family default
+ je symbol 
+\family typewriter
+'
+\family default
+, který zajistí, že se výraz nevyhodnotí a místo toho se bude interpretovat
+ jako seznam, jehož první prvek je symbol 
+\family typewriter
++
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Další konstrukcí Kispu je takzvaný lambda výraz.
+ Ten umožňuje definovat nové funkce.
+ Lambda výraz odpovídá následujícímu schematu:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+( 
+\backslash
+ 
+\family default
+\emph on
+argumenty-funkce
+\emph default
+ 
+\emph on
+tělo-funkce
+\family typewriter
+\emph default
+ )
+\end_layout
+
+\begin_layout Standard
+Kde 
+\emph on
+argumenty-funkce
+\emph default
+ může být buď jeden symbol nebo seznam symbolů a kde 
+\emph on
+tělo-funkce
+\emph default
+ je nějaký výraz Kispu.
+ Předveďme si to na názorném příkladu: 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+( 
+\backslash
+ x ( + x x ) ) 42
+\end_layout
+
+\begin_layout Standard
+Máme zde funkci definovanou lambda výrazem.
+ Do této funkce je dosazena hodnota 
+\family typewriter
+42
+\family default
+.
+ Jako 
+\emph on
+argumenty-funkce
+\emph default
+ zde máme jednodušší možnost jediného symbolu.
+ V tomto případě výpočet funkce probíhá tak, že se všechny výskyty tohoto
+ symbolu v 
+\emph on
+těle-funkce
+\emph default
+ nahradí dosazenou hodnotou a následně se tento vzniklý výraz vyhodnotí.
+ Jeho hodnota je návratovou hodnotou funkce.
+ Díky tomu je výsledná hodnota našeho příkladu číslo 
+\family typewriter
+84
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Ještě nám zbývá komplikovanější možnost, kdy 
+\emph on
+argumenty-funkce
+\emph default
+ je seznam symbolů.
+ Tato možnost reprezentuje funkci více argumentů.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+( 
+\backslash
+ ( x y z ) (+ x (+ y z) ) ) 23
+\end_layout
+
+\begin_layout Standard
+Tato složitější varianta funguje tak, že po dosazení dostáváme:
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+( 
+\backslash
+ ( y z ) (+ 23 (+ y z) )
+\end_layout
+
+\begin_layout Standard
+Neboli odstraní se první prvek ze seznamu 
+\emph on
+argumenty-funkce
+\emph default
+ a dále se pokračuje analogicky jako v předchozím příkladě.
+\end_layout
+
+\begin_layout Subsubsection
+Kisp a textová konzole
+\end_layout
+
+\begin_layout Standard
+Do textové konzole programu je možno napsat výraz Kispu.
+ Výsledek vzniklý vyhodnocením výrazu se projeví tak, že se objeví jako
+ vkládaný objekt na kurzoru myši.
+ Pokud se výraz vyhodnotí jako zápis funkce, je vkládaným objektem příslušný
+ objekt funkce.
+ Jinak je výsledným objektem nějaký objekt reprezentující data (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Objekty-reprezentující-data"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection
+Bílé funkce
+\end_layout
+
+\begin_layout Standard
+Bílá funkce je definována zápisem funkce v Kispu.
+ Následující obrázek ukazuje několik příkladů:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 10.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zajímavý je rozdíl mezi předposlední a poslední funkcí.
+ Zatímco předposlední má dva vstupy, poslední má jenom jeden.
+ Předposlední své vstupy sečte.
+ Naproti tomu poslední vrátí pro vstup N jako výstup funkci sčítající svůj
+ vstup a N.
+\end_layout
+
+\begin_layout Subsubsection
+Černé funkce
+\end_layout
+
+\begin_layout Standard
+Chování černé funkce je dáno její vnitřní strukturou, konkrétně zapojením
+ funkcí nalézajících se v jejím vnitřku.
+ Následující obrázek použijeme pro objasnění fungování černých funkcí:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 11.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+První okénko ukazuje vzhled černé funkce.
+ U černé funkce je zvlášť důležité její id, které vystupuje jako jméno dané
+ funkce, kterým se můžeme na tuto funkci odkazovat jinými funkcemi.
+ Druhé okénko ukazuje, jak vypadá vnitřek nové černé funkce.
+ Dvě bílé funkce
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+U těchto dvou bílých funkcí nápis 
+\emph on
+id
+\emph default
+ značí, že jde o identitu.
+\end_layout
+
+\end_inset
+
+ zde reprezentují vstup a výstup, mezi nimi se bude nacházet program černé
+ funkce.
+ Třetí okénko ukazuje příklad triviálního programu, který udělá kopii vstupního
+ objektu a následně vrátí dvouprvkový seznam s prvky původní objekt a jeho
+ kopie.
+ Čtvrté a páté okénko demonstruje přímé zavolání funkce.
+ Šesté a sedmé okénko ukazuje příklad nepřímého zavolání funkce pomocí bílé
+ funkce, jejíž definující Kispový výraz obsahuje id černé funkce.
+\end_layout
+
+\begin_layout Subsubsection
+Rekurze
+\end_layout
+
+\begin_layout Standard
+Speciálním typem objektu je rekurze.
+ Ta umožňuje odkazovat se na černou funkci uvnitř jí samotné.
+ 
+\end_layout
+
+\begin_layout Standard
+Následující obrázek demonstruje použití rekurze uvnitř funkce počítající
+ faktoriál:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 12.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Komunikace po internetu
+\end_layout
+
+\begin_layout Standard
+Pro komunikaci po internetu existují dvě speciální funkce.
+ Funkce 
+\emph on
+webInput
+\emph default
+ má jeden vstup a žádný výstup, slouží k odeslání objektu na server (jedná
+ se o minimalistický server napsaný v jazyku PHP, v současné chvíli se nachází
+ na doméně 
+\family typewriter
+\size footnotesize
+kutil.php5.cz
+\family default
+\size default
+), kde je do databáze uložena jeho XML reprezentace.
+ Společně s XML reprezentací se na server odesílá i identifikační port,
+ což je textový řetězec fungující jako klíč, pod kterým je daný objekt uložen.
+\end_layout
+
+\begin_layout Standard
+Funkce 
+\emph on
+webOutput
+\emph default
+, která má jeden výstup a žádný vstup,
+\emph on
+ 
+\emph default
+pokud je použita ve virtuálním světe pravidelně kontroluje, zda se na severu
+ pod sledovaným identifikačním portem neobjevil nějaký objekt.
+ Pokud ano, ze serveru je odstraněn a funkce ho vrátí jako svůj výstup.
+\end_layout
+
+\begin_layout Standard
+Tato funkcionalita je zatím spíše v experimentální fázi, takže komunikace
+ například probíhá stále na stejném identifikačním portu.
+ 
+\end_layout
+
+\begin_layout Subsection
+Agenti
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Agenti"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dalším důležitým prvkem virtuálního světa jsou 
+\emph on
+agenti
+\emph default
+, samostatně aktivní objekty řízené svým vnitřním programem na základě vstupů
+ přicházejících ze speciálních funkcí nazývaných 
+\emph on
+senzory
+\emph default
+.
+ Prostřednictvím vedlejších efektů funkcí nazývaných 
+\emph on
+efektory 
+\emph default
+agent reaguje na vstupy ze senzorů různými akcemi.
+ 
+\end_layout
+
+\begin_layout Standard
+Program nyní obsahuje dva typy agentů: 
+\emph on
+mouchu
+\emph default
+ a 
+\emph on
+vosu
+\emph default
+.
+ Mouchou se zde budeme dále zabývat, vosa je pak speciálním případem mouchy.
+ 
+\end_layout
+
+\begin_layout Standard
+Moucha je volný fyzický objekt, který není ovlivněn gravitací.
+ Každá moucha má svůj cíl, což je pozice ke které tato moucha přímou cestou
+ letí.
+ Souřadnice cíle nejsou ve stejných jednotkách jako všeobecně používané
+ souřadnice objektů, místo toho se uvažuje čtvercová mřížka, s přibližně
+ stejnou velikostí políčka, jako je velikost mouchy.
+ Tedy moucha je součástí fyzikální simulace, ale její pohyb je řízen změnou
+ pozice cíle uvažovaného v rámci této čtvercové mřížky.
+\end_layout
+
+\begin_layout Subsubsection
+Vnitřní program
+\end_layout
+
+\begin_layout Standard
+Podobně jako černá funkce má moucha ve svém vnitřku program sestávající
+ z navzájem propojených funkcí.
+ Senzory jsou funkce sloužící pro mouchu jako zdroj informací o vnějším
+ světě.
+ Podívejme se na příklad jednoduchého vnitřního programu mouchy.
+ Jako příklad nám pomůže následující obrázek:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 13.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na obrázku můžeme vidět dvě posloupnosti funkcí.
+ Každá z nich začíná senzorem.
+ U mouchy se předpokládá, že data s kterými vnitřně pracují funkce, které
+ tvoří její program, jsou 
+\emph on
+směry
+\emph default
+ (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Směry"
+
+\end_inset
+
+).
+ Nejprve se podívejme na senzor 
+\emph on
+touchSensor
+\emph default
+.
+ Ve chvíli, kdy se moucha dotkne jiného fyzického předmětu, funkce 
+\emph on
+touchSensor 
+\emph default
+vrátí jako výstup směr, ve kterém se dotkla daného předmětu.
+ Funkce 
+\emph on
+rotCW
+\emph default
+ rotuje směr ve směru hodinových ručiček.
+ A funkce 
+\emph on
+flyCmd 
+\emph default
+posune cíl o jedno políčko ve směru, který jí byl předán jako vstup.
+ To má za následek, že první posloupnost reaguje na kolizi s objektem posunem
+ cíle o jedno políčko ve směru pryč od kolize.
+ Druhá posloupnost začíná funkcí 
+\emph on
+goalSensor
+\emph default
+.
+ Ta se chová tak, že při příchodu mouchy do cíle vrátí jako svůj výstup
+ směr, ve kterém bylo naposledy posunuta pozice cíle.
+ Následuje funkce 
+\emph on
+appleSensor
+\emph default
+, která pro libovolný vstup vrací směr, ve kterém se vzhledem k mouše nachází
+ nejbližší objekt 
+\emph on
+jablíčko
+\emph default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Pokud takové jablíčko neexistuje, vrátí 
+\emph on
+appleSensor 
+\emph default
+pátý (náhodný) směr.
+\end_layout
+
+\end_inset
+
+.
+ Čili tato posloupnost má za důsledek, že moucha při příchodu do cíle změní
+ pozici cíle na pozici, která je blíž nejbližšímu jablíčku.
+\end_layout
+
+\begin_layout Subsubsection
+Jablíčko, moucha a vosa
+\end_layout
+
+\begin_layout Standard
+Zmiňovaný objekt jablíčko je fyzický objekt s fixní pozicí, sloužící k 
+\begin_inset Quotes gld
+\end_inset
+
+rozmnožování
+\begin_inset Quotes grd
+\end_inset
+
+ much.
+ Ve chvíli, kdy se dotkne moucha jablíčka, jablíčko zmizí a místo něj se
+ objeví kopie této mouchy.
+ Další typ agenta 
+\emph on
+vosa
+\emph default
+, je v principu svého fungování totožná s mouchou (jen je o něco pomalejší
+ než moucha).
+ Vosa slouží jako protiváha jablíčkům; ve chvíli, kdy dojde ke kolizi mouchy
+ a vosy, moucha je smazána.
+ Dále pak na rozdíl od mouchy vosa neumí 
+\begin_inset Quotes gld
+\end_inset
+
+sníst
+\begin_inset Quotes grd
+\end_inset
+
+ jablíčko.
+\end_layout
+
+\begin_layout Standard
+Pro to, aby mohla moucha reagovat na přítomnost vos a aby mohla vosa reagovat
+ na přítomnost much, existují dva senzory 
+\emph on
+flySensor
+\emph default
+ a 
+\emph on
+waspSensor
+\emph default
+.
+ Ty fungují analogickým způsobem jako 
+\emph on
+appleSensor
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Paměť mouchy
+\end_layout
+
+\begin_layout Standard
+Moucha má dále paměť v podobě seznamu, se kterou může operovat.
+ K manipulaci s touto pamětí slouží například funkce 
+\emph on
+pushMem
+\emph default
+, 
+\emph on
+popMem
+\emph default
+ a 
+\emph on
+topMem
+\emph default
+, které k tomuto seznamu přistupují, jako by se jednalo o zásobník.
+ Obsah této paměti není ve vnitřku mouchy (ve vnitřku je pouze program mouchy);
+ jak jsme ukázali výše (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:XML-reprezentace-jako"
+
+\end_inset
+
+) vnitřek mouchy se skrývá pod klíčem
+\emph on
+ inside
+\emph default
+, obsah paměti je pod klíčem 
+\emph on
+mem
+\emph default
+.
+ Kispová podoba obsahu paměti je zobrazena nad mouchou (podobně jako ji
+ zobrazuje seznam).
+ 
+\end_layout
+
+\begin_layout Standard
+Podoba jablíčka, mouchy a vosy je na následujícím obrázku: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 14.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Funkce 
+\emph on
+incubator
+\end_layout
+
+\begin_layout Standard
+Mouchy mohou vznikat dvojím způsobem: buďto je vytvoří uživatel ručně, nebo
+ můžeme použít speciální funkce 
+\emph on
+incubator
+\emph default
+, která slouží k vytváření much s náhodným vnitřním programem.
+ Ve stručnosti se podíváme na to, jak funkce 
+\emph on
+incubator
+\emph default
+ takový program vytváří.
+\end_layout
+
+\begin_layout Standard
+Funkce 
+\emph on
+incubator 
+\emph default
+je bílá funkce s parametry, to znamená, že krom vstupní hodnoty její chování
+ ovlivňuje obsah jejího vnitřku.
+ Jejími parametry jsou funkce, které chceme použít jako stavební díly vnitřního
+ programu nové mouchy.
+ Tyto funkce jednoduše vložíme do vnitřku funkce 
+\emph on
+incubator
+\emph default
+.
+ Na libovolný vstup pak 
+\emph on
+incubator
+\emph default
+ reaguje tak, že z těchto funkcí sestaví vnitřní program mouchy.
+\end_layout
+
+\begin_layout Standard
+Tento program má vrstevnatou strukturu, podobně jako neuronové sítě.
+ První vrstva sestává pouze z funkcí s nula vstupy, poslední vrstva sestává
+ z funkcí s nula výstupy a ostatní vrstvy sestávají z funkcí s alespoň jedním
+ vstupem a jedním výstupem.
+ Algoritmus pro stavbu tohoto programu nejprve náhodně určí počet vrstev
+ (např.
+ z rozmezí 3 až 6) a pak pro první vrstvu náhodně určí počet funkcí (např.
+ z rozmezí 1 až 6), které zde budou.
+ Pak náhodně vybírá z dostupných funkcí ty, které na dané místo vloží.
+ Pro každou další vrstvu platí, že přidává funkce do vrstvy, dokud celkový
+ počet vstupů v této nové vrstvě nepřekračuje počet výstupů v předchozí
+ vrstvě.
+ Vstupy a výstupy sousedních vrstev jsou pak náhodně propojeny.
+ Následující obrázek ukazuje názorný příklad:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 15.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+První okénko ukazuje příklad vnitřku funkce 
+\emph on
+incubator
+\emph default
+, druhé okénko ukazuje příklad vzniklého programu uvnitř mouchy.
+\end_layout
+
+\begin_layout Subsubsection
+Funkce 
+\emph on
+read
+\emph default
+ a 
+\emph on
+write
+\end_layout
+
+\begin_layout Standard
+Krom vlastního pohybu může moucha ovlivňovat své prostředí ještě jedním
+ způsobem: Může na políčko, na kterém se právě nachází, zapsat nebo načíst
+ libovolná data, pomocí funkcí 
+\emph on
+read
+\emph default
+ a 
+\emph on
+write
+\emph default
+.
+ Tato data jsou uložena v objektu 
+\emph on
+slot
+\emph default
+, který se nachází na místě daného políčka (jedná se o nefyzický předmět,
+ podobně jako funkce).
+ Pokud moucha zapisuje na místo, kde není 
+\emph on
+slot
+\emph default
+, automaticky se vytvoří nový.
+\end_layout
+
+\begin_layout Standard
+To nám dává nový pohled na mouchu jakožto na jakési 
+\begin_inset Quotes gld
+\end_inset
+
+rozšíření
+\begin_inset Quotes grd
+\end_inset
+
+ základního pojetí Turingova stroje.
+ Moucha zde představuje jakousi hlavu, která se pohybuje místo na jednorozměrné
+ pásce na pásce dvojrozměrné.
+ Vnitřní program mouchy pak lze chápat jako analogii přechodové funkce,
+ neboť podobně jako přechodová funkce tento program ovlivňuje jak pohyb,
+ tak zápis.
+ 
+\end_layout
+
+\begin_layout Subsection
+Hráčem řízená postavička
+\end_layout
+
+\begin_layout Standard
+Typickým prvkem mnoha her je postavička ovládaná hráčem přímo z klávesnice.
+ Tento prvek nechybí ani ve hře Kutil, zde je reprezentován objektem 
+\emph on
+budha
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Budha je fyzický volný objekt.
+ Pomocí klávesnice je možno ovládat jeho pohyby.
+ Navíc je možno s budhou provádět nejrůznější manipulace s objekty.
+ Je schopný do svého vnitřku 
+\begin_inset Quotes gld
+\end_inset
+
+nasát
+\begin_inset Quotes grd
+\end_inset
+
+ objekt, kterého se právě dotýká.
+ Budhu tedy můžeme chápat jako klávesnicí ovládaný seznam.
+ 
+\end_layout
+
+\begin_layout Standard
+Přesněji má budha následující schopnosti:
+\end_layout
+
+\begin_layout Itemize
+Umí přesunou objekt, kterého se právě dotýká na první pozici ve svém vnitřku.
+\end_layout
+
+\begin_layout Itemize
+Umí přesunout objekt, kterého se právě dotýká na první pozici ve vnitřku
+ objektu, který má ve svém vnitřku na první pozici.
+ Čili jakási hlubší varianta první schopnosti, která umožňuje měnit strukturu
+ jiných objektů, nejen svoji vnitřní.
+\end_layout
+
+\begin_layout Itemize
+Umí inverzní operaci k prvním dvěma zmíněným operacím, čili objekt na první
+ pozici svého vnitřku (respektive na první pozici ve vnitřku prvního prvku
+ svého vnitřku) umí dostat ven, na pozici těsně pod sebou.
+\end_layout
+
+\begin_layout Itemize
+Umí rotovat obsah svého vnitřku doleva a doprava (rotací máme na mysli rotaci
+ seznamu: první prvek se stane druhý, druhý třetím,..., poslední prvním).
+\end_layout
+
+\begin_layout Itemize
+Umí naráz vrátit všechny vnitřní objekty na místa, kde je sebral.
+\end_layout
+
+\begin_layout Standard
+Pokud je vložen do virtuálního světa víc než jeden budha, je možno přepínat
+ právě aktivního budhu, nebo případně ovládat všechny budhy naráz.
+\end_layout
+
+\begin_layout Standard
+Jak ukazuje následující obrázek, obsah vnitřku budhy je zobrazován podobně
+ jako u seznamu.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 16.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Uživatelská a programátorská dokumentace
+\end_layout
+
+\begin_layout Standard
+Uživatelská dokumentace je součástí programu, je ve formě interaktivního
+ návodu, který provází uživatele jednotlivými vlastnostmi programu.
+ Návod na spuštění programu je v dodatku zabývajícím se obsahem přiloženého
+ CD.
+\end_layout
+
+\begin_layout Standard
+Podrobnější programátorská dokumentace je také součástí CD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diskuse řešení
+\end_layout
+
+\begin_layout Subsection
+Existující programy s podobným zaměřením
+\end_layout
+
+\begin_layout Subsubsection
+The Incredible Machine
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:The-Incredible-Machine"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Počáteční inspirací programu Kutil byla hra 
+\emph on
+The Incredible Machine
+\emph default
+ (zkráceně TIM) z roku 1993.
+ V této hře hráč řeší sérii problémů, kde každý problém sestává z nekompletního
+ stroje a několika součástek určených ke vložení do tohoto stroje tak, aby
+ stroj vykonal daný požadavek, typicky nějakou jednoduchou mechanickou operaci.
+ Následující obrázek ukazuje, jak vypadá příklad jednoduchého problému:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 17.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vedle výše zmíněného módu hry, kde hráč postupně řeší sérii problémů má
+ hra ještě mód, ve kterém si hráč může stavět stroje neomezeně dle svého
+ uvážení.
+ Následující obrázek ukazuje příklad takového stroje, který jsem vytvořil.
+ Implementuje binární dvoubitovou sčítačku
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Přítomnost zelených míčků na myší kleci představuje jedničku, výstup je
+ v podobě rozsvícené nebo zhasnuté lampičky.
+ Zde jsou přítomny všechny čtyři míčky, tedy sčítačka počítá 11 + 11 = (1)10.
+ Zobrazují se však pouze první dvě místa, proto ukazuje 10.
+ 
+\end_layout
+
+\end_inset
+
+ : 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename 18.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Je vidět, že na TIM se můžeme dívat jako na zvláštní programovací jazyk,
+ kde stroje představují programy.
+ Zajímavou součástkou, kterou však hra TIM neobsahuje je krabička, do které
+ by bylo možné zavřít již funkční stroj.
+ Stroj takto zavřený v krabičce by bylo možno následně využít v jiném stroji
+ jako součástku.
+\end_layout
+
+\begin_layout Standard
+Původní myšlenka pro hru Kutil byla právě vytvořit napodobeninu hry TIM,
+ s touto součástkou.
+ Postupem času, jak práce na programu Kutil pokračovala a byly objevovány
+ další možnosti, jak se k programu stavět, se program vzdaloval od této
+ původní představy.
+ Program Kutil tak jak vypadá v současné chvíli můžeme v tomto kontextu
+ považovat za přechod mezi hrou TIM a klasickým programovacím jazykem.
+ Kutil je navržen tak, aby byl rozšiřitelný a tak možnost obsahovat objekty
+ podobné součástkám z hry TIM není znemožněna, spíš se v současné chvíli
+ zaměřuje na obecnější konstrukty.
+\end_layout
+
+\begin_layout Subsubsection
+Karel
+\end_layout
+
+\begin_layout Standard
+Karel je výukový programovací jazyk mimo jiné používaný na Stanfordově univerzit
+ě.
+ Program napsaný v jazyce Karel slouží k ovládání chování robota pohybujícího
+ se po čtvercové mřížce.
+ K tomu jsou používány příkazy 
+\emph on
+turnleft
+\emph default
+ (Karel se otočí o 90 ° doprava), 
+\emph on
+putbeeper
+\emph default
+ (Karel položí bzučák na aktuální políčko), 
+\emph on
+pickbeeper
+\emph default
+ (Karel zvedne bzučák) a 
+\emph on
+turnoff
+\emph default
+ (Karel se vypne, čímž končí běh programu).
+ 
+\end_layout
+
+\begin_layout Standard
+Základní rozdíl mezi Karlem a Kutilem je, že v Kutilovi je program tvořen
+ objekty na stejné rovině abstrakce jako je agent sám (jak agent tak funkce
+ tvořící program jsou předměty, které vkládáme do virtuálního světa).
+ Zatímco program v Karlovi má jinou formu, než robot a jeho prostředí: Program
+ je text.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+AgentSheets
+\end_layout
+
+\begin_layout Standard
+Příkladem komerčně úspěšného program pro výuku programování je program AgentShee
+ts.
+ Je designován k tomu, aby učil děti vytvářet počítačové hry.
+ Začíná jednoduchými hrami s cílem 
+\begin_inset Quotes gld
+\end_inset
+
+dostat žabáka přes cestu
+\begin_inset Quotes grd
+\end_inset
+
+ a komplikovanost těchto her se postupně zvyšuje až dosahuje k hrám typu
+ 
+\emph on
+The Sims 
+\emph default
+s využitím prvků umělé inteligence.
+ 
+\end_layout
+
+\begin_layout Standard
+Základní rozdíl mezi AgentSheets a Kutilem je v tom, že AgentSheets je mnohonáso
+bně rozsáhlejší a profesionálně propracovanější projekt s dlouhou tradicí.
+ Další rozdíl je podobný jako byl u programovacího jazyku Karel, totiž v
+ tom, že odděluje program od výsledného produktu.
+ Interakce probíhá skrze různá okna, kde se nastavují nejrůznější vlastnosti
+ chování agentů a kde se na principu 
+\begin_inset Quotes gld
+\end_inset
+
+drag-and-drop
+\begin_inset Quotes grd
+\end_inset
+
+ skládá program dohromady.
+ Kutil se naproti tomu snaží být systém více podobný virtuálnímu samočinnému
+ světu, kde nechceme pevně rozdělovat systém na program a výstup.
+\end_layout
+
+\begin_layout Subsection
+Poznámky k XML reprezentaci objektů
+\end_layout
+
+\begin_layout Standard
+XML reprezentaci objektů, tak jak byla popsána v části 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Provázanost-XML-reprezentace"
+
+\end_inset
+
+, bychom mohli vytknout na první pohled redundantní používání slova 
+\emph on
+object 
+\emph default
+jakožto jména elementu.
+ Mohlo by se zdát, že přirozenější reprezentací by bylo použít místo slova
+ 
+\emph on
+object 
+\emph default
+typ daného objektu a zajistit, aby jméno objektu nemohlo být stejné jako
+ jméno klíče (aby bylo jasně poznat co je klíč a co je vnitřní objekt).
+ To proč se o tomto částečně ne tolik podstatném problému zmiňujeme takto
+ výslovně je to, že důležitý důvod pro použití slova 
+\emph on
+object
+\emph default
+ jakožto jména elementu se skrývá v zatím neimplementované součásti programu,
+ která je však do budoucna plánována jako rozšíření.
+\end_layout
+
+\begin_layout Standard
+Součástí XML reprezentace by v budoucnu měl být konstrukt nazývaný 
+\emph on
+macro
+\emph default
+.
+ Což by byl jakýsi preprocesor umožňující v rámci XML reprezentace vytvářet
+ objekty i jinou cestou, než jejich explicitním popsáním.
+ Uvedu hypotetický příklad makra:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout LyX-Code
+<macro type="kisp">
+\end_layout
+
+\begin_layout LyX-Code
+   ( 
+\backslash
+ ( x y ) (+ x y ) )
+\end_layout
+
+\begin_layout LyX-Code
+</macro>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na základě tohoto makra by pak vznikl objekt reprezentující funkci popsanou
+ v Kispu.
+ 
+\end_layout
+
+\begin_layout Standard
+Pokud bychom taková makra používali často, pro lidskou čitelnost je myslím
+ dobré velice jasně odlišovat objekty a makra.
+ A jejich typ chápat jako až druhořadou vlastnost.
+ 
+\end_layout
+
+\begin_layout Standard
+Takováto makra by pak měla různá další zajímavá použití.
+ Každý typ makra je de facto překladačem z nějakého jazyka do objektové
+ reprezentace v rámci Kutila.
+ Představme si například, že máme nějaký přirozený zápis Turingova stroje.
+ Potom by mohlo existovat makro, které převádí tento přirozený zápis do
+ reprezentace v Kutilovi, konkrétně by se k tomu hodila moucha (tzn.
+ vnitřní program mouchy by odpovídal její přechodové funkci a počáteční
+ hodnota pásky by se manifestovala řadou 
+\emph on
+slotů 
+\emph default
+s patřičným obsahem).
+\end_layout
+
+\begin_layout Subsection
+Dualita funkcí a agentů
+\end_layout
+
+\begin_layout Standard
+Dva základní prvky virtuálního světa jsou funkce a agenti.
+ Funkce můžeme chápat jako pasivní; čekající na vstup na základě kterého
+ něco provedou.
+ Agenti jsou naproti tomu aktivní; na akci nečekají tolik zvenku, jde spíše
+ zevnitř a ovlivňují tak své okolí.
+ 
+\end_layout
+
+\begin_layout Standard
+Tuto dualitu můžeme v informatice vidět na mnoha místech.
+ Příkladem jsou například dvě vzájemně ekvivalentní uchopení programu: lambda
+ kalkul a Turingův stroj.
+ Toto uchopení vzniklo takřka na začátku informatiky a dualita v něm obsažená
+ přetrvává dále, dnes dobře patrná při rozlišování mezi deklarativními a
+ imperativními jazyky.
+ Deklarativní jazyky v tomto ohledu chápeme jako následníky tradice lambda
+ kalkulu, ve kterých se i samotná konstrukce lambda výrazu častokrát vrací
+ do syntaxe těchto jazyků.
+ Naproti tomu imperativní jazyky uchopující program jako sadu příkazů stroji
+ je možno chápat jako následníka myšlenky Turingova stroje.
+\end_layout
+
+\begin_layout Standard
+V duchu takto chápané tradice pak funkce v Kutilovy chápeme jako deklarativní
+ a agenty jako imperativní konstrukty.
+\end_layout
+
+\begin_layout Standard
+V nynějším stavu programu je vzájemný vztah funkcí a agentů převážně charakteriz
+ován tím, že vnitřní program agentů je tvořen funkcemi, neboli že funkce
+ definují agenty.
+ Dále se podíváme na opačný vztah, který však ještě v současné verzi programu
+ není implementován.
+ Opačným vhodným vztahem se mi zdá schopnost agentů měnit strukturu zapojení
+ funkcí.
+ V současné fázi agenti mají prostředky pro vkládání dat na jednotlivá políčka
+ mřížky po které se pohybují.
+ Nápad který se zde naznačuje, je schopnost agentů vkládat do svého okolí
+ funkce a měnit jejich vzájemné propojení.
+\end_layout
+
+\begin_layout Standard
+Tím bychom dosáhli nové možnosti hierarchického tvoření agentů: Podobně
+ jako se funkce mohou skládat ze svých vnitřních funkcí, tak by ve vnitřku
+ agenta mohly být vnitřní agenti modifikující vnitřní program definující
+ chování tohoto agenta.
+\end_layout
+
+\begin_layout Subsection
+Souvislost s Genetickým programováním
+\end_layout
+
+\begin_layout Standard
+Genetické programování (zkráceně GP) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "koza"
+
+\end_inset
+
+ je paradigma v oblasti evolučních algoritmů, které pracuje s populací v
+ níž jsou jedinci programy (typicky stromové struktury).
+ Stručně řečeno funguje následujícím způsobem: Programy v populaci řeší
+ nějaký konkrétní problém a my jsme schopni ohodnotit toto řešení pomocí
+ 
+\emph on
+fitness funkce
+\emph default
+.
+ Na základě tohoto hodnocení pak probíhá výběr jedinců pro další generaci,
+ tito jedinci jsou buď přímo vloženi do další generace, případně zkříženi
+ s jiným jedincem nebo zmutováni.
+ Tak dostáváme novou populaci a takto postupujeme stále dokola, dokud nedostanem
+e program řešící náš problém dostatečně dobře.
+ Nejdůležitějšími parametry při aplikaci GP jsou volba fitness funkce a
+ funkcí, ze kterých se následně programy sestavují.
+\end_layout
+
+\begin_layout Standard
+Program Kutil se snaží nabídnout základní konstrukty pro tvorbu systémů
+ inspirovaných nebo přímo implementujících principy GP.
+ Sada těchto konstruktů je zatím v počáteční fázi vývoje.
+ Zkusme nyní nahlédnout motivaci ekologie mouchy, jablka a vosy.
+ Moucha představuje jedince populace, zatímco vosa a jablko společně s prostředí
+m ve kterém se mouchy nalézají tvoří implicitní fitness funkci (ve smyslu
+ že je implikována prostředím).
+ Moucha se musí snažit vyhnout o něco pomalejší vose a navíc čím víc jablíček
+ sní, tím víckrát se rozmnoží a její kód má větší šanci na přežití.
+ Například si můžeme představit bludiště, ve kterém by mouchy hledaly jablíčka
+ a snažily se vyhnout střetům s vosami.
+ Vhodným využitím funkce 
+\emph on
+incubator
+\emph default
+ (viz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Agenti"
+
+\end_inset
+
+) a nějakých dalších zatím neimplementovaných funkcí pro křížení a mutaci
+ much by bylo možné udělat toto 
+\begin_inset Quotes gld
+\end_inset
+
+bludiště
+\begin_inset Quotes grd
+\end_inset
+
+ tak, aby fungovalo podle výše popsaných principů GP a přitom nepoužívalo
+ žádnou explicitní fitness funkci.
+\end_layout
+
+\begin_layout Standard
+Myslím že studium implicitních fitness funkcí v tomto kontextu je důležité,
+ protože umožňuje pochopit obecnější principy spojené s fenoménem vytváření
+ nových řešení a samoorganizací, tak jak k tomu dochází v přírodě, kde je
+ fitness funkce implicitní.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Závěr
+\end_layout
+
+\begin_layout Standard
+Cílem této práce bylo vytvoření programu přibližujícího dětem svět programování
+ skrze intuitivnost fyzikálního světa.
+ Jak práce na programu pokračovala, čím dál víc se zdálo, že takovýto systém
+ může být nápomocný nejen dětem, ale i mě samotnému.
+ Lidská přirozenost vychází z přirozenosti opice, která si potřebuje věci
+ pořádně 
+\begin_inset Quotes gld
+\end_inset
+
+osahat
+\begin_inset Quotes grd
+\end_inset
+
+, aby pochopila hlouběji principy, kterými funguje.
+ Prvním prostředkem pro usnadnění osahatelnosti je to, že kontext spojující
+ celý program do jednotného celku je fyzikální simulace, což je pro lidi
+ intuitivní rozhraní, díky tomu, že žijeme ve fyzikální realitě.
+ Jako další prostředek usnadnění této osahatelnosti byla zvolena metoda
+ 
+\begin_inset Quotes gld
+\end_inset
+
+rozpouštění hranic
+\begin_inset Quotes grd
+\end_inset
+
+ mezi pojmy, které se často nacházejí na různých hladinách abstrakce.
+\end_layout
+
+\begin_layout Standard
+Těmito pojmy jsou pojmy jako 
+\emph on
+data
+\emph default
+ versus 
+\emph on
+program
+\emph default
+, 
+\emph on
+kód programu
+\emph default
+ versus 
+\emph on
+výstup programu
+\emph default
+ nebo 
+\emph on
+grafické uživatelské rozhraní
+\emph default
+ versus 
+\emph on
+to co je díky tomuto rozhraní editováno
+\emph default
+.
+ Minimalistický jazyk Kisp byl inspirován Lispem právě proto, že v něm je
+ mezi daty a programem tak malý rozdíl: Zápis programu a zápis dat, s kterými
+ program zachází v sebe volně přecházejí.
+ Vždyť i samotný vynález počítač čerpá svou moc z toho, že má program, který
+ určuje jeho chování uložený jako data, se kterými manipuluje.
+ 
+\end_layout
+
+\begin_layout Standard
+Program je psán tak, aby jednotlivé hladiny abstrakce na sebe volně navazovaly.
+ Aby uživatel, pokud má zájem, mohl začínaje v grafickém rozhraní pokračovat
+ dále do XML reprezentace, případně do Kispové reprezentace, nebo dokonce
+ do kódu napsaného v Javě.
+ 
+\end_layout
+
+\begin_layout Standard
+V matematice si často vypomáháme geometrickými znázorněními abstraktních
+ pojmů.
+ Mnohdy tyto pojmy vycházejí přímo z inspirace nějakým geometrickým principem.
+ A díky tomu tento princip pak dále přenášíme do abstraktnějších rovin.
+ Jeden z pohledů na program Kutil je právě jako na takovouto pomůcku pro
+ tvorbu intuicí, která by pomohla v tom, že uvidíme nějakou souvislost mezi
+ dvěma problémy tím, že jejich více či méně metaforické uchopení bude souviset
+ v Kutilovi, díky tomu že se snaží věci implementováno 
+\begin_inset Quotes gld
+\end_inset
+
+fyzicky
+\begin_inset Quotes grd
+\end_inset
+
+ a 
+\begin_inset Quotes gld
+\end_inset
+
+osahatelně
+\begin_inset Quotes grd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Kdyby to takhle opravdu fungovalo, tak by nám to dávalo spojitý přechod
+ mezi doménou učících se dětí a bádajících dospělých.
+\end_layout
+
+\begin_layout Standard
+Jednoduchost s jakou jde docílit Turingovské kompletnosti jazyka nám dává
+ zajímavou možnost snažit se vytvořit intuitivní nástroj, který by však
+ neztrácel na své teoretické síle.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Program Kutil je hnán snahou o kompromis mezi konceptuálním náčrtkem sjednocení
+ mnoha různých nápadů do jednoho a funkční hrou.
+ Díky tomu má i řadu neduhů.
+ Některé koncepty jsou zatím jen naznačeny a nejsou dodělány do plně uspokojivé
+ kvality.
+ Nebyl kladen maximální důraz na efektivitu a na stabilitu, proto se při
+ složitějších situacích může zdát pomalý a někdy je nestabilní.
+ Nebylo cílem udělat kompletně hotovou věc, ale spíš uplést konzistentní
+ košík nápadů, ve kterém je vidět další potenciál.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Do budoucna vidím tři hlavní priority dalšího vývoje:
+\end_layout
+
+\begin_layout Itemize
+Práce na efektivitě, stabilitě a eleganci kódu.
+\end_layout
+
+\begin_layout Itemize
+Vytvoření rozhraní umožňujícího dynamicky propojovat program s uživatelem
+ napsaným kódem v Javě tak, aby mohly vznikat uživatelsky definované funkce,
+ nové typy objektů a makra.
+ 
+\end_layout
+
+\begin_layout Itemize
+Obohatit program o nástroje umožňující experimenty v doméně Genetického
+ programování.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Přílohy
+\end_layout
+
+\begin_layout Subsection
+Obsah CD 
+\end_layout
+
+\begin_layout Standard
+Na přiloženém CD se nachází následující soubory a adresáře:
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+kutil.jar
+\family default
+ Spustitelný soubor programu.
+ V systému Windows je možno ho spustit přímo, na Unixovém systému ho můžeme
+ spustit příkazem z konzole:
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+java -jar kutil.jar
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+bakalarska-prace.pdf
+\family default
+ Elektronická verze této práce ve formátu PDF.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+readme.txt
+\family default
+ Podrobnější informace o obsahu CD, případně aktuálnější než ty uvedené
+ v tomto seznamu.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+src
+\family default
+ Adresář obsahující zdrojové kódy.
+\end_layout
+
+\begin_layout Description
+
+\family typewriter
+doc
+\family default
+ Adresář obsahující programátorskou dokumentaci.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "davison"
+
+\end_inset
+
+Davison, A.: 
+\emph on
+Killer Game Programming in Java
+\emph default
+, O'Reilly, 2005
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "2"
+key "koza"
+
+\end_inset
+
+Koza, J.
+ R.: 
+\emph on
+Genetic Programming: On the Programming of Computers by Means of Natural
+ Selection
+\emph default
+, MIT Press, 1992
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "3"
+key "phys2D"
+
+\end_inset
+
+Phys2D - a 2D physics engine based on the work of Erin Catto.
+ 
+\emph on
+http://www.cokeandcode.com/phys2d/
+\end_layout
+
+\end_body
+\end_document

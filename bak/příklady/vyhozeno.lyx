@@ -1,0 +1,78 @@
+#LyX 1.6.9 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+TODO „Znovuobjevování kola“
+\end_layout
+
+\begin_layout Standard
+metoda reinvent wheel je dobrá v tom, že dítě jak se tuní se může čim dál
+ víc hrabat kódem až přejde v ten javovskej kerej zase vysvětluje to celý
+\end_layout
+
+\begin_layout Standard
+operačák -> okýnkovej systém -> atd.
+\end_layout
+
+\begin_layout Standard
+klikačka->kisp,xml->java
+\end_layout
+
+\begin_layout Standard
+dalepak pro to kdybych chtěl udělat třeba trojuhelníkový okno, nebo okno
+ ve 3D
+\end_layout
+
+\begin_layout Standard
+nebo kdybych chtěl to přendat do jinýho jazyka kerej to nativně naky okna
+ nepodporuje (flash)
+\end_layout
+
+\begin_layout Subsection
+
+\lang czech
+Stručný popis programu a jeho cíle
+\end_layout
+
+\end_body
+\end_document

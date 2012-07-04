@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+
+
+<object type="comment" pos="15 425">
+   <val>
+        Podíváme se jak fungují funkce.#
+        Když spustíme simulaci, vidíme#
+        že 42 a 23 se sečetly a daly #
+        dohromady 65. Ve chvíli, kdy #
+        se dotkly krabičky, které říkáme 'in'#
+        tak zmizeli a stal se z nich signál.##
+        Ten putoval až k funkci +, která má #
+        dva vstupy a jeden výstup.#
+        V této funkci se sečetli a daly dohromady#
+        65, toto číslo putovalo dál jako signál až#
+        ke krabičce, které říkáme 'out' která zas#
+        převádí signál na předměty.  #
+        Z ní pak vypadlo číslo 65.##
+        Nyní skusíme něco podobného, #
+        ale s násobením. Vlez do palety#
+        čísla. Vlož funkci 'krát' do pravého#
+        okna. Nyní ještě budeme muset přidat#
+        dvakrát 'in' a jeden 'out'.#
+        Ty jsou v paletě 'Základní'.##
+        Ještě zbývá je propojit:#
+        Nejdříve klikni na malou šipečku#
+        na objektu in, na kurzoru se objeví#
+        čárka, teď klikni na obdobnou šipečku#
+        na funkci krát. ##
+        Až to uděláš pro oba in a #
+        i pro out, stačí už jen vybrat dvě#
+        čísla která chceš vynásobit #
+        a je hotovo!##
+        Vlož ještě jednou nějakou funkci#
+        a klikni na ní pravým#
+        tlačítkem a zvol možnost#
+        add in and aut.##
+        Práce s přidáváním inů a#
+        outů se udělala automaticky.##
+   </val>
+</object>
+
+    <object id="$158" pos="357 574" shape="platform" physical="true" attached="true" takable="false"/>
+    <object type="function" id="$159" pos="148 138" target="$162:0" val="+"/>
+    <object type="in" id="$160" pos="138 88" physical="true" attached="true" target="$159:0"/>
+    <object type="in" id="$161" pos="191 88" physical="true" attached="true" target="$159:1"/>
+    <object type="out" id="$162" pos="165 218"/>
+
+
+</kutil>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+
+
+    <object type="time" ups="1">
+        <object type="loger" msg="Hello Kutil!"/>
+    </object>
+
+
+    <!-- -->
+    
+    <object type="time">
+        <object/>
+    </object>
+
+
+
+    <object>
+        <type>time</type>
+        <inside>
+            <object>
+                <inside>
+                    <object>
+                        <type>basic</type>
+                    </object>
+                    <object>
+                        <type>basic</type>
+                        <v>42</v>
+                    </object>
+                </inside>
+            </object>
+            <object>
+                <type>basic</type>
+            </object>
+        </inside>
+    </object>
+
+
+    <object type="time">
+        <object>
+            <object/>
+            <object/>
+        </object>
+        <object/>
+    </object>
+
+
+
+
+</kutil>
+
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+    <object type="comment" pos="153 183">
+       <val>
+        Stisknutím odkazu 'Console' nebo#
+        stisknutím mezerníku se objeví #
+        textová konzole programu, kterou#
+        je možno vkládat složitější objekty.##
+        Napiš nějaké celé číslo a zmáčkni #
+        Enter, na kurzoru se objeví toto#
+        číslo a je ho možno někam vložit.##
+        Další možností je možnost vložit#
+        funkci, napišme třeba 'copy' nebo '+'.##
+        Dále pak je možno psát výrazy #
+        v prefixové notaci, například#
+        napsáním '+ 2 2' se nám na kurzoru objeví#
+        číslo 4. ##
+        Dále je možno vytvářet nové funkce tak,#
+        že dosadíme do výrazu jen některé hodnoty,#
+        například napsáním '+ 2' vnikne funkce, která#
+        ke svému vstupu přičte dvojku. ##
+        Můžeme psát složitější výrazy#
+        pomocí závorek, napřiklad#
+        (+ 23 (* 6 7)) se vyhodnotí jako#
+        23 + 6*7 = 65.##
+        Pokud chceme vložit seznam#
+        musíme ho odlišit od závorek ve výrazu#
+        pomocí symbolu '. ##
+        Takže například po napsání '(1 2 3)#
+        dostaneme na kurzoru seznam s#
+        prvky 1, 2 a 3.##
+        Další možností, jak vytvářet funkce,#
+        je skládáním pomocí lambda výrazů.##
+        Například vezměme lambda výraz #
+        ( \ (x y z) (+ x (+ y z) ) ) #
+        Lambda výraz se skládá vždy ze tří částí,#
+        ze symbolu \, ze seznamu argumentů a#
+        z těla funkce. Předchozí lambda výraz#
+        nám dá funkci se třemi vstupy a jedním#
+        výtupem, která své tři argumenty sečte.##
+       </val>
+    </object>
+</kutil>

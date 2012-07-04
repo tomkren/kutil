@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+
+ <object type="comment" pos="-85 49">
+  <val>
+       Toto je seznam příkazů, které je možno zavolat z conzole,#
+       a to tak že jako první znak napíšeme ! a pak následuje příkaz:#
+       #
+       Používaní příkazů zatím neni bezpečné a při špatném vyplnění#
+       občas dochází i k pádu programu.#
+       #
+       #
+       play : zapne / vypne běh simulace#
+       showInfo : zapne / vypne zobrazení infa#
+       console : zapne konzoli#
+       undo : zpět#
+       redo : vpřed#
+       rename [původní id] [nové id] : přejmenuje objekt#
+       load : spustí load dialog#
+       save : spustí save dialog#
+       xml [xml reprezentace objektu] : na kurzor vloží popsaný objekt#
+       sendTo [id framu] changeFrameTarget [id targetu] : změní target framu#
+       sendTo [id framu] showXML : přepínání mez normálním a matrix módem framu#
+       changeXML [id] [internal-filename] : změní xml objektu#
+       [příkaz 1] ; [příkaz 2] : zřetězení příkazů#
+       #
+       #
+       Stejné příkazy využívají i tlačítka.#
+  </val>
+ </object>
+  
+       
+
+
+</kutil>

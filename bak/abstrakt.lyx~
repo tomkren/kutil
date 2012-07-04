@@ -1,0 +1,226 @@
+#LyX 1.6.9 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Název práce: 
+\series default
+Nástroj pro programování ve fyzikálním prostředí
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Autor:
+\series default
+ Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Katedra:
+\series default
+ Katedra softwarového inženýrství
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Vedoucí bakalářské práce:
+\series default
+ RNDr.
+ Petr Hnětynka Ph.D., Katedra distribuovaných a spolehlivých systémů
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+e-mail vedoucího:
+\series default
+ hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Abstrakt:
+\series default
+ Předmětem této práce je implementovat hru pojatou jako interaktivní fyzikální
+ prostředí, ve kterém vkládáním, přesouváním a propojováním objektů v dvourozměr
+ném hierarchickém prostoru uživatel vytváří virtuální svět.
+ Tento svět, nebo případně jeho části, však zároveň reprezentují syntaxi
+ programu.
+ Toho je docíleno především tím, že ve hře jsou různé druhy objektů nazývané
+\emph on
+ funkce
+\emph default
+, které zastávají stejnou roli, jako funkce v klasických programovacích
+ jazycích.
+ Dále program obsahuje aktivní agenty řízené vnitřním programem, který je
+ poskládán z funkcí.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Klíčová slova:
+\series default
+ hra, programovací jazyk, virtuální svět
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\lang czech
+\begin_inset VSpace 10mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Title:
+\series default
+ Tool for programming in a physical environment
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Author:
+\series default
+ Tomáš Křen
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Department:
+\series default
+ Department of Software Engineering
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+Supervisor:
+\series default
+ RNDr.
+ Petr Hnětynka Ph.D., Department of Distributed and Dependable Systems
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Supervisor's e-mail address:
+\series default
+ hnetynka@d3s.mff.cuni.cz
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Abstract: 
+\series default
+The subject of this work is to implement the game conceived as an interactive
+ physical environment in which a user creates a virtual world in hierarchical
+ two-dimensional space by inserting, moving and connecting objects.
+ However, the world, or his parts, also represents the syntax of a program.
+ This is achieved mainly because the game includes different kinds of objects
+ called functions, which occupy the same role, as a function in classic
+ programming languages.
+ The program also includes active agents controlled by an internal program,
+ which is made up of these functions.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\series bold
+\size footnotesize
+\lang czech
+Keywords:
+\series default
+ game, programming language, virtual world
+\end_layout
+
+\end_body
+\end_document

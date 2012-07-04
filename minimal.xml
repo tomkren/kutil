@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kutil>
+    <object type="time" ups="80">
+        <object type="frame" id="$1" size="610 260" pos="200 200" main="true">
+            <object type="button" title="pause/play" cmd="play" pos="30 30" />
+            <object type="button" title="Undo" cmd="undo" pos="30 60"/>
+            <object type="frame" id="$2" size="130 130" pos="10 100">
+                <object pos="50 10" physical="true" attached="false"/>
+                <object pos="14 103" shape="rectangle 100 10" physical="true" attached="true"/>
+            </object>
+            <object type="frame" target="$2" showXML="true" size="450 130" pos="150 100" />
+        </object>
+    </object>
+</kutil>

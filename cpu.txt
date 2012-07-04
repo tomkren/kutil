@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kutil>
+<object id="$174" pos="335 645" shape="platform" physical="true" attached="true" takable="false" onInit="bgcolor $universe 207 230 255"/>
+<object id="$175" pos="500 100" shape="cloud"/>
+<object id="$82" pos="-201 584" shape="rectangle 200 5" physical="true" attached="true"/>
+<object id="$83" pos="654 583" shape="rectangle 200 5" physical="true" attached="true"/>
+<object id="$84" pos="-206 -417" shape="rectangle 5 1000" physical="true" attached="true"/>
+<object id="$86" pos="-205 -426" shape="rectangle 1020 5" physical="true" attached="true"/>
+<object id="$85" pos="823 -420" shape="rectangle 5 1000" physical="true" attached="true"/>
+<object type="in" id="$177" pos="69 77" physical="true" attached="true" target="$179:0"/>
+<object type="function" id="$179" pos="66 131" target="$176:0" val="const 33"/>
+<object type="function" id="$176" pos="149 227" target="$180:0" val="id"/>
+<object type="out" id="$180" pos="151 342"/>
+<object type="bool" id="$181" pos="87 50" physical="true"/>
+</kutil>

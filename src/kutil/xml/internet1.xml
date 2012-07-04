@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+
+    <object type="comment" pos="138 402">
+       <val>
+        Ještě si ukážeme dvě funkce, které jsou #
+        zatím spíše v experimentální fázi vývoje.#
+        Jsou to funkce pro podporu komunikace#
+        po internetu v Kutilovi.##
+        Zatím fungují jednoduše. webInput #
+        teleportuje objekt na server kutil.php5.cz#
+        a funkce webOutput zase pravidelně kontroluje#
+        jestli náhodou kdokoliv nepodeslal #
+        něco na server.##
+        Pokud ano, funkce to ze servru smaže a 
+        pošle to jako svůj výstup.#
+       </val>
+    </object>
+
+    <object id="$174" pos="308 577" shape="platform" physical="true" attached="true" takable="false"/>
+    <object type="function" id="$176" pos="309 164" val="webInput"/>
+    <object type="in" id="$177" pos="309 114" physical="true" attached="true" target="$176:0"/>
+    <object type="webOutput" id="$175" pos="310 234" target="$178:0" val="webOutput"/>
+    <object type="out" id="$178" pos="308 307"/>
+    <object type="budha" id="$179" pos="328 77" physical="true">
+        <object type="box" id="$180" pos="395 495" physical="true">
+            <object type="num" id="$181" pos="100 100" physical="true" val="23"/>
+            <object type="num" id="$182" pos="150 100" physical="true" val="42"/>
+        </object>
+    </object>
+
+</kutil>
