@@ -18,7 +18,11 @@ Screenshot
 What is it about?
 -----------------
 
+![](http://github.com/tomkren/kutil/raw/master/comix00.png)
+
 ![](http://github.com/tomkren/kutil/raw/master/comix01.png)
+
+![](http://github.com/tomkren/kutil/raw/master/comix02.png)
 
 
 Pouze česky (only in czech)
