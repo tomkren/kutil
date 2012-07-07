@@ -12,7 +12,7 @@
                 pos="250 25"
                 >
                 
-                <!--<movableCam>false</movableCam>-->
+                <movableCam>false</movableCam>
                 
            <onInit>
                 <!--changeXML $universe welcome.xml ;
@@ -41,7 +41,7 @@
                     <object type="button" title="Návod" cmd="changeXML $universe ing-navod.xml ; sendTo $menu changeFrameTarget $tutorial ; sendTo $universe changeFrameTarget $universe" pos="100 100" />
                     <object type="button" title="Pískoviště" cmd="changeXML $universe newworld.xml ; sendTo $menu changeFrameTarget $tools ; sendTo $universe changeFrameTarget $universe" pos="100 125" />
                     <!--<object type="button" title="Komix" cmd="changeXML $universe welcome.xml; sendTo $gui changeFrameTarget $komix1" pos="100 150" />-->
-                    <object type="button" title="Zpět do reality" cmd="changeXML $universe welcome.xml; sendTo $gui changeFrameTarget $earth" pos="100 150" />
+                    <object type="button" title="Zpět do reality (pokus)" cmd="changeXML $universe welcome.xml; sendTo $gui changeFrameTarget $earth" pos="100 150" />
 
                </object>
 
