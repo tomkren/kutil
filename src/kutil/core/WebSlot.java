@@ -1,7 +1,12 @@
 package kutil.core;
 
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 /**
  * Třída zajišťující komunikaci s jednoduchým webovým serverem, zajišťující přesun
