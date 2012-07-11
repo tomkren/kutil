@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<kutil>
-
-    <object id="$fractal" type="frame" pos="50 50" size="450 450">
-        <object type="frame" pos="25 25" size="350 350" target="$fractal"/>
-    </object>
-
-</kutil>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<kutil>
-
-    <object type="num" val="42" id="$boorat"/>
-    <object type="num" val="43" pos="100 100" id="$boorat"/>
-
-</kutil>
