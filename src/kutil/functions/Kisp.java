@@ -67,7 +67,8 @@ public class Kisp {
         if( "not"        .equals(str) ) return new Not();      // zneguje boolovskou hodnotu
         if( "=="         .equals(str) ) return new EqualsEquals();//porovná dvě hodnoty
 
-        if( "rotCW"      .equals(str) ) return new RotCW();     //otočí směr posměru hodinových ručiček
+        if( "rotCW"      .equals(str) ) return new RotCW();     // otočí směr posměru hodinových ručiček
+        if( "rot180"     .equals(str) ) return new Rot180();    // otočí směr o 180 stupňů
         if( "rot"        .equals(str) ) return new Rot();       // první směr bere jako rotaci
                                                                 // (nahoru = o 180, doprava = o 90 CW,
                                                                 // doleva o 90 CCW, dolu o 0) a druhý jako
@@ -730,6 +731,17 @@ class RotCW extends UnarImplementation{
     public RotCW(){ super("rotCW",2); }
     public KObject compute(KObject o) {
         if( o instanceof Direction ){
+            ((Direction)o).rotateCW();
+        }
+        return o;
+    }
+}
+
+class Rot180 extends UnarImplementation{
+    public Rot180(){ super("rot180",2);}
+    public KObject compute(KObject o){
+        if( o instanceof Direction ){
+            ((Direction)o).rotateCW();
             ((Direction)o).rotateCW();
         }
         return o;
