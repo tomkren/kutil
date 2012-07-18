@@ -60,7 +60,7 @@
 <object  id="$58" pos="-240 -560" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$59" pos="-240 592" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$60" pos="-208 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$61" pos="-208 -80" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$61" type="apple" pos="-208 -48" physical="true" attached="true" />
 <object  id="$62" pos="-208 592" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$63" pos="-176 -560" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$64" pos="-176 592" shape="rectangle 32 32" physical="true" attached="true" />
