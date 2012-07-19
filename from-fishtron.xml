@@ -92,74 +92,79 @@
 <object  id="$84" pos="144 -560" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$85" pos="144 592" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$86" pos="176 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$87" pos="176 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$88" pos="208 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$89" pos="208 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$90" pos="240 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$91" pos="240 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$92" pos="272 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$93" pos="272 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$94" pos="304 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$95" pos="304 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$96" pos="336 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$97" type="fly" pos="336 48" goal="4 8" bgcolor="80 80 80" physical="true">
-<object  type="goalSensor" id="$97_1" pos="0 64" val="goalSensor" target="$97_2:0" />
-<object  type="function" id="$97_2" pos="0 128" val="copy" target="$97_3:0 $97_4:0" />
-<object  type="function" id="$97_3" pos="0 192" val="flyCmd" target="" />
-<object  type="function" id="$97_4" pos="0 256" val="flyCmd" target="" />
+<object  id="$87" type="fly" pos="176 -304" goal="3 -8" bgcolor="80 80 80" physical="true">
+<object  type="goalSensor" id="$87_1" pos="0 64" val="goalSensor" target="$87_2:0" />
+<object  type="function" id="$87_2" pos="0 128" val="appleSensor" target="$87_3:0" />
+<object  type="function" id="$87_3" pos="0 192" val="flyCmd" target="" />
 </object>
-<object  id="$98" pos="336 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$99" pos="368 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$100" pos="368 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$101" pos="400 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$102" pos="400 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$103" pos="432 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$104" pos="432 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$105" pos="464 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$106" pos="464 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$107" pos="496 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$108" pos="496 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$109" pos="528 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$110" pos="528 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$111" pos="560 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$112" pos="560 592" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$113" pos="592 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$88" pos="176 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$89" pos="208 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$90" pos="208 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$91" pos="240 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$92" pos="240 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$93" pos="272 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$94" pos="272 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$95" pos="304 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$96" pos="304 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$97" pos="336 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$98" type="fly" pos="336 48" goal="4 8" bgcolor="80 80 80" physical="true">
+<object  type="goalSensor" id="$98_1" pos="0 64" val="goalSensor" target="$98_2:0" />
+<object  type="function" id="$98_2" pos="0 128" val="copy" target="$98_3:0 $98_4:0" />
+<object  type="function" id="$98_3" pos="0 192" val="flyCmd" target="" />
+<object  type="function" id="$98_4" pos="0 256" val="flyCmd" target="" />
+</object>
+<object  id="$99" pos="336 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$100" pos="368 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$101" pos="368 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$102" pos="400 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$103" pos="400 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$104" pos="432 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$105" pos="432 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$106" pos="464 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$107" pos="464 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$108" pos="496 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$109" pos="496 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$110" pos="528 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$111" pos="528 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$112" pos="560 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$113" pos="560 592" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$114" pos="592 -560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$115" pos="592 -528" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$116" pos="592 -496" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$117" pos="592 -464" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$118" pos="592 -432" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$119" pos="592 -400" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$120" pos="592 -368" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$121" pos="592 -336" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$122" pos="592 -304" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$123" pos="592 -272" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$124" pos="592 -240" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$125" pos="592 -208" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$126" pos="592 -176" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$127" pos="592 -144" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$128" pos="592 -112" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$129" pos="592 -80" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$130" pos="592 -48" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$131" pos="592 -16" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$132" pos="592 16" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$133" pos="592 48" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$134" pos="592 80" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$135" pos="592 112" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$136" pos="592 144" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$137" pos="592 176" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$138" pos="592 208" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$139" pos="592 240" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$140" pos="592 272" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$141" pos="592 304" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$142" pos="592 336" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$143" pos="592 368" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$144" pos="592 400" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$145" pos="592 432" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$146" pos="592 464" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$147" pos="592 496" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$148" pos="592 528" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$149" pos="592 560" shape="rectangle 32 32" physical="true" attached="true" />
-<object  id="$150" pos="592 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$115" pos="592 -560" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$116" pos="592 -528" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$117" pos="592 -496" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$118" pos="592 -464" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$119" pos="592 -432" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$120" pos="592 -400" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$121" pos="592 -368" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$122" pos="592 -336" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$123" pos="592 -304" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$124" pos="592 -272" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$125" pos="592 -240" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$126" pos="592 -208" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$127" pos="592 -176" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$128" pos="592 -144" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$129" pos="592 -112" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$130" pos="592 -80" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$131" pos="592 -48" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$132" pos="592 -16" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$133" pos="592 16" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$134" pos="592 48" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$135" pos="592 80" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$136" pos="592 112" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$137" pos="592 144" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$138" pos="592 176" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$139" pos="592 208" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$140" pos="592 240" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$141" pos="592 272" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$142" pos="592 304" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$143" pos="592 336" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$144" pos="592 368" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$145" pos="592 400" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$146" pos="592 432" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$147" pos="592 464" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$148" pos="592 496" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$149" pos="592 528" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$150" pos="592 560" shape="rectangle 32 32" physical="true" attached="true" />
 <object  id="$151" pos="592 592" shape="rectangle 32 32" physical="true" attached="true" />
+<object  id="$152" pos="592 592" shape="rectangle 32 32" physical="true" attached="true" />
 </kutil>
