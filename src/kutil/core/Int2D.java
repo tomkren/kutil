@@ -23,6 +23,24 @@ public class Int2D {
         this.y = y;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if( o instanceof Int2D ){
+            Int2D oo = (Int2D) o;
+            if( oo.x == x && oo.y == y )
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.x;
+        hash = 59 * hash + this.y;
+        return hash;
+    }
+
     /**
      * Kopírovací konstruktor
      * @param i vzor
