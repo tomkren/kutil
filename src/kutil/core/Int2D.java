@@ -26,9 +26,8 @@ public class Int2D {
     @Override
     public boolean equals(Object o){
         if( o instanceof Int2D ){
-            Int2D oo = (Int2D) o;
-            if( oo.x == x && oo.y == y )
-                return true;
+            Int2D pos = (Int2D) o;
+            return ( pos.x == x && pos.y == y );
         }
         return false;
     }

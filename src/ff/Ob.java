@@ -52,6 +52,7 @@ public class Ob {
 
         signifs = mkSignifs(shape);
 
+        /*
         Log.it( pos1.toString() );
         Log.it( pos2.toString() );
         Log.it( shape.toString() );
@@ -59,7 +60,31 @@ public class Ob {
         Log.it( signifs[1].toString() );
         Log.it( signifs[2].toString() );
         Log.it( signifs[3].toString() );
+        */
 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if( obj instanceof Ob ){
+            Ob ob = (Ob) obj;
+            return ob.px == px ;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + this.px;
+        return hash;
+    }
+
+
+    public void move(Dir dir){
+        Int2D delta = dirDelta(dir);
+        pos1 = pos1.plus( delta );
+        pos2 = pos2.plus( delta );
     }
 
     public List<Int2D> getPoses(){
@@ -68,6 +93,40 @@ public class Ob {
             ret.add(p.plus(pos1));
         }
         return ret;
+    }
+
+    public List<Int2D> getSigPoses( Dir dir ){
+        List<Int2D> ret = new LinkedList<Int2D>();
+        for( Int2D pos : signifs[dir.i()].sigs ){
+            ret.add(pos.plus(pos1));
+        }
+        return ret;
+    }
+
+    public Type getType(){
+        return type;
+    }
+
+    public char getPx(){
+        return px;
+    }
+    
+    public boolean isWall(){
+        return type == Type.WALL ;
+    }
+
+    public boolean isNotDeleted(){
+        return pos1 != null ;
+    }
+
+    public boolean isFish(){
+        return type == Type.BIG_FISH   ||
+               type == Type.SMALL_FISH ||
+               type == Type.DEAD_FISH ;
+    }
+
+    public boolean isDead(){
+        return type == Type.DEAD_FISH ;
     }
 
     private Sigs[] mkSignifs( List<Int2D> sh ){
