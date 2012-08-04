@@ -1,5 +1,8 @@
 package ff;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -51,26 +54,61 @@ public class Sea {
 
         Sea sea = new Sea(seaStrs);
 
-        while(sea.isMoving()){
-            Log.it(sea);
-            sea.fallStep();
-        }
-        Log.it( sea );
 
+        sea.fallSteps_();
+
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            String str = null;
+            while( true ) {
+
+                
+
+
+                System.out.print("$ ");
+                str = in.readLine();
+
+                if( str.equals("") ) break;
+
+                //Log.it("LOG: " + str);
+
+                for( char ch : str.toCharArray() ){
+                    sea.fishStep_(ch);
+                }
+
+            } 
+
+        } catch (IOException e) {
+        }
 
         //Ob ob = new Ob('a',seaStrs );
     }
 
+    private void fishStep_(char ch){
+        fishStep( toCmd(ch) );
+        fallSteps_();
+    }
+
+    private void fallSteps_(){
+
+        while(isMoving()){
+            Log.it(this);
+            fallStep();
+        }
+        Log.it( this );
+    }
+
     public enum GameStatus { Normal , GameOver , YouWin }
 
+    public enum Cmd { U , D , L , R , S }
     
 
-    Map<Int2D, Ob> posMap;// PosMap
-    Set<Ob> obSet; // ObMap
-    Set<Ob> moving;// Moving
-    Int2D rec; // Rectangle
-    List<Ob> fishes; // Fishes
-    GameStatus status;
+    Map<Int2D, Ob>  posMap;
+    Set<Ob>         obSet;
+    Set<Ob>         moving;
+    Int2D           rec;
+    LinkedList<Ob>  fishes;
+    GameStatus      status;
 
     public Sea( String[] seaStrs ){
 
@@ -88,7 +126,7 @@ public class Sea {
                 posMap.put( pos , ob );
             }
             if( ob.isFish() ){
-                fishes.add(ob);
+                fishes.addFirst(ob);
                 if( ob.isDead() ){
                     status = GameStatus.GameOver ;
                 }
@@ -105,6 +143,10 @@ public class Sea {
         StringBuilder sb = new StringBuilder();
         int rows = rec.getY();
         int cols = rec.getX();
+
+        if( status==GameStatus.YouWin   ) sb.append("Y O U   W I N   !!!");
+        if( status==GameStatus.GameOver ) sb.append("G A M E   O V E R   !!!");
+
 
         for( int i = 0 ; i < rows ; i++ ){
             for( int j = 0 ; j < cols ; j++ ){
@@ -123,6 +165,11 @@ public class Sea {
             sb.append(' ');
         }
 
+        sb.append( "\nActual fish : " );
+        if( ! fishes.isEmpty() ) {
+            sb.append( fishes.getFirst().getPx() );
+        }
+
         return sb.toString();
     }
 
@@ -131,8 +178,12 @@ public class Sea {
         Set<Ob> ret             = new HashSet<Ob>();
 
         for( Ob o : obSet ){
-            if( o.isFish() || o.isWall() ) wallsAndFishes.add(o);
-            if( o.isNotDeleted()         ) ret           .add(o);
+            if( o.isNotDeleted() ){
+                ret.add(o);
+                if( o.isFish() || o.isWall() ){
+                    wallsAndFishes.add(o);
+                }
+            }
         }
 
         Set<Ob> fixeds = new HashSet<Ob>();
@@ -150,6 +201,131 @@ public class Sea {
         return ! moving.isEmpty();
     }
 
+    private void fishStep( Cmd cmd ){
+        if( cmd == null ) return;
+
+        Ob.Dir dir = toDir(cmd);
+        if( dir == null ){
+            Ob firstFish = fishes.removeFirst();
+            fishes.addLast(firstFish);
+        } else {
+
+            Ob actFish = fishes.getFirst();
+
+            Set<Ob> pusheds = getMoveables(dir, actFish );
+            if( pusheds != null ){
+
+                for( Ob o : pusheds ){
+                    move(dir,o);
+                }
+                moving = mkMoving(); // TODO  U N E F F E C T I V E
+
+                // update killing
+                if( dir==Ob.Dir.LEFT || dir==Ob.Dir.RIGHT ){
+                    for( Ob fish : fishes ){
+                        if( isSpineKilled(pusheds, fish) ||
+                            isSteelKilled(fish) ){
+                            fish.kill();
+                            status = GameStatus.GameOver;
+                        }
+                    }
+                }
+
+                // update winning
+                if( status == GameStatus.Normal && isGoal(actFish)  ){
+                    for( Int2D pos : actFish.getPoses() ){
+                        posMap.remove(pos);
+                    }
+                    actFish.nullThePos();
+                    fishes.removeFirst();
+
+                    if( fishes.isEmpty() ){
+                        status = GameStatus.YouWin ;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    private boolean isGoal( Ob fish ){
+        for( Int2D fishPos : fish.getPoses() ){
+            int x = fishPos.getX();
+            int y = fishPos.getY();
+
+            if( x <= 0 ||
+                y <= 0 ||
+                x >= rec.getX() -1 ||
+                y >= rec.getY() -1 ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isSpineKilled( Set<Ob> pusheds , Ob fish ){
+        for( Ob o : neighbors(Ob.Dir.UP, fish) ){
+            if( o.isBlock()         &&
+                pusheds.contains(o) &&
+                ! isFixedByWall(o)     ){
+                  return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isSteelKilled( Ob fish ){
+        if(fish.isBigFish()) return false;
+
+        for( Ob o : haDeNeighbors(Ob.Dir.UP, fish) ){
+            if( o.isSteel() && ! isFixedByWall(o) ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isFixedByWall( Ob ob ){
+        for( Ob o : haDeNeighbors(Ob.Dir.DOWN, ob)){
+            if( o.isWall() ) return true;
+        }
+        return false;
+    }
+
+    private Set<Ob> getMoveables(Ob.Dir dir , Ob fish ){
+
+        Set<Ob> xs = haDeNeighbors(dir, fish);
+
+        for( Ob o : xs ){
+            if( o.isWall()                     ) return null;
+            if( o.isFish()  && !o.equals(fish) ) return null;
+            if( o.isSteel() && o.isSmallFish() ) return null;
+        }
+
+        return xs;
+    }
+
+    private Ob.Dir toDir(Cmd cmd){
+        switch( cmd ){
+            case U : return Ob.Dir.UP;
+            case D : return Ob.Dir.DOWN;
+            case L : return Ob.Dir.LEFT;
+            case R : return Ob.Dir.RIGHT;
+            default: return null;
+        }
+    }
+
+    private Cmd toCmd( char ch ){
+        switch( ch ){
+            case 'w': return Cmd.U;
+            case 's': return Cmd.D;
+            case 'a': return Cmd.L;
+            case 'd': return Cmd.R;
+            case ' ': return Cmd.S;
+            default:  return null;
+        }
+    }
+
     private void fallStep( ){
 
         for( Ob ob : moving ){
@@ -157,7 +333,15 @@ public class Sea {
         }
 
         Set<Ob> stoppeds = updateMoving();
+        Set<Ob> killedFishes = getKilledFishes(stoppeds);
 
+        if( ! killedFishes.isEmpty() ){
+            status = GameStatus.GameOver;
+        }
+
+        for( Ob fish : killedFishes ){
+            fish.kill();
+        }
         
     }
 
@@ -190,6 +374,18 @@ public class Sea {
         }
         return ret;
     }
+    
+    private static Set<Ob> separateStdOrSteel( Set<Ob> obs ){
+        Set<Ob> ret = new HashSet<Ob>();
+        for( Ob ob : obs ){
+            if(ob.isStd() || ob.isSteel() ) ret.add(ob);
+        }
+        return ret;
+    }
+
+
+
+
 
     private Set<Ob> updateMoving( ){
 

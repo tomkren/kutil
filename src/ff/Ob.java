@@ -108,16 +108,41 @@ public class Ob {
     }
 
     public char getPx(){
+        if( isDead() ) return '+';
         return px;
     }
-    
+
+    public void kill(){
+        if( isFish() ){
+            type = Type.DEAD_FISH;
+        }
+    }
+
     public boolean isWall(){
         return type == Type.WALL ;
+    }
+
+    public boolean isStd(){
+        return type == Type.STD ;
+    }
+
+    public boolean isSteel(){
+        return type == Type.STEEL ;
+    }
+
+    public boolean isBlock(){
+        return isStd() || isSteel();
     }
 
     public boolean isNotDeleted(){
         return pos1 != null ;
     }
+
+    public void nullThePos(){
+        pos1 = null;
+        pos2 = null;
+    }
+
 
     public boolean isFish(){
         return type == Type.BIG_FISH   ||
@@ -127,6 +152,14 @@ public class Ob {
 
     public boolean isDead(){
         return type == Type.DEAD_FISH ;
+    }
+
+    public boolean isBigFish(){
+        return type == Type.BIG_FISH ;
+    }
+
+    public boolean isSmallFish(){
+        return type == Type.SMALL_FISH ;
     }
 
     private Sigs[] mkSignifs( List<Int2D> sh ){
