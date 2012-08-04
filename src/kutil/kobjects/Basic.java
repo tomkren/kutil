@@ -365,6 +365,15 @@ public class Basic implements KObject {
         if( stepInside ){
             for( KObject o : inside.get() ){
                 o.step();
+                if( o instanceof Field ) manageField( (Field) o );
+            }
+        }
+    }
+
+    private void manageField(Field field){
+        for( KObject ob : inside.get() ){
+            if( field.isVisitedBy(ob) ){
+                field.reactToObjectPresence(ob);
             }
         }
     }
@@ -588,6 +597,13 @@ public class Basic implements KObject {
     }
 
     /**
+     * Vrací tvar objektu.
+     */
+    public KShape getShape( ){
+        return shape;
+    }
+
+    /**
      * Vrací zda je objekt rotovatelný.
      */
     public boolean getIsRotable(){
@@ -655,6 +671,13 @@ public class Basic implements KObject {
      */
     public Int2D pos(){
         return pos.get();
+    }
+
+    /**
+     * Vrací rotaci tohoto objektu.
+     */
+    public double getRot(){
+        return rot;
     }
 
     /**

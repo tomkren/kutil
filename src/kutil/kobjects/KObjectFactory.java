@@ -55,6 +55,7 @@ public class KObjectFactory {
         if( "comment"       .equals(typeName) ) return new Comment    ( kAtts );
         if( "budha"         .equals(typeName) ) return new Budha      ( kAtts );
         if( "mr"            .equals(typeName) ) return new Mr         ( kAtts );
+        if( "field"         .equals(typeName) ) return new Field      ( kAtts );
 
         if( "touchSensor"   .equals(typeName) ) return new TouchSensor( kAtts );
         if( "goalSensor"    .equals(typeName) ) return new GoalSensor ( kAtts );
