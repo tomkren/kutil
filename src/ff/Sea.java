@@ -201,7 +201,7 @@ public class Sea {
         return ! moving.isEmpty();
     }
 
-    private void fishStep( Cmd cmd ){
+    public void fishStep( Cmd cmd ){
         if( cmd == null ) return;
 
         Ob.Dir dir = toDir(cmd);
@@ -305,7 +305,7 @@ public class Sea {
         return xs;
     }
 
-    private Ob.Dir toDir(Cmd cmd){
+    public static Ob.Dir toDir(Cmd cmd){
         switch( cmd ){
             case U : return Ob.Dir.UP;
             case D : return Ob.Dir.DOWN;
@@ -315,7 +315,7 @@ public class Sea {
         }
     }
 
-    private Cmd toCmd( char ch ){
+    public static Cmd toCmd( char ch ){
         switch( ch ){
             case 'w': return Cmd.U;
             case 's': return Cmd.D;
@@ -326,7 +326,7 @@ public class Sea {
         }
     }
 
-    private void fallStep( ){
+    public void fallStep( ){
 
         for( Ob ob : moving ){
             move( Ob.Dir.DOWN , ob );
