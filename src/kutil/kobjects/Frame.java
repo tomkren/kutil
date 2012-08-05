@@ -535,6 +535,10 @@ class MyJFrame extends JFrame implements WindowListener, ComponentListener {
         pack();
         setResizable(true);
         setLocation(frame.pos().getX(), frame.pos().getY() );
+        
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setIconImage(Global.shapeFactory().appleImg );
+        
         setVisible(true);
 
         //setExtendedState( getExtendedState() | MAXIMIZED_BOTH );  //pro maximalizaci

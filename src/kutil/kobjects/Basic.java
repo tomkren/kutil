@@ -991,5 +991,13 @@ public class Basic implements KObject {
 
         objectsToRemove.clear();
     }
+    
+    
+    public void setPhysicalOff(){
+        if( isPhysical() ){
+            getParentWorld().remove( getBody() );
+            physical.set(false);
+        }
+    }
 
 }

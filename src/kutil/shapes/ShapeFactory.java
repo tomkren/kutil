@@ -113,6 +113,21 @@ public class ShapeFactory {
         String shapeName = parts[0];
 
         if ("rectangle".equals(shapeName)) {
+            
+            if( parts.length == 4 ){
+                
+                int x     = Integer.parseInt(parts[1]);
+                int y     = Integer.parseInt(parts[2]);
+                Color col = Color.PINK;
+                
+                try {
+                    col = Color.decode(parts[3]);}
+                catch(NumberFormatException e){
+                    Log.it("Uncorrect color code : "+e.getMessage());}
+                
+                return new RectangleShape( new Int2D( x,y ), col );
+            }
+            
             if( parts.length != 3 ) return defaultShape();
             int x = Integer.parseInt(parts[1]);
             int y = Integer.parseInt(parts[2]);

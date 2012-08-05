@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kutil>
+    
+    <object type="ffunit" id="$ffunit-1" pos="15 25"/>
+    
+    <object type="field" id="$field-1" shape="rectangle 200 100 #97CEF0" pos="340 153" action="ff $ffunit-1"/>
+    <object type="field" id="$field-2" shape="rectangle 200 100 #97CEF0" pos="66 338" action="ff $ffunit-1"/>
+    
+
+</kutil>

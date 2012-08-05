@@ -135,6 +135,6 @@ public class Text implements KObject {
 
     public void delete(){}
 
-
+    public void setPhysicalOff(){}
 
 }

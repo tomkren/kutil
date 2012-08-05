@@ -180,6 +180,8 @@ public interface KObject {
      */
     public boolean getIsMovable();
 
+    
+    public void setPhysicalOff();
 
 
 }

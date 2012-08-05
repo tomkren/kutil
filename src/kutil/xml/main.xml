@@ -42,7 +42,7 @@
                     <object type="button" title="Pískoviště" cmd="changeXML $universe newworld.xml ; sendTo $menu changeFrameTarget $tools ; sendTo $universe changeFrameTarget $universe" pos="100 125" />
                     <!--<object type="button" title="Komix" cmd="changeXML $universe welcome.xml; sendTo $gui changeFrameTarget $komix1" pos="100 150" />-->
                     <object type="button" title="Zpět do reality (pokus)" cmd="changeXML $universe welcome.xml; sendTo $gui changeFrameTarget $earth" pos="100 150" />
-
+                    <object type="button" title="FF tests" cmd="changeXML $universe ff-tests.xml ; sendTo $menu changeFrameTarget $tools ; sendTo $universe changeFrameTarget $universe" pos="100 175" />
                </object>
 
                <object id="$tutorial" guiStuff="true">
@@ -394,6 +394,12 @@
 
                     <object type="tool" pos="325 365" size="75 64" cam="-25 -25" title="Field">
                          <object type="field" action="ff" shape="rectangle 200 100" />
+                    </object>
+                    
+                    <!---->
+                    
+                    <object type="tool" pos="5 455" size="75 64" cam="-20 -10" title="FFUnit">
+                        <object type="ffunit" />
                     </object>
 
 
