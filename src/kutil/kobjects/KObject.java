@@ -183,5 +183,6 @@ public interface KObject {
     
     public void setPhysicalOff();
 
+    public void setPhysicalOn();
 
 }

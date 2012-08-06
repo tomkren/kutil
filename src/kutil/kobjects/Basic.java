@@ -56,6 +56,7 @@ public class Basic implements KObject {
                                                // a tedy s ním nejdou některé nepříjemnosti (smazat, vylíst nad)
     private StringItem          onInit     ;   // příkaz který se spustí při inicializaci kobjektu
     private StringItem          onEnter    ;   // příkaz který se spustí při vstupu dovnitř objektu
+    private StringItem          ffType     ;   
     private ListItem            inside     ;   // objekty tvořící vnitřek tohoto objektu
 
     private KObject             parent ;       // objekt, v jehož vnitřku je tento object
@@ -106,10 +107,10 @@ public class Basic implements KObject {
         guiStuff   = items.addBoolean( kAtts , "guiStuff" , false        ) ;
         onInit     = items.addString ( kAtts , "onInit"   , null         ) ;
         onEnter    = items.addString ( kAtts , "onEnter"  , null         ) ;
+        ffType     = items.addString ( kAtts , "ffType"   , null         ) ; 
 
         inside     = items.addList   ( kAtts , "inside"                  ) ;
 
-        
         create();
     }
 
@@ -134,6 +135,7 @@ public class Basic implements KObject {
         guiStuff   = items.addBoolean  ( "guiStuff" , false , false ) ;
         onInit     = items.addString   ( "onInit"   , null          ) ;
         onEnter    = items.addString   ( "onEnter"  , null          ) ;
+        ffType     = items.addString   ( "ffType"   , null          ) ; 
 
         inside     = items.addEmptyList( "inside"                   ) ;
 
@@ -161,6 +163,7 @@ public class Basic implements KObject {
         guiStuff   = items.addBoolean  ( "guiStuff" , b.guiStuff.get() , false    ) ;
         onInit     = items.addString   ( "onInit"   , null                        ) ;
         onEnter    = items.addString   ( "onEnter"  , null                        ) ;
+        ffType     = items.addString   ( "ffType"   , null                        ) ; 
 
         inside     = items.addEmptyList( "inside" ) ;
 
@@ -409,6 +412,10 @@ public class Basic implements KObject {
      */
     public String getOnEnterCmd(){
         return onEnter.get();
+    }
+    
+    public String getFFType(){
+        return ffType.get();
     }
 
     /**
@@ -999,5 +1006,16 @@ public class Basic implements KObject {
             physical.set(false);
         }
     }
+
+    public void setPhysicalOn(){
+        if( ! isPhysical() ){
+            getParentWorld().remove( getBody() );
+            physical.set(true);
+            
+            setBodyPos( pos() );
+            getParentWorld().add(body);
+        }
+    }
+
 
 }

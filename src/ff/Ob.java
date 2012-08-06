@@ -3,6 +3,7 @@ package ff;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import kutil.core.Int2D;
 import kutil.core.Log;
 
@@ -43,6 +44,16 @@ public class Ob {
         public String toString() {return sigs.toString();}
     }
 
+    public Ob( char pix , Set<Int2D> poses){
+        px = pix;
+        type = typeByPx(pix);
+        
+        shapeAndPosFromPoses( poses );
+        
+        signifs = mkSignifs(shape);
+        
+    }
+    
     public Ob( char pix , String[] seaStrs ){
 
         px      = pix;
@@ -244,8 +255,39 @@ public class Ob {
         }
     }
 
+    private void shapeAndPosFromPoses( Set<Int2D> poses ){
+        shape = new LinkedList<Int2D>();
+        
+        int minX = Integer.MAX_VALUE;
+        int minY = Integer.MAX_VALUE;
+        int maxX = Integer.MIN_VALUE;
+        int maxY = Integer.MIN_VALUE;
+        
+        for( Int2D pos : poses ){
+            int x = pos.getX();
+            int y = pos.getY();
+            
+            if(x < minX) minX = x;
+            if(y < minY) minY = y;
+            if(x > maxX) maxX = x;
+            if(y > maxY) maxY = y;
+            
+            shape.add(pos);
+        }
+        
+        for( Int2D p : shape ){
+            p.adjustX(-minX);
+            p.adjustY(-minY);
+        }
+
+        pos1  = new Int2D(minX,minY);
+        pos2  = new Int2D(maxX,maxY);
+
+    }
+        
+    
     private void shapeAndPosFromStrs( String[] seaStrs ){
-        List<Int2D> ret = new LinkedList<Int2D>();
+        shape = new LinkedList<Int2D>();
         int numRows = seaStrs.length;
 
         int minX = Integer.MAX_VALUE;
@@ -261,21 +303,19 @@ public class Ob {
                     int y = i;
                     if(x < minX) minX = x;
                     if(y < minY) minY = y;
-
                     if(x > maxX) maxX = x;
                     if(y > maxY) maxY = y;
 
-                    ret.add(new Int2D(x, y));
+                    shape.add(new Int2D(x, y));
                 }
             }
         }
 
-        for( Int2D p : ret ){
+        for( Int2D p : shape ){
             p.adjustX(-minX);
             p.adjustY(-minY);
         }
 
-        shape = ret;
         pos1  = new Int2D(minX,minY);
         pos2  = new Int2D(maxX,maxY);
     }

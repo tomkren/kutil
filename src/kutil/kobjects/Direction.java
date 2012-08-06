@@ -72,6 +72,7 @@ public class Direction extends Basic {
     public Vals get(){
         return Vals.valueOf( val.get() );
     }
+
     
     
     /**

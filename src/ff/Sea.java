@@ -14,8 +14,10 @@ import java.util.Stack;
 import kutil.core.Int2D;
 import kutil.core.Log;
 
-public class Sea {
+public class Sea implements MotionCommander{
 
+    
+    
     public static void main( String[] args ){
 
         Log.it("Hello world!");
@@ -110,6 +112,32 @@ public class Sea {
     LinkedList<Ob>  fishes;
     GameStatus      status;
 
+    public void addBlock(char px, Set<Int2D> poses) {
+        Ob ob = new Ob(px, poses);
+        
+        // todo   : vyřešit když to přidávam někam kde už něco je
+        
+        obSet.add(ob);
+        
+        for( Int2D pos : ob.getPoses() ){
+            posMap.put( pos , ob);
+        }
+        
+        moving = mkMoving();
+
+        
+        // .....
+    }
+
+    public void removeBlock(char px) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<MotionCmd> getNewCmds() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    
     public Sea( String[] seaStrs ){
 
         rec = recFromStrs(seaStrs);

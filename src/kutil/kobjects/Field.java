@@ -1,9 +1,13 @@
 package kutil.kobjects;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import kutil.core.Global;
-import kutil.core.IdDB;
+import kutil.core.Int2D;
 import kutil.core.KAtts;
 import kutil.core.Log;
 import kutil.items.StringItem;
@@ -39,7 +43,13 @@ public class Field extends Basic {
     public void init() {
         super.init();
         actor.init();
-    }    
+    }
+
+    @Override
+    public void step() {
+        super.step();
+        actor.step();
+    }
 
     @Override
     public KObject copy() {
@@ -54,7 +64,7 @@ public class Field extends Basic {
         return getShape().isHit( pos() , o.pos() , getRot() ) ;
     }
 
-    private static FieldActor toActor( String action ){
+    private FieldActor toActor( String action ){
         
         String[] parts = action.split( "\\s+" , 2 );
         
@@ -66,7 +76,7 @@ public class Field extends Basic {
         
         
         if( "log".equals(actionName) ) return new LogActor();
-        if( "ff" .equals(actionName) ) return new FishFilletsActor( actionParams );
+        if( "ff" .equals(actionName) ) return new FishFilletsActor( actionParams , this );
 
         return new LogActor();
     }
@@ -75,6 +85,7 @@ public class Field extends Basic {
 interface FieldActor {
    public void reactToObjectPresence( KObject o );
    public void init();
+   public void step();
 }
 
 
@@ -83,16 +94,20 @@ class FishFilletsActor implements FieldActor {
 
     private String ffUnitId;
     private FFUnit ffUnit;
-    
+    private Field  field;
+
     private Set<KObject> inField;
+    private Map<String,Boolean> wasPhysical;
     
-    public FishFilletsActor( String params ){
+    public FishFilletsActor( String params , Field f){
         if( params == null ) return;
         
         ffUnitId = params;
-        
+        field    = f;
+
         inField = new HashSet<KObject>();
-        
+        wasPhysical = new HashMap<String, Boolean>();
+
         // Log.it(params);
     }
     
@@ -100,18 +115,46 @@ class FishFilletsActor implements FieldActor {
         ffUnit = (FFUnit) Global.idDB().get(ffUnitId);
     }
     
+    public void step(){
+        
+        List<KObject> toRemove = new LinkedList<KObject>();
+        
+        for( KObject o : inField ){
+            if( ! field.isVisitedBy(o) ){
+                ffUnit.removeKObject(o);
+                toRemove.add(o);
+                if( wasPhysical.get(o.id()) ){
+                    o.setPhysicalOn();
+                }
+                wasPhysical.remove(o.id());
+            }
+        }
+        
+        inField.removeAll(toRemove);
+    }
+
     public void reactToObjectPresence(KObject o) {
        if( ffUnit != null && ! inField.contains(o) ){
+
+           boolean wasPhys = o.isPhysical();
+
            inField.add(o);
-           act( o );
+           wasPhysical.put(o.id(), wasPhys);
+
+           if( wasPhys ){
+                o.setPhysicalOff();
+           }
+
+           ffUnit.addKObject(o);
        }
     }
     
-    private void act(KObject o){
-        o.setPhysicalOff();
-        ffUnit.addKObject(o);
+    private static void alignToGrid(KObject o){
         
+        Int2D pos = o.pos();
+        //o.setPos(  );
     }
+    
 }
 
 class LogActor implements FieldActor {
@@ -121,7 +164,7 @@ class LogActor implements FieldActor {
     }
 
     public void init() { }
-    
+    public void step() { }
     
 
 }
