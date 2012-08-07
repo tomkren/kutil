@@ -2,6 +2,7 @@ package kutil.kobjects;
 
 import ff.MotionCmd;
 import ff.MotionCommander;
+import ff.Sea;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -29,7 +30,7 @@ public class FFUnit extends Basic{
     private void create(){
         setType( "ffunit" );
 
-        mc              = new TestCommander();
+        mc              = new Sea(new Int2D(100, 100) ); // new TestCommander();
         nowRunningCmds  = new LinkedList<MotionCmd>();
         pxToKOb         = new HashMap< Character , KObject >();
         oidToPx         = new HashMap< String  , Character >();
@@ -38,13 +39,23 @@ public class FFUnit extends Basic{
     }
 
     public void addKObject( KObject o ){
-        pxToKOb.put( nextPx , o );
-        oidToPx.put( o.id() , nextPx);
-        mc.addBlock(nextPx, getFFPoses(o) );
+        
+        String ffType = ( (Basic) o).getFFType();
+        
+        char px;
+        
+        if( "wall".equals(ffType) ){
+            px = '$';
+        }else{
+            px = nextPx;
+            nextPx++;
+        }
+        
+        pxToKOb.put( px , o );
+        oidToPx.put( o.id() , px);
+        mc.addBlock(px, getFFPoses(o) );
 
         Log.it("[Added kobject] | px: '"+ nextPx + "' | xml: "+ o.toXml() );
-
-        nextPx ++;
     }
 
     public void removeKObject( KObject o ){

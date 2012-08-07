@@ -7,9 +7,9 @@
     <object type="field" id="$field-2" pos="49 247" shape="rectangle 200 100 #97CEF0" action="ff $ffunit-1"/>
     <object type="field" id="$field-1" pos="170 413" shape="rectangle 200 100 #97CEF0" action="ff $ffunit-1"/>
 
+    <object type="bool" pos="121 180" physical="true" val="false"/>
+    <object type="bool" pos="150 180" physical="true"/>
     <object type="bool" pos="84 182" physical="true"/>
-    <object type="bool" pos="123 180" physical="true" val="false"/>
-    <object type="bool" pos="162 180" physical="true"/>
     <object type="bool" pos="204 181" physical="true" val="false"/>
 
     <object type="bool" pos="150 300" physical="true" val="false" ffType="wall"/>

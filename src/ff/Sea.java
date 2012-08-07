@@ -61,16 +61,13 @@ public class Sea implements MotionCommander{
 
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            String str = null;
+            String str ;
             while( true ) {
-
                 
-
-
                 System.out.print("$ ");
                 str = in.readLine();
 
-                if( str.equals("") ) break;
+                if( str.equals("") ) {break;}
 
                 //Log.it("LOG: " + str);
 
@@ -112,6 +109,10 @@ public class Sea implements MotionCommander{
     LinkedList<Ob>  fishes;
     GameStatus      status;
 
+    public List<MotionCmd> getNewCmds() {
+        return fallStep();
+    }
+    
     public void addBlock(char px, Set<Int2D> poses) {
         Ob ob = new Ob(px, poses);
         
@@ -130,22 +131,38 @@ public class Sea implements MotionCommander{
     }
 
     public void removeBlock(char px) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        for( Ob ob : obSet ){
+            if( ob.getPx() == px ) {
+                removeOb( ob );
+                break;
+            }
+        }
+        
+        moving = mkMoving();
+        
+        // ... co když vypadne rybka, může to měnit winning atd....
     }
-
-    public List<MotionCmd> getNewCmds() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    
+    public Sea( Int2D rectangle ){
+        
+        rec = rectangle;
+        init();
+        moving = new HashSet<Ob>();
     }
-
+    
+    private void init(){
+        obSet  = new HashSet<Ob>();
+        posMap = new HashMap<Int2D, Ob>();
+        fishes = new LinkedList<Ob>();
+        status = GameStatus.Normal;       
+    }
     
     public Sea( String[] seaStrs ){
 
         rec = recFromStrs(seaStrs);
-
-        obSet  = new HashSet<Ob>();
-        posMap = new HashMap<Int2D, Ob>();
-        fishes = new LinkedList<Ob>();
-        status = GameStatus.Normal;
+        
+        init();
 
         for( char ch : charsIn(seaStrs) ){
             Ob ob = new Ob(ch, seaStrs);
@@ -172,8 +189,8 @@ public class Sea implements MotionCommander{
         int rows = rec.getY();
         int cols = rec.getX();
 
-        if( status==GameStatus.YouWin   ) sb.append("Y O U   W I N   !!!");
-        if( status==GameStatus.GameOver ) sb.append("G A M E   O V E R   !!!");
+        if( status==GameStatus.YouWin   ) {sb.append("Y O U   W I N   !!!");}
+        if( status==GameStatus.GameOver ) {sb.append("G A M E   O V E R   !!!");}
 
 
         for( int i = 0 ; i < rows ; i++ ){
@@ -206,12 +223,12 @@ public class Sea implements MotionCommander{
         Set<Ob> ret             = new HashSet<Ob>();
 
         for( Ob o : obSet ){
-            if( o.isNotDeleted() ){
+            //if( o.isNotDeleted() ){
                 ret.add(o);
                 if( o.isFish() || o.isWall() ){
                     wallsAndFishes.add(o);
                 }
-            }
+            //}
         }
 
         Set<Ob> fixeds = new HashSet<Ob>();
@@ -229,8 +246,11 @@ public class Sea implements MotionCommander{
         return ! moving.isEmpty();
     }
 
-    public void fishStep( Cmd cmd ){
-        if( cmd == null ) return;
+    public List<MotionCmd> fishStep( Cmd cmd ){
+
+        List<MotionCmd> ret = new LinkedList<MotionCmd>();
+
+        if( cmd == null ) {return ret;}
 
         Ob.Dir dir = toDir(cmd);
         if( dir == null ){
@@ -245,6 +265,7 @@ public class Sea implements MotionCommander{
 
                 for( Ob o : pusheds ){
                     move(dir,o);
+                    ret.add(new MotionCmd(o.getPx(), Ob.dirDelta(dir)));
                 }
                 moving = mkMoving(); // TODO  U N E F F E C T I V E
 
@@ -261,19 +282,30 @@ public class Sea implements MotionCommander{
 
                 // update winning
                 if( status == GameStatus.Normal && isGoal(actFish)  ){
-                    for( Int2D pos : actFish.getPoses() ){
-                        posMap.remove(pos);
-                    }
-                    actFish.nullThePos();
+                    removeOb(actFish);
                     fishes.removeFirst();
 
                     if( fishes.isEmpty() ){
                         status = GameStatus.YouWin ;
                     }
+                    
+                    moving = mkMoving(); // přidáno navíc oproti haskell verzi -
+                                         // TODO konzultnout TAM..
+                                         // přece může zmizet a něco předtim držet
                 }
-                
             }
         }
+        
+        return ret;
+    }
+    
+    private void removeOb( Ob ob ){
+        for( Int2D pos : ob.getPoses() ){
+            posMap.remove(pos);
+        }
+        //ob.nullThePos();
+        obSet.remove(ob);
+
     }
 
     private boolean isGoal( Ob fish ){
@@ -303,7 +335,7 @@ public class Sea implements MotionCommander{
     }
 
     private boolean isSteelKilled( Ob fish ){
-        if(fish.isBigFish()) return false;
+        if(fish.isBigFish()) {return false;}
 
         for( Ob o : haDeNeighbors(Ob.Dir.UP, fish) ){
             if( o.isSteel() && ! isFixedByWall(o) ){
@@ -315,7 +347,7 @@ public class Sea implements MotionCommander{
 
     private boolean isFixedByWall( Ob ob ){
         for( Ob o : haDeNeighbors(Ob.Dir.DOWN, ob)){
-            if( o.isWall() ) return true;
+            if( o.isWall() ) {return true;}
         }
         return false;
     }
@@ -325,9 +357,9 @@ public class Sea implements MotionCommander{
         Set<Ob> xs = haDeNeighbors(dir, fish);
 
         for( Ob o : xs ){
-            if( o.isWall()                     ) return null;
-            if( o.isFish()  && !o.equals(fish) ) return null;
-            if( o.isSteel() && o.isSmallFish() ) return null;
+            if( o.isWall()                     ) {return null;}
+            if( o.isFish()  && !o.equals(fish) ) {return null;}
+            if( o.isSteel() && o.isSmallFish() ) {return null;}
         }
 
         return xs;
@@ -354,10 +386,17 @@ public class Sea implements MotionCommander{
         }
     }
 
-    public void fallStep( ){
+    public List<MotionCmd> fallStep( ){
 
+        List<MotionCmd> ret = new LinkedList<MotionCmd>();
+        
+        if( ! isMoving() ) {return ret;}
+        
+        Ob.Dir down = Ob.Dir.DOWN;
+        
         for( Ob ob : moving ){
-            move( Ob.Dir.DOWN , ob );
+            move( down , ob );
+            ret.add(new MotionCmd(ob.getPx(), Ob.dirDelta(down)  ));
         }
 
         Set<Ob> stoppeds = updateMoving();
@@ -371,6 +410,7 @@ public class Sea implements MotionCommander{
             fish.kill();
         }
         
+        return ret;        
     }
 
     private Set<Ob> getKilledFishes( Set<Ob> stoppeds ){
@@ -390,7 +430,7 @@ public class Sea implements MotionCommander{
     private static Set<Ob> separateFishes( Set<Ob> obs ){
         Set<Ob> ret = new HashSet<Ob>();
         for( Ob ob : obs ){
-            if(ob.isFish()) ret.add(ob);
+            if(ob.isFish()) {ret.add(ob);}
         }
         return ret;
     }
@@ -398,7 +438,7 @@ public class Sea implements MotionCommander{
     private static Set<Ob> separateWalls( Set<Ob> obs ){
         Set<Ob> ret = new HashSet<Ob>();
         for( Ob ob : obs ){
-            if(ob.isWall()) ret.add(ob);
+            if(ob.isWall()) {ret.add(ob);}
         }
         return ret;
     }
@@ -406,7 +446,7 @@ public class Sea implements MotionCommander{
     private static Set<Ob> separateStdOrSteel( Set<Ob> obs ){
         Set<Ob> ret = new HashSet<Ob>();
         for( Ob ob : obs ){
-            if(ob.isStd() || ob.isSteel() ) ret.add(ob);
+            if(ob.isStd() || ob.isSteel() ) {ret.add(ob);}
         }
         return ret;
     }
@@ -516,7 +556,7 @@ public class Sea implements MotionCommander{
 
         for( String str : strs ){
             int len = str.length();
-            if ( len > maxLen ) maxLen = len;
+            if ( len > maxLen ) {maxLen = len;}
         }
 
         return new Int2D( maxLen ,strs.length);

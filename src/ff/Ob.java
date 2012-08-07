@@ -145,14 +145,17 @@ public class Ob {
         return isStd() || isSteel();
     }
 
+    /*
     public boolean isNotDeleted(){
         return pos1 != null ;
     }
 
+    
     public void nullThePos(){
         pos1 = null;
         pos2 = null;
     }
+    */
 
 
     public boolean isFish(){
