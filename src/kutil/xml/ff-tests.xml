@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <kutil>  
+
+    <object type="ffunit" id="$ffunit-1" pos="1 2"/>
     
-    <object type="ffunit" id="$ffunit-1" pos="15 25"/>
+    <object type="field" id="$field-2" pos="16 112" shape="rectangle 192 96 #97CEF0" align16="true" action="ff $ffunit-1"/>
+    <object type="field" id="$field-1" pos="64 256" shape="rectangle 192 96 #97CEF0" align16="true" action="ff $ffunit-1"/>
+    
+    <object id="$182" pos="96 144" shape="rectangle 16 16 #FF0000" align16="true" physical="true"/>
+    
+    <object id="$183" pos="96 176" shape="rectangle 16 16 #0007FF" ffType="wall" align16="true"/>
 
-    <object type="field" id="$field-2" pos="49 247" shape="rectangle 200 100 #97CEF0" action="ff $ffunit-1"/>
-    <object type="field" id="$field-1" pos="170 413" shape="rectangle 200 100 #97CEF0" action="ff $ffunit-1"/>
+    <object id="$185" pos="-16 16" shape="smallfish" ffType="small" physical="true" align16="true"/>
+    
+    <object id="$186" pos="-16 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
 
-    <object type="bool" pos="121 180" physical="true" val="false"/>
-    <object type="bool" pos="150 180" physical="true"/>
-    <object type="bool" pos="84 182" physical="true"/>
-    <object type="bool" pos="204 181" physical="true" val="false"/>
+    <object id="$187" pos="-16 80" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$188" pos="-16 112" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$189" pos="-16 144" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$190" pos="-16 176" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$191" pos="-16 208" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$192" pos="-16 240" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$193" pos="-16 272" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$194" pos="-16 304" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$195" pos="-16 336" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$180" pos="48 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$178" pos="80 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$181" pos="144 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
+    <object id="$179" pos="99 46" shape="rectangle 16 16 #FF1717" physical="true"/>
 
-    <object type="bool" pos="150 300" physical="true" val="false" ffType="wall"/>
-
-    <object pos="243 685" shape="platform" physical="true" attached="true" takable="false"/>
-
+    <object id="$184" pos="243 685" shape="platform" physical="true" attached="true" takable="false"/>
+    
 
 </kutil>
 

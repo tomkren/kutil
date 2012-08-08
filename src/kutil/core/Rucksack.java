@@ -765,9 +765,17 @@ public class Rucksack implements ActionListener{
 
         //saveStateToUndoBuffer();
 
-        onCursor.setPos( clickPos.plus(onCursorClickPos) );
+        Int2D pos = clickPos.plus(onCursorClickPos);
+        
+        if( ((Basic)onCursor).getAlign16() ){
+            pos = pos.align(16);
+        }
+        
+        onCursor.setPos( pos );
         onCursor.setParent( newParent );
         newParent.add( onCursor );
+        
+        ((Basic) onCursor).setSpeed(Int2D.zero);
 
         onCursor = null;
     }

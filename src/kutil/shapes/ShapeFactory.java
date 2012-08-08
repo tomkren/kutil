@@ -24,7 +24,8 @@ public class ShapeFactory {
                          upImgSel, downImgSel, leftImgSel, rightImgSel, randomImgSel,
                          unarNularImg, unarNularImgSel, slotImg, slotImgSel ,
                          ingImg,ingImgSel, ternarImg, ternarImgSel, budhaImg, budhaImgSel,
-                         appleImg, appleImgSel, earthImg,  earthImgSel , mrImgSel ;
+                         appleImg, appleImgSel, earthImg,  earthImgSel , mrImgSel , 
+                         ffImg,ffImgSel, smallFishImg;
 
     public BufferedImage[] flyImgs, waspImgs, mrImgs ;
 
@@ -77,6 +78,9 @@ public class ShapeFactory {
         earthImg        = img("earth.png");
         earthImgSel     = img("earth_selected.png");
         mrImgSel        = img("pan_selected.png");
+        ffImg           = img("ff.png");
+        ffImgSel        = img("ff_selected.png");
+        smallFishImg    = img("smallfish2.png");
    
 
         flyImgs         = new BufferedImage[]{
@@ -147,6 +151,18 @@ public class ShapeFactory {
                                             new Int2D(50,100)
                                                         );
 
+        }
+        
+        if( "smallfish".equals(shapeName) ){
+            
+            return new ImageShape(smallFishImg, smallFishImg, 
+                new Int2D[]{
+                    new Int2D(  0, 0 ),
+                    new Int2D( 45, 0 ),
+                    new Int2D( 45, 15 ),
+                    new Int2D(  0, 15 ) },
+                new Int2D( 0, 0 ),
+                new Int2D( 0, 0 ));
         }
 
         if( "earth".equals(shapeName) ) {

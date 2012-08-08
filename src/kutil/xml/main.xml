@@ -392,8 +392,8 @@
                          <object type="mr"/>
                     </object>
 
-                    <object type="tool" pos="325 365" size="75 64" cam="-25 -25" title="Field">
-                         <object type="field" action="ff" shape="rectangle 200 100" />
+                    <object type="tool" pos="325 365" size="75 64" cam="-25 -25" title="...">
+                         <object physical="true" val="false" ffType="wall" align16="true" shape="rectangle 16 16 #0007FF"/>
                     </object>
                     
                     <!---->

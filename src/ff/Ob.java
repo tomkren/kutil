@@ -75,6 +75,42 @@ public class Ob {
 
     }
 
+    public void removePx(Int2D pos){
+        shape.remove(pos.minus(pos1));
+        
+        if( shape.contains(pos) ) throw new Error("nEEEEE");
+        
+        signifs = mkSignifs(shape);
+    }
+    
+    public void insertPx(Int2D pos){
+        shape.add(pos.minus(pos1));
+        
+        int x = pos.getX();
+        int y = pos.getY();
+        
+        if( x > pos2.getX() ) { pos2 = new Int2D(x, pos2.getY());  }
+        if( y > pos2.getY() ) { pos2 = new Int2D(pos2.getX() , y); }
+        
+        if( x < pos1.getX() ){
+            Int2D delta = new Int2D(pos1.getX() - x , 0 ) ;
+            pos1 = new Int2D(x, pos1.getY()) ;
+            List<Int2D> newShape = new LinkedList<Int2D>();
+            for( Int2D p : shape ){ newShape.add( p.plus(delta) ); }
+            shape = newShape;
+        }
+        
+        if( y < pos1.getY() ){
+            Int2D delta = new Int2D( 0 , pos1.getY() - y ) ;
+            pos1 = new Int2D( pos1.getX() , y ) ;
+            List<Int2D> newShape = new LinkedList<Int2D>();
+            for( Int2D p : shape ){ newShape.add( p.plus(delta) ); }
+            shape = newShape;
+        }
+        
+        signifs = mkSignifs(shape);
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if( obj instanceof Ob ){

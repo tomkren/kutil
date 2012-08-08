@@ -59,9 +59,18 @@ public class Field extends Basic {
     public void reactToObjectPresence(KObject o){
         actor.reactToObjectPresence(o);
     }
+    
+    public void informFieldAboutDeletation( KObject deleted ){
+        actor.informFieldAboutDeletation(deleted);
+    }
 
     public boolean isVisitedBy( KObject o ){
-        return getShape().isHit( pos() , o.pos() , getRot() ) ;
+        
+        //Log.it("pozaa: "+o.pos());
+        
+        return isHit( o.pos().plus(new Int2D(1, 1)) );
+        
+        //return getShape().isHit( pos() , , getRot() ) ; //hodne divnej bug: o.pos().plus(new Int2D(5, 5)) 
     }
 
     private FieldActor toActor( String action ){
@@ -84,6 +93,7 @@ public class Field extends Basic {
 }
 interface FieldActor {
    public void reactToObjectPresence( KObject o );
+   public void informFieldAboutDeletation( KObject deleted );
    public void init();
    public void step();
 }
@@ -115,6 +125,21 @@ class FishFilletsActor implements FieldActor {
         ffUnit = (FFUnit) Global.idDB().get(ffUnitId);
     }
     
+    public void informFieldAboutDeletation( KObject deleted ){
+        
+        if( ! inField.contains(deleted) ) {Log.it("neni ve fíldu :"+field.id());return;}
+        
+        Log.it("lalalalala");
+        
+        ffUnit.removeKObject( deleted );
+        if( wasPhysical.get(deleted.id()) ){
+            deleted.setPhysicalOn();
+        }
+        wasPhysical.remove(deleted.id());
+        inField.remove(deleted);
+        
+    }
+    
     public void step(){
         
         List<KObject> toRemove = new LinkedList<KObject>();
@@ -143,22 +168,23 @@ class FishFilletsActor implements FieldActor {
 
            if( wasPhys ){
                 o.setPhysicalOff();
+                                
+                o.setPos( o.pos().align(FFUnit.SIDE) );
+                ((Basic)o).setSpeed(Int2D.zero);                
            }
 
            ffUnit.addKObject(o);
        }
     }
     
-    private static void alignToGrid(KObject o){
-        
-        Int2D pos = o.pos();
-        //o.setPos(  );
-    }
+
     
 }
 
 class LogActor implements FieldActor {
 
+    public void informFieldAboutDeletation( KObject deleted ){}
+    
     public void reactToObjectPresence(KObject o) {
        Log.it( "Field was visited by : " + o.toXml() );
     }

@@ -11,8 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import kutil.core.Global;
 import kutil.core.Int2D;
 import kutil.core.Log;
+import kutil.kobjects.Direction;
+import kutil.kobjects.KObject;
 
 public class Sea implements MotionCommander{
 
@@ -108,12 +111,60 @@ public class Sea implements MotionCommander{
     Int2D           rec;
     LinkedList<Ob>  fishes;
     GameStatus      status;
+    LinkedList<Cmd> waitingCmds;
 
+    public void cmd(KObject o){
+        
+        if ( o instanceof Direction ){
+            
+            Direction dire = (Direction) o;
+            
+            Cmd cmd = null;
+            
+            switch( dire.get() ){
+                case up      : cmd = Cmd.U; break;
+                case down    : cmd = Cmd.D; break;
+                case left    : cmd = Cmd.L; break;
+                case right   : cmd = Cmd.R; break;
+                case randdir : cmd = Cmd.values()[Global.random().nextInt(4)]; break;
+            }
+            
+            waitingCmds.add( cmd );
+        }
+        
+        
+    }
+    
     public List<MotionCmd> getNewCmds() {
-        return fallStep();
+        
+        if(isMoving()){
+            return fallStep();
+        } else if( ! waitingCmds.isEmpty() ){
+            return fishStep( waitingCmds.pop() );
+        }
+        
+        return new LinkedList<MotionCmd>();        
     }
     
     public void addBlock(char px, Set<Int2D> poses) {
+        
+        if( '$' == px ){
+            
+            for( Ob ob : obSet ){
+            if( ob.getPx() == '$' ) {
+                
+                for( Int2D pos : poses ){
+                    ob.insertPx(pos);
+                    posMap.put( pos , ob );
+                }
+                
+                moving = mkMoving();
+                
+                return;
+                }
+            }
+        }        
+        
         Ob ob = new Ob(px, poses);
         
         // todo   : vyřešit když to přidávam někam kde už něco je
@@ -124,12 +175,38 @@ public class Sea implements MotionCommander{
             posMap.put( pos , ob);
         }
         
+        if( ob.isFish() ){
+            fishes.addFirst(ob);
+            if( ob.isDead() ){
+                status = GameStatus.GameOver ;
+            }
+        }
+        
         moving = mkMoving();
 
         
         // .....
     }
 
+    public void removeBlock2( Set<Int2D> poses ){
+        for( Int2D pos : poses ){
+            Ob ob = posMap.get(pos);
+            Log.it("rm2: "+pos);
+            
+            if( ob.getPx() == '$' ){
+                Log.it("DELETUJU $!");
+                ob.removePx(pos);
+                posMap.remove(pos);
+            } else {
+                throw new Error("Tohle se má používat jen na $");
+            }
+        }
+        
+        moving = mkMoving();
+        
+        // ... co když vypadne rybka, může to měnit winning atd....
+    }
+    
     public void removeBlock(char px) {
         
         for( Ob ob : obSet ){
@@ -155,7 +232,8 @@ public class Sea implements MotionCommander{
         obSet  = new HashSet<Ob>();
         posMap = new HashMap<Int2D, Ob>();
         fishes = new LinkedList<Ob>();
-        status = GameStatus.Normal;       
+        status = GameStatus.Normal;
+        waitingCmds = new LinkedList<Cmd>();
     }
     
     public Sea( String[] seaStrs ){

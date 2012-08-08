@@ -22,6 +22,12 @@ public class Int2D {
         this.x = x;
         this.y = y;
     }
+    
+    public Int2D align(int gridSide ){
+        int newX = gridSide * Math.round( ((float)x) / ((float)gridSide)  ) ;
+        int neyY = gridSide * Math.round( ((float)y) / ((float)gridSide)  ) ;
+        return new Int2D(newX, neyY) ;
+    }
 
     @Override
     public boolean equals(Object o){

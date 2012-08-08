@@ -18,6 +18,7 @@ import kutil.core.KAtts;
 import kutil.kevents.KEvent;
 import kutil.kevents.ReleaseEvent;
 import kutil.core.Global;
+import kutil.core.Log;
 import kutil.core.Rucksack;
 import kutil.shapes.KShape;
 import kutil.xml.Xml;
@@ -57,6 +58,7 @@ public class Basic implements KObject {
     private StringItem          onInit     ;   // příkaz který se spustí při inicializaci kobjektu
     private StringItem          onEnter    ;   // příkaz který se spustí při vstupu dovnitř objektu
     private StringItem          ffType     ;   
+    private BooleanItem         align16    ;   
     private ListItem            inside     ;   // objekty tvořící vnitřek tohoto objektu
 
     private KObject             parent ;       // objekt, v jehož vnitřku je tento object
@@ -107,7 +109,8 @@ public class Basic implements KObject {
         guiStuff   = items.addBoolean( kAtts , "guiStuff" , false        ) ;
         onInit     = items.addString ( kAtts , "onInit"   , null         ) ;
         onEnter    = items.addString ( kAtts , "onEnter"  , null         ) ;
-        ffType     = items.addString ( kAtts , "ffType"   , null         ) ; 
+        ffType     = items.addString ( kAtts , "ffType"   , null         ) ;
+        align16    = items.addBoolean( kAtts , "align16"  , false        ) ;
 
         inside     = items.addList   ( kAtts , "inside"                  ) ;
 
@@ -136,7 +139,8 @@ public class Basic implements KObject {
         onInit     = items.addString   ( "onInit"   , null          ) ;
         onEnter    = items.addString   ( "onEnter"  , null          ) ;
         ffType     = items.addString   ( "ffType"   , null          ) ; 
-
+        align16    = items.addBoolean  ( "align16"  , false , false ) ;
+        
         inside     = items.addEmptyList( "inside"                   ) ;
 
         create();
@@ -161,9 +165,10 @@ public class Basic implements KObject {
         main       = items.addBoolean  ( "main"     , b.main.get()     , false    ) ;
         takable    = items.addBoolean  ( "takable"  , b.takable.get()  , true     ) ;
         guiStuff   = items.addBoolean  ( "guiStuff" , b.guiStuff.get() , false    ) ;
-        onInit     = items.addString   ( "onInit"   , null                        ) ;
-        onEnter    = items.addString   ( "onEnter"  , null                        ) ;
-        ffType     = items.addString   ( "ffType"   , null                        ) ; 
+        onInit     = items.addString   ( "onInit"   , b.onInit.get()              ) ;
+        onEnter    = items.addString   ( "onEnter"  , b.onEnter.get()             ) ;
+        ffType     = items.addString   ( "ffType"   , b.ffType.get()              ) ; 
+        align16    = items.addBoolean  ( "align16"  , b.align16.get()  , false    ) ;
 
         inside     = items.addEmptyList( "inside" ) ;
 
@@ -212,6 +217,10 @@ public class Basic implements KObject {
                                  Integer.parseInt(part[2]));
         }else{
             bgcolor = Color.white;
+        }
+        
+        if( align16.get() ){
+            pos.set( pos.get().align(16) ); 
         }
 
         rot      = 0f;
@@ -375,7 +384,7 @@ public class Basic implements KObject {
 
     private void manageField(Field field){
         for( KObject ob : inside.get() ){
-            if( field.isVisitedBy(ob) ){
+            if( !(ob instanceof Field) && field.isVisitedBy(ob) ){
                 field.reactToObjectPresence(ob);
             }
         }
@@ -416,6 +425,10 @@ public class Basic implements KObject {
     
     public String getFFType(){
         return ffType.get();
+    }
+    
+    public boolean getAlign16(){
+        return align16.get();
     }
 
     /**
@@ -537,6 +550,8 @@ public class Basic implements KObject {
 
 
     private void setBodyPos( Int2D newPos ){
+        if( body == null ) {return;}
+        
         ROVector2f bodyPos = shape.getPhys2dCenter( newPos );
         body.setPosition( bodyPos.getX() , bodyPos.getY() );
     }
@@ -693,9 +708,17 @@ public class Basic implements KObject {
     public void setPos( Int2D p ){
         pos.set(p);
 
-        if( physical.get() ){
+        //if( physical.get() ){
             setBodyPos(p);
-        }
+        //}
+    }
+    
+    public void setSpeed( Int2D v ){
+        if( body == null ) {return;}
+        
+        ROVector2f vel = body.getVelocity();
+        
+        body.adjustVelocity( new Vector2f( v.getX() - vel.getX() , v.getY() - vel.getY() ) );
     }
 
     /**
@@ -802,15 +825,24 @@ public class Basic implements KObject {
             if( o.isHit( e.getPos() ) ){
 
                 if( !( this instanceof Frame ) && ! o.getIsMovable() ){
-
+                    
+                    //Log.it("1");
+                    
                     rucksack().pasteFromCursor(this, e.getPos() );
                     return;
                 }
 
+                //Log.it("2");
+                
                 o.release(e.getPos());
+                
+                rucksack().pasteFromCursor(this, e.getPos() ); // přidáno nedávno po problémech se vkládáním na kobjekt
+                
                 return;
             }
         }
+        
+        //Log.it("3");
         rucksack().pasteFromCursor(this, e.getPos() );
     }
 
@@ -843,8 +875,8 @@ public class Basic implements KObject {
      * @param clickPos pozice puštění
      */
     public void release(Int2D clickPos){
-        //rucksack.pasteFromCursor(this , Int2D.zero ); //pokud tam je tak umožnuje vkladat dovnitř
-                                                        // objektu pouhým přetažením
+        //rucksack().pasteFromCursor(this , Int2D.zero ); //pokud tam je tak umožnuje vkladat dovnitř
+                                                          // objektu pouhým přetažením
     }
 
     /**
@@ -988,13 +1020,20 @@ public class Basic implements KObject {
 
         for( KObject o : objectsToRemove ){
 
+            for( KObject f : inside.get() ){
+                if( f instanceof Field ) ( (Field) f ).informFieldAboutDeletation(o);
+            }
+            
             if( o.isPhysical() ){
                 world.remove( o.getBody() );
             }
             inside.get().remove( o );
+            
+            
 
             //Log.it("deleting "+o.id()+" velikost inside: "+inside.get().size());
         }
+        
 
         objectsToRemove.clear();
     }

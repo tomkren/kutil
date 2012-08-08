@@ -25,6 +25,7 @@ import kutil.core.Global;
 import kutil.core.Int2D;
 import kutil.core.Log;
 import kutil.core.WebSlot;
+import kutil.kobjects.*;
 
 /**
  * Třída sloužící jako balík statických funkcí zastřešující převod Kispových výrazů
@@ -113,6 +114,9 @@ public class Kisp {
         if( "touchSensor".equals(str) ) return new TouchSensorImplementation( f );//dává mouše vědět že
                                                                                   //se něčeho dotkla
         if( "flyCmd"     .equals(str) ) return new FlyCmd( f ); //změní pozici cíle mouchy
+        if( "ffunit"     .equals(str) ) return new FFUnit.FFUnitImplementation( f ); //změní pozici cíle mouchy
+        
+        
 
         //pokusné
         if( "log"        .equals(str) ) return new Log_();
