@@ -1,37 +1,459 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <kutil>  
-
-    <object type="ffunit" id="$ffunit-1" pos="1 2"/>
-    
-    <object type="field" id="$field-2" pos="16 112" shape="rectangle 192 96 #97CEF0" align16="true" action="ff $ffunit-1"/>
-    <object type="field" id="$field-1" pos="64 256" shape="rectangle 192 96 #97CEF0" align16="true" action="ff $ffunit-1"/>
-    
-    <object id="$182" pos="96 144" shape="rectangle 16 16 #FF0000" align16="true" physical="true"/>
-    
-    <object id="$183" pos="96 176" shape="rectangle 16 16 #0007FF" ffType="wall" align16="true"/>
-
-    <object id="$185" pos="-16 16" shape="smallfish" ffType="small" physical="true" align16="true"/>
-    
-    <object id="$186" pos="-16 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-
-    <object id="$187" pos="-16 80" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$188" pos="-16 112" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$189" pos="-16 144" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$190" pos="-16 176" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$191" pos="-16 208" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$192" pos="-16 240" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$193" pos="-16 272" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$194" pos="-16 304" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$195" pos="-16 336" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$180" pos="48 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$178" pos="80 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$181" pos="144 48" shape="rectangle 16 16 #FF1717" physical="true" align16="true"/>
-    <object id="$179" pos="99 46" shape="rectangle 16 16 #FF1717" physical="true"/>
-
-    <object id="$184" pos="243 685" shape="platform" physical="true" attached="true" takable="false"/>
-    
-
+     <object type="field" id="$field-1" pos="0 0" shape="rectangle 435 405 #E79C00" movable="false" guiStuff="true" align15="true" action="ff $ffunit-1"/>
+    <object type="out" id="$183" pos="459 386"/>
+    <object type="ffunit" id="$ffunit-1" pos="459 306" target="$183:0" val="ffunit"/>
+    <object type="in" id="$182" pos="459 263" physical="true" attached="true" target="$ffunit-1:0"/>
+    <object type="multiobject" id="$450" pos="180 345" movable="false" ffType="wall" align15="true">
+        <obs>
+            <object id="$222" pos="0 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$223" pos="-15 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$224" pos="15 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$225" pos="30 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$229" pos="-30 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$230" pos="-45 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$233" pos="-60 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$234" pos="-75 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$235" pos="-180 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$236" pos="-150 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$237" pos="-135 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$238" pos="-120 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$239" pos="-90 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$240" pos="-105 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$243" pos="-165 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$244" pos="0 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$254" pos="90 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$257" pos="150 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$258" pos="165 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$259" pos="180 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$260" pos="195 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$261" pos="210 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$262" pos="225 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$263" pos="240 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$264" pos="60 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$266" pos="60 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$247" pos="30 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$248" pos="45 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$249" pos="60 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$255" pos="75 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$251" pos="105 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$250" pos="75 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$253" pos="90 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$252" pos="105 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$256" pos="120 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$246" pos="135 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$291" pos="405 270" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$278" pos="15 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$274" pos="15 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$288" pos="45 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$287" pos="30 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$289" pos="60 -15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$275" pos="30 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$308" pos="45 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$294" pos="45 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$245" pos="-15 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$276" pos="0 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$290" pos="15 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$270" pos="0 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$314" pos="-30 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$315" pos="-45 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$316" pos="-60 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$317" pos="-75 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$318" pos="-90 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$319" pos="-105 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$320" pos="-120 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$321" pos="-105 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$322" pos="-120 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$323" pos="-135 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$325" pos="-150 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$326" pos="-165 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$327" pos="-180 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$328" pos="-180 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$331" pos="-90 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$332" pos="-75 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$334" pos="-60 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$335" pos="-45 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$336" pos="-15 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$337" pos="-30 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$338" pos="-15 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$339" pos="-30 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$340" pos="-45 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$341" pos="-60 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$268" pos="-75 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$345" pos="-90 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$346" pos="-105 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$347" pos="-120 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$350" pos="-180 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$354" pos="-180 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$359" pos="-120 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$360" pos="-105 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$361" pos="-90 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$362" pos="-75 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$363" pos="-60 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$364" pos="-45 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$365" pos="-30 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$366" pos="-15 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$368" pos="0 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$369" pos="15 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$370" pos="240 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$371" pos="240 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$372" pos="240 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$373" pos="240 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$374" pos="225 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$375" pos="210 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$376" pos="195 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$377" pos="180 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$378" pos="150 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$379" pos="135 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$380" pos="120 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$381" pos="165 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$382" pos="75 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$383" pos="75 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$384" pos="60 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$385" pos="30 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$386" pos="45 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$387" pos="75 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$388" pos="90 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$389" pos="105 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$390" pos="90 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$391" pos="105 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$392" pos="90 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$393" pos="105 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$394" pos="120 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$395" pos="120 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$396" pos="135 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$397" pos="120 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$304" pos="150 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$303" pos="135 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$302" pos="150 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$367" pos="135 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$348" pos="150 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$349" pos="165 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$324" pos="165 30" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$358" pos="165 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$357" pos="180 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$352" pos="195 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$355" pos="195 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$356" pos="180 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$277" pos="225 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$329" pos="210 15" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$353" pos="180 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$351" pos="-135 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$269" pos="225 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$305" pos="210 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$284" pos="210 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$301" pos="225 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$300" pos="195 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$309" pos="-150 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$311" pos="-150 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$279" pos="-165 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$292" pos="-135 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$273" pos="-165 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$310" pos="-150 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$293" pos="-135 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$286" pos="-165 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$306" pos="-150 -90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$285" pos="-150 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$280" pos="-150 -75" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$281" pos="-150 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$272" pos="-150 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$271" pos="-150 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$312" pos="-135 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$295" pos="-135 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$283" pos="-135 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$299" pos="-120 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$296" pos="-120 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$282" pos="-105 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$297" pos="-90 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$298" pos="-150 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$307" pos="-150 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$399" pos="-150 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$400" pos="-150 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$401" pos="-150 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$402" pos="-135 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$403" pos="-120 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$404" pos="-105 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$405" pos="-90 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$406" pos="-75 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$407" pos="-60 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$408" pos="-45 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$409" pos="-30 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$410" pos="-15 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$411" pos="0 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$412" pos="15 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$413" pos="30 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$414" pos="30 -255" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$415" pos="30 -270" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$416" pos="30 -285" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$417" pos="30 -300" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$418" pos="30 -315" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$419" pos="30 -330" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$420" pos="15 -330" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$421" pos="60 -330" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$422" pos="75 -330" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$423" pos="60 -315" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$424" pos="60 -300" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$425" pos="60 -285" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$426" pos="60 -270" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$427" pos="60 -255" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$428" pos="60 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$429" pos="60 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$430" pos="75 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$431" pos="90 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$432" pos="105 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$433" pos="120 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$434" pos="135 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$435" pos="150 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$436" pos="165 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$437" pos="165 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$438" pos="180 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$439" pos="195 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$440" pos="210 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$441" pos="225 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$442" pos="240 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$447" pos="225 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$443" pos="225 90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$446" pos="255 75" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$444" pos="240 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$445" pos="225 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$450" pos="390 300" movable="false" ffType="wall" align15="true">
+        <obs>
+            <object id="$226" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$228" pos="-15 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$231" pos="30 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$232" pos="15 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$241" pos="0 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$242" pos="-135 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$265" pos="-135 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$267" pos="-120 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$313" pos="-105 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$330" pos="-90 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$333" pos="-75 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$342" pos="-60 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$343" pos="-45 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$344" pos="-15 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$398" pos="-30 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$448" pos="0 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$449" pos="15 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$451" pos="30 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$465" pos="30 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$469" pos="30 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$470" pos="30 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$471" pos="30 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$472" pos="30 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$473" pos="30 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$474" pos="30 -90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$475" pos="30 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$476" pos="-195 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$477" pos="-210 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$478" pos="-225 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$479" pos="-240 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$480" pos="-255 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$481" pos="-285 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$482" pos="-270 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$483" pos="-300 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$484" pos="-315 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$485" pos="-330 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$486" pos="-345 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$487" pos="-360 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$488" pos="-375 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$489" pos="-390 -210" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$490" pos="-390 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$491" pos="-390 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$492" pos="-390 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$493" pos="-390 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$494" pos="-390 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$495" pos="-390 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$496" pos="-390 -90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$497" pos="-390 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$498" pos="-390 -75" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$499" pos="-390 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$500" pos="-390 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$501" pos="-390 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$502" pos="-390 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$503" pos="-390 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$504" pos="-390 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$505" pos="-375 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$506" pos="-375 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$507" pos="-375 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$508" pos="-375 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$509" pos="-375 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$510" pos="-375 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$511" pos="-375 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$512" pos="-375 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$513" pos="-375 -75" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$514" pos="-375 -90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$515" pos="-375 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$516" pos="-375 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$517" pos="-375 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$518" pos="-375 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$519" pos="-375 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$520" pos="-375 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$521" pos="-375 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$522" pos="-360 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$523" pos="-345 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$524" pos="-315 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$525" pos="-330 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$526" pos="-300 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$527" pos="-285 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$528" pos="-270 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$529" pos="-255 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$530" pos="-240 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$531" pos="-360 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$532" pos="-330 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$533" pos="-315 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$534" pos="-300 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$535" pos="-345 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$536" pos="-345 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$537" pos="-360 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$538" pos="-360 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$539" pos="15 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$540" pos="-15 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$541" pos="-15 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$542" pos="-15 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$543" pos="-30 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$544" pos="-75 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$545" pos="-105 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$546" pos="-120 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$547" pos="-120 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$548" pos="-90 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$549" pos="-105 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$550" pos="-90 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$551" pos="-75 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$552" pos="-60 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$553" pos="-30 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$554" pos="-75 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$555" pos="-60 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$556" pos="-45 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$557" pos="-45 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$558" pos="-60 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$559" pos="-45 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$560" pos="-30 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$561" pos="-15 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$562" pos="15 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$563" pos="0 -195" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$564" pos="0 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$565" pos="-15 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$566" pos="-15 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$567" pos="0 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$568" pos="15 -165" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$569" pos="15 -180" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$570" pos="15 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$571" pos="0 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$572" pos="15 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$573" pos="0 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$574" pos="0 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$575" pos="15 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$576" pos="0 -105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$577" pos="-30 -120" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$578" pos="-30 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$579" pos="-15 -135" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$580" pos="-30 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$581" pos="-45 -150" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$583" pos="-90 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$585" pos="-75 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$582" pos="-60 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$584" pos="-45 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$586" pos="0 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$587" pos="-30 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$588" pos="-15 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$589" pos="15 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$590" pos="30 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$591" pos="-45 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$592" pos="30 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$593" pos="-195 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$594" pos="-225 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$595" pos="-210 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$596" pos="-330 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$597" pos="-345 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$598" pos="-345 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$599" pos="-360 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$600" pos="-375 -240" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$601" pos="-375 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$602" pos="-390 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$603" pos="-360 -225" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$205" pos="105 315" align15="true">
+        <obs>
+            <object id="$190" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$191" pos="0 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$192" pos="0 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$193" pos="45 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$194" pos="45 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$196" pos="45 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$197" pos="30 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$198" pos="15 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$199" pos="0 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$202" pos="0 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$221" pos="150 270" align15="true">
+        <obs>
+            <object id="$188" pos="0 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$195" pos="-15 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+            <object id="$220" pos="-30 0" shape="rectangle 15 15 #00EE44" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object id="$small" pos="120 255" shape="smallfish" ffType="small" align15="true"/>
+    <object type="multiobject" id="$217" pos="345 315" align15="true">
+        <obs>
+            <object id="$203" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$206" pos="0 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$207" pos="0 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$209" pos="-30 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$210" pos="-45 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$211" pos="-45 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$212" pos="-45 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$213" pos="0 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$214" pos="0 -60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$208" pos="-15 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$615" pos="255 315" align15="true">
+        <obs>
+            <object id="$218" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$219" pos="0 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$227" pos="0 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$604" pos="0 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$605" pos="15 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$606" pos="-15 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$607" pos="-30 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$608" pos="-45 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$609" pos="-60 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$610" pos="-60 -30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$611" pos="-75 -45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$612" pos="-60 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$613" pos="-60 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$625" pos="225 0" align15="true">
+        <obs>
+            <object id="$616" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$617" pos="0 15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$618" pos="0 30" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$619" pos="0 45" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$620" pos="0 60" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$621" pos="0 75" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$622" pos="0 90" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$623" pos="0 105" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
+    <object type="multiobject" id="$636" pos="330 270" align15="true">
+        <obs>
+            <object id="$627" pos="0 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$626" pos="-30 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$629" pos="-15 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$630" pos="0 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$631" pos="-15 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$632" pos="-30 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$633" pos="-45 0" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+            <object id="$634" pos="-45 -15" shape="rectangle 15 15 #00EE44" physical="true" align15="true" isBrick="true"/>
+        </obs>
+    </object>
 </kutil>
 
 

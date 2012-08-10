@@ -11,7 +11,7 @@ import net.phys2d.raw.shapes.DynamicShape;
  */
 public interface KShape {
 
-    public void draw(Graphics2D g, boolean isSel, String id , Int2D pos , Int2D c , double rot, boolean isRotable );
+    public void draw(Graphics2D g, boolean isSel, String info , Int2D pos , Int2D c , double rot, boolean isRotable );
     public boolean isHit( Int2D pos , Int2D clickPos , double rot);
     public DynamicShape getPhys2dShape();
     public ROVector2f getPhys2dCenter( Int2D pos );

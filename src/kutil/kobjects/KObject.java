@@ -29,6 +29,9 @@ public interface KObject {
      * Pokud objekt potřebuje zareagovat na to, že byl zkopírován, dělá to v této metodě.
      */
     public void    resolveCopying();
+    
+    public Basic getBasic();
+    
     /**
      * Tato metoda je volána pokud došlo ke změnění id nějakého objektu.
      * Pokud na to potřebujuje zareagovat, reaguje na to v této metodě.
@@ -156,7 +159,7 @@ public interface KObject {
      * Reakce na pustění tlačítka myši na samotném objektu (na jeho vnějšku).
      * @param clickPos pozice puštění
      */
-    public void    release( Int2D clickPos );
+    public void    release( Int2D clickPos , KObject obj );
     /**
      * Vrací svět fyzikální simulace tohoto objektu.
      * Tento svět fyzikální simulace simuluje chování

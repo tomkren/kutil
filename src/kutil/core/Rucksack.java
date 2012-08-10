@@ -54,6 +54,8 @@ public class Rucksack implements ActionListener{
 
     private boolean    showInfo; // zda ukazovat u objektů stručné info
     private boolean    isSimulationRunning; // zda běží simulace
+    
+    private boolean    brushInsertMode;
 
     private Int2D      onDragAbsPos; // absolutní pozice kurzoru při přesouvání
     private Int2D      onDragPos;    // relativní pozice kurzoru při přesouvání
@@ -92,7 +94,8 @@ public class Rucksack implements ActionListener{
         popupFrame          = null;
         isSimulationRunning = false;
         console             = null;
-        actualFigure         = null;
+        actualFigure        = null;
+        brushInsertMode     = false;
 
         fileChooser         = new JFileChooser(  );
         try{
@@ -146,6 +149,9 @@ public class Rucksack implements ActionListener{
         if( Cmd.play.equals(cmdName) ){
             togglePausePlay();
             return "Přepnuto.";
+        }
+        if( Cmd.changeInsertMode.equals(cmdName) ){
+            changeInsertMode();
         }
         if( Cmd.showInfo.equals(cmdName) ){
             toggleShowInfo();
@@ -285,6 +291,9 @@ public class Rucksack implements ActionListener{
         else if( "add in and out".equals(cmd) ){
             ((Function)selected).addInAndOut();
         }
+        else if( "glue bricks".equals(cmd) ){
+            selected.getBasic().glueBricks();
+        }
 
         if( popupFrame != null ){
             popupFrame.dispose();
@@ -303,6 +312,11 @@ public class Rucksack implements ActionListener{
         //Log.it("[RIGHT MOUSE BUTTON]");
         //Log.it("selected id : "+selected.id());
 
+        if( onCursor != null ){
+            onCursor = null;
+            return;
+        }
+        
         if( popupFrame != null ){
             popupFrame.dispose();
         }
@@ -313,8 +327,22 @@ public class Rucksack implements ActionListener{
 
         JPopupMenu popup = new JPopupMenu();
 
+        
+   
+        
         if( selected instanceof Function ){
             addItemToPopup("add in and out", popup);
+        }
+        
+        if( selected.getBasic().getIsBrick()  ){
+            boolean hasBrick = false;
+            for( KObject o : selected.parent().inside() ){
+                if( o.getBasic().getIsBrick() ){
+                    hasBrick = true;
+                }
+            }
+            
+            if(hasBrick) { addItemToPopup("glue bricks", popup); }
         }
 
         addItemToPopup("undo", popup);
@@ -763,21 +791,26 @@ public class Rucksack implements ActionListener{
     public void pasteFromCursor( KObject newParent , Int2D clickPos ){
         if( onCursor == null ) return;
 
-        //saveStateToUndoBuffer();
-
         Int2D pos = clickPos.plus(onCursorClickPos);
-        
-        if( ((Basic)onCursor).getAlign16() ){
-            pos = pos.align(16);
+
+        if( ((Basic)onCursor).getAlign15() ){
+            pos = pos.align(15);
         }
-        
+
         onCursor.setPos( pos );
         onCursor.setParent( newParent );
         newParent.add( onCursor );
-        
+
         ((Basic) onCursor).setSpeed(Int2D.zero);
 
-        onCursor = null;
+        KObject oldOnCursor = onCursor;
+        
+        onCursor = null;            
+        
+        if( brushInsertMode ){
+            copyToCursor( oldOnCursor );
+        }
+        
     }
     /**
      * Odpovídá na otázku, zda právě něco visí na kurzoru.
@@ -952,6 +985,10 @@ public class Rucksack implements ActionListener{
         if( isSimulationRunning ){
             saveStateToUndoBuffer();
         }
+    }
+    
+    private void changeInsertMode(){
+        brushInsertMode = ! brushInsertMode;
     }
 
     /**

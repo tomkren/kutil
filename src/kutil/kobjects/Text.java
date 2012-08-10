@@ -23,13 +23,19 @@ public class Text implements KObject {
 
     private String str;
     private KObject parent;
-
+    private Basic   basic;
+    
     public Text(String text){
         str = text;
+        basic = new Basic();
     }
 
     public LinkedList<KObject> inside(){
         return null;
+    }
+    
+    public Basic getBasic(){
+        return basic;
     }
 
     public KObject copy(){
@@ -130,7 +136,7 @@ public class Text implements KObject {
 
     public void drag( Int2D clickPos, Int2D delta, Frame f ){}
     public void click(Int2D clickPos) {}
-    public void release(Int2D clickPos){}
+    public void release(Int2D clickPos,KObject obj ){}
 
 
     public void delete(){}

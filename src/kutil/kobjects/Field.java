@@ -66,9 +66,11 @@ public class Field extends Basic {
 
     public boolean isVisitedBy( KObject o ){
         
-        //Log.it("pozaa: "+o.pos());
+        boolean ret = isHit( o.pos().plus(new Int2D(1, 1)) ); 
+                
+        //if( ret )Log.it("ve fíldu: "+o.toXml() );
         
-        return isHit( o.pos().plus(new Int2D(1, 1)) );
+        return ret;
         
         //return getShape().isHit( pos() , , getRot() ) ; //hodne divnej bug: o.pos().plus(new Int2D(5, 5)) 
     }
@@ -127,9 +129,12 @@ class FishFilletsActor implements FieldActor {
     
     public void informFieldAboutDeletation( KObject deleted ){
         
-        if( ! inField.contains(deleted) ) {Log.it("neni ve fíldu :"+field.id());return;}
+        if( ! inField.contains(deleted) ) {
+            //Log.it("neni ve fíldu :"+field.id());
+            return;
+        }
         
-        Log.it("lalalalala");
+        //Log.it("lalalalala");
         
         ffUnit.removeKObject( deleted );
         if( wasPhysical.get(deleted.id()) ){

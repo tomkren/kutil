@@ -22,6 +22,7 @@ public class Cmd {
     public static final String xml                  = "xml";
     public static final String bgcolor              = "bgcolor";
     public static final String selectedFrameTarger  = "selectedFrameTarger";
+    public static final String changeInsertMode     = "changeInsertMode";
 
 
 

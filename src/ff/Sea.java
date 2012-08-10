@@ -193,6 +193,11 @@ public class Sea implements MotionCommander{
             Ob ob = posMap.get(pos);
             Log.it("rm2: "+pos);
             
+            if( ob == null ){ 
+                Log.it("ERROR !!!! :  v removeBlock2 je chyba ze v poses je elemnt rovnej null");
+                return;
+            }
+            
             if( ob.getPx() == '$' ){
                 Log.it("DELETUJU $!");
                 ob.removePx(pos);
@@ -334,8 +339,8 @@ public class Sea implements MotionCommander{
         if( dir == null ){
             Ob firstFish = fishes.removeFirst();
             fishes.addLast(firstFish);
-        } else {
-
+        } else if( ! fishes.isEmpty() ){
+           
             Ob actFish = fishes.getFirst();
 
             Set<Ob> pusheds = getMoveables(dir, actFish );

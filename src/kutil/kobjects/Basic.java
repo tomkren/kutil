@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import kutil.core.*;
 import kutil.items.BooleanItem;
 import kutil.items.Int2DItem;
 import kutil.items.Items;
@@ -12,14 +14,8 @@ import kutil.items.StringItem;
 import kutil.kevents.ClickEvent;
 import kutil.kevents.Cmd;
 import kutil.kevents.DragEvent;
-import kutil.core.IdDB;
-import kutil.core.Int2D;
-import kutil.core.KAtts;
 import kutil.kevents.KEvent;
 import kutil.kevents.ReleaseEvent;
-import kutil.core.Global;
-import kutil.core.Log;
-import kutil.core.Rucksack;
 import kutil.shapes.KShape;
 import kutil.xml.Xml;
 import kutil.xml.XmlElement;
@@ -58,7 +54,8 @@ public class Basic implements KObject {
     private StringItem          onInit     ;   // příkaz který se spustí při inicializaci kobjektu
     private StringItem          onEnter    ;   // příkaz který se spustí při vstupu dovnitř objektu
     private StringItem          ffType     ;   
-    private BooleanItem         align16    ;   
+    private BooleanItem         align15    ;   
+    private BooleanItem         isBrick    ;
     private ListItem            inside     ;   // objekty tvořící vnitřek tohoto objektu
 
     private KObject             parent ;       // objekt, v jehož vnitřku je tento object
@@ -110,8 +107,9 @@ public class Basic implements KObject {
         onInit     = items.addString ( kAtts , "onInit"   , null         ) ;
         onEnter    = items.addString ( kAtts , "onEnter"  , null         ) ;
         ffType     = items.addString ( kAtts , "ffType"   , null         ) ;
-        align16    = items.addBoolean( kAtts , "align16"  , false        ) ;
-
+        align15    = items.addBoolean( kAtts , "align15"  , false        ) ;
+        isBrick    = items.addBoolean( kAtts , "isBrick"  , false        ) ;
+        
         inside     = items.addList   ( kAtts , "inside"                  ) ;
 
         create();
@@ -139,7 +137,8 @@ public class Basic implements KObject {
         onInit     = items.addString   ( "onInit"   , null          ) ;
         onEnter    = items.addString   ( "onEnter"  , null          ) ;
         ffType     = items.addString   ( "ffType"   , null          ) ; 
-        align16    = items.addBoolean  ( "align16"  , false , false ) ;
+        align15    = items.addBoolean  ( "align15"  , false , false ) ;
+        isBrick    = items.addBoolean  ( "isBrick"  , false , false ) ;
         
         inside     = items.addEmptyList( "inside"                   ) ;
 
@@ -168,8 +167,9 @@ public class Basic implements KObject {
         onInit     = items.addString   ( "onInit"   , b.onInit.get()              ) ;
         onEnter    = items.addString   ( "onEnter"  , b.onEnter.get()             ) ;
         ffType     = items.addString   ( "ffType"   , b.ffType.get()              ) ; 
-        align16    = items.addBoolean  ( "align16"  , b.align16.get()  , false    ) ;
-
+        align15    = items.addBoolean  ( "align15"  , b.align15.get()  , false    ) ;
+        isBrick    = items.addBoolean  ( "isBrick"  , b.isBrick.get()  , false    ) ;
+        
         inside     = items.addEmptyList( "inside" ) ;
 
         for( KObject o :  b.inside() ){
@@ -219,8 +219,8 @@ public class Basic implements KObject {
             bgcolor = Color.white;
         }
         
-        if( align16.get() ){
-            pos.set( pos.get().align(16) ); 
+        if( align15.get() ){
+            pos.set( pos.get().align(15) ); 
         }
 
         rot      = 0f;
@@ -330,6 +330,10 @@ public class Basic implements KObject {
 
         return sb.toString();
     }
+    
+    public Basic getBasic(){
+        return this;
+    }
 
     /**
      * Vykoná jeden krok tohoto objektu.
@@ -384,6 +388,9 @@ public class Basic implements KObject {
 
     private void manageField(Field field){
         for( KObject ob : inside.get() ){
+            
+            
+            
             if( !(ob instanceof Field) && field.isVisitedBy(ob) ){
                 field.reactToObjectPresence(ob);
             }
@@ -427,8 +434,8 @@ public class Basic implements KObject {
         return ffType.get();
     }
     
-    public boolean getAlign16(){
-        return align16.get();
+    public boolean getAlign15(){
+        return align15.get();
     }
 
     /**
@@ -638,6 +645,10 @@ public class Basic implements KObject {
     public boolean getIsGuiStuff(){
         return guiStuff.get();
     }
+    
+    public boolean getIsBrick(){
+        return isBrick.get();
+    }
 
     /**
      * Nastavuje zda je objekt součást guiStuff, čili nejde mazat a opouštět backspacem.
@@ -834,9 +845,9 @@ public class Basic implements KObject {
 
                 //Log.it("2");
                 
-                o.release(e.getPos());
+                o.release(e.getPos(),this);
                 
-                rucksack().pasteFromCursor(this, e.getPos() ); // přidáno nedávno po problémech se vkládáním na kobjekt
+                //rucksack().pasteFromCursor(this, e.getPos() ); // přidáno nedávno po problémech se vkládáním na kobjekt
                 
                 return;
             }
@@ -874,9 +885,11 @@ public class Basic implements KObject {
      * Reakce na pustění tlačítka myši na samotném objektu (na jeho vnějšku).
      * @param clickPos pozice puštění
      */
-    public void release(Int2D clickPos){
+    public void release(Int2D clickPos , KObject obj ){
         //rucksack().pasteFromCursor(this , Int2D.zero ); //pokud tam je tak umožnuje vkladat dovnitř
                                                           // objektu pouhým přetažením
+        
+       rucksack().pasteFromCursor( obj , clickPos ); 
     }
 
     /**
@@ -1054,6 +1067,29 @@ public class Basic implements KObject {
             setBodyPos( pos() );
             getParentWorld().add(body);
         }
+    }
+    
+    public void glueBricks(){
+        
+        List<KObject> bricks = new LinkedList<KObject>();
+        
+        for( KObject o : parent().inside() ){
+            if( o.getBasic().getIsBrick() ){
+                o.remove();
+                bricks.add( o );
+            }
+        }
+        
+        MultiObject multi = new MultiObject(bricks);
+        multi.setPhysical( true );
+        multi.getBasic().align15.set(true);
+        
+        KObjectFactory.insertKObjectToSystem( multi , null );
+        multi.setParent( parent() );
+        parent().add( multi );
+               
+        
+        
     }
 
 

@@ -18,7 +18,7 @@ import org.javatuples.Pair;
  */
 public class FFUnit extends Function { //Basic{
  
-    public static final int  SIDE  = 16;
+    public static final int  SIDE  = 15;
 
     private Map<Character,KObject>          pxToKOb;
     private Map<String ,Character>          oidToPx;
@@ -34,7 +34,7 @@ public class FFUnit extends Function { //Basic{
         // setShape( new FFShape() );
         resetVal("ffunit");
         
-        mc              = new Sea(new Int2D(20, 25) ); // new TestCommander();
+        mc              = new Sea(new Int2D(29, 27) ); // new TestCommander();
         nowRunningCmds  = new LinkedList<MotionCmd>();
         pxToKOb         = new HashMap< Character , KObject >();
         oidToPx         = new HashMap< String  , Character >();

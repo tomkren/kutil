@@ -158,9 +158,9 @@ public class ShapeFactory {
             return new ImageShape(smallFishImg, smallFishImg, 
                 new Int2D[]{
                     new Int2D(  0, 0 ),
-                    new Int2D( 45, 0 ),
-                    new Int2D( 45, 15 ),
-                    new Int2D(  0, 15 ) },
+                    new Int2D( 44, 0 ),
+                    new Int2D( 44, 14 ),
+                    new Int2D(  0, 14 ) },
                 new Int2D( 0, 0 ),
                 new Int2D( 0, 0 ));
         }

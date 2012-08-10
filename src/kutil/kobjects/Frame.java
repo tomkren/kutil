@@ -35,6 +35,7 @@ import kutil.core.Int2D;
 import kutil.core.KAtts;
 import kutil.core.Log;
 
+
 /**
  * Objekt virtuálního světa fungující jako základní prvek GUI - okno.
  * @author Tomáš Křen
@@ -430,11 +431,10 @@ public class Frame extends Basic {
     }
 
     @Override
-    public void release( Int2D clickPos ) {
-        frameEvent(
-             new ReleaseEvent(clickPos.minus(pos().plus(decorDelta)).minus(center) ) );
+    public void release( Int2D clickPos ,KObject obj ) {
+        frameEvent( new ReleaseEvent(clickPos.minus(pos().plus(decorDelta)).minus(center) ) );
         
-        
+        //Log.it("A!!!!!!!!!");
     }
 
 
@@ -491,7 +491,12 @@ public class Frame extends Basic {
         
     }
     protected void mouseReleased(MouseEvent e){
+        
+        if( e.getButton() == MouseEvent.BUTTON3 ){return;}
+        
         frameEvent( new ReleaseEvent( clickPos(e) ) );
+        
+        //Log.it("B!!!!!!!");
     }
     protected void mouseDragged( MouseEvent e , Int2D delta ){
         
@@ -510,8 +515,17 @@ public class Frame extends Basic {
     private Int2D clickPos( MouseEvent e ){
         return new Int2D( e.getX() , e.getY() ).minus(center);
     }
-}
 
+    @Override
+    public void glueBricks() {
+        if( getTarget() == null ) {return;}
+        if ( ! getTarget().inside().isEmpty()  ){
+            getTarget().inside().getFirst().getBasic().glueBricks();
+        }
+    }
+    
+    
+}
 class MyJFrame extends JFrame implements WindowListener, ComponentListener {
 
     protected MyJPanel myJPanel;
