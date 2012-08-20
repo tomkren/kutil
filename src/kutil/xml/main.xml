@@ -410,6 +410,10 @@
                     <object type="tool" pos="165 455" size="75 64" cam="-20 -10" title="..">
                         <object shape="rectangle 15 15 #FF1717" physical="true" align15="true"/>
                     </object>
+                    
+                    <object type="tool" pos="245 455" size="75 64" cam="-30 -30" title="Panáček">
+                        <object type="panacek"/>
+                    </object>
 
 
                 </object>

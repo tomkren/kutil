@@ -58,7 +58,8 @@ public class KObjectFactory {
         if( "field"         .equals(typeName) ) return new Field      ( kAtts );
         if( "ffunit"        .equals(typeName) ) return new FFUnit     ( kAtts );
         if( "multiobject"   .equals(typeName) ) return new MultiObject( kAtts );
-
+        if( "panacek"       .equals(typeName) ) return new Panacek    ( kAtts );
+        
         if( "touchSensor"   .equals(typeName) ) return new TouchSensor( kAtts );
         if( "goalSensor"    .equals(typeName) ) return new GoalSensor ( kAtts );
         if( "webOutput"     .equals(typeName) ) return new WebOutput  ( kAtts );

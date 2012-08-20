@@ -24,10 +24,10 @@ public class ShapeFactory {
                          upImgSel, downImgSel, leftImgSel, rightImgSel, randomImgSel,
                          unarNularImg, unarNularImgSel, slotImg, slotImgSel ,
                          ingImg,ingImgSel, ternarImg, ternarImgSel, budhaImg, budhaImgSel,
-                         appleImg, appleImgSel, earthImg,  earthImgSel , mrImgSel , 
-                         ffImg,ffImgSel, smallFishImg;
+                         appleImg, appleImgSel, earthImg,  earthImgSel , mrImgSel ,  
+                         ffImg,ffImgSel, smallFishImg, panacekImgSel;
 
-    public BufferedImage[] flyImgs, waspImgs, mrImgs ;
+    public BufferedImage[] flyImgs, waspImgs, mrImgs , panacekImgs;
 
     public ShapeFactory(){
         unarImg         = img("unar.png");
@@ -81,6 +81,7 @@ public class ShapeFactory {
         ffImg           = img("ff.png");
         ffImgSel        = img("ff_selected.png");
         smallFishImg    = img("smallfish2.png");
+        panacekImgSel   = img("panacek0_selected.png");
    
 
         flyImgs         = new BufferedImage[]{
@@ -104,6 +105,16 @@ public class ShapeFactory {
                             img("pan4.png"),
                             img("pan5.png")
                           };
+        panacekImgs     = new BufferedImage[]{
+                            img("panacek1.png"),
+                            img("panacek2.png"),
+                            img("panacek3.png"),
+                            img("panacek4.png"),
+                            img("panacek5.png"),
+                            img("panacek6.png"),
+                            img("panacek7.png"),
+                            img("panacek8.png")
+                            };
 
     }
 
