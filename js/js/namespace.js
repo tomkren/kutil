@@ -1,0 +1,1 @@
+window.App = window.App || { collections: {}, models: {}, views: {} };
