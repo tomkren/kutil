@@ -1,55 +1,74 @@
 $(function(){
-
 App.views.BasicView = Backbone.View.extend({
-  el: '#root',
+ 
+  //el: '#root',
   
   events: {
     //'click #create-form' : 'createForm'
   },
 
-  initialize: function() {    
-    //this.$tabBody = $('#form-tab-body');
+  initialize: function() {  
+    console.log('init view ' + this.model.get('id') );
 
-    //App.forms.on( 'reset'  , this.render , this );
-
+    this.insideViews = this.model.get('inside').map(this.generateInside, this);
 
   },
 
   render: function() {
-    console.log('rendering basic thing..');
     
     var el  = this.$el;
     var mo  = this.model;
+
+    console.log('rendering view ' + mo.get('id') );
     
     var pos  = mo.get('pos'  ).split(' ');
     var size = mo.get('shape').split(' '); 
 
-    el.html( mo.get('html') );
 
-    el.css( 'position'         , 'absolute'        )
-      .css( 'left'             , pos[0]  + 'px'    )
-      .css( 'top'              , pos[1]  + 'px'    )
-      .css( 'width'            , size[0] + 'px'    )
-      .css( 'height'           , size[1] + 'px'    )
-      .css( 'border'           , mo.get('border')  )
-      .css( 'background-color' , mo.get('color')   )
-      .draggable({start: function( event, ui ) {}} )
-    ;
+    var cssFeatures = {
+      'position'          :  'absolute'        ,
+      'left'              :  pos[0]  + 'px'    ,
+      'top'               :  pos[1]  + 'px'    ,
+      'width'             :  size[0] + 'px'    ,
+      'height'            :  size[1] + 'px'    ,
+      'border'            :  mo.get('border')  ,
+      'background-color'  :  mo.get('color')   ,  
+    };
 
-
-    hax = pos;
+    var html = mo.get('html') ;
 
 
+    if( mo.get('type') == 'watch' ){
+      var target = App.all.get( mo.get('target') ) ;
+      if( target ){
+        html = JSON.stringify( target );
+      }
+    }
 
-    //App.forms.each(this.renderRow, this);
+    el.append( html );
+
+    _.chain(cssFeatures).pairs().map(function(p){ el.css(p[0],p[1]) }) ;
+
+    if( mo.get('draggable') ){ el.draggable({start: function( event, ui ) {}} ) }
+
+
+    // inside
+
+    _.each( this.insideViews , function( v ){
+      v.render();
+    });
+  
+
+    
+    return this ;
   },
 
-  //renderRow: function( m ) {
-  //  var view = new App.views.FormRow({ model: m });
-  //  this.$tabBody.append( view.render().el );
-  //},
+  generateInside: function( m ) {
+    var newElemId = m.get('id') ;
+    this.$el.append(  '<div id="'+newElemId+'"></div>' );
+    return new App.views.BasicView({ model: m , el : '#'+newElemId });
+  },
 
   
 });
-
 });
