@@ -25,6 +25,7 @@ App.views.BasicView = Backbone.View.extend({
     var size = mo.get('shape').split(' '); 
 
 
+
     var cssFeatures = {
       'position'          :  'absolute'        ,
       'left'              :  pos[0]  + 'px'    ,
@@ -36,16 +37,15 @@ App.views.BasicView = Backbone.View.extend({
     };
 
     var html = mo.get('html') ;
-
+    
 
     if( mo.get('type') == 'watch' ){
-      var target = App.all.get( mo.get('target') ) ;
-      if( target ){
-        html = JSON.stringify( target );
-      }
+      var target = App.all.get( mo.get('target') );
+      el.append( this.newWatchBox( target , size ) );
     }
 
     el.append( html );
+
 
     _.chain(cssFeatures).pairs().map(function(p){ el.css(p[0],p[1]) }) ;
 
@@ -67,6 +67,26 @@ App.views.BasicView = Backbone.View.extend({
     var newElemId = m.get('id') ;
     this.$el.append(  '<div id="'+newElemId+'"></div>' );
     return new App.views.BasicView({ model: m , el : '#'+newElemId });
+  },
+
+  newWatchBox: function( target , size ){
+    var ret = '';
+
+    if( target ){
+      
+      var json = JSON.stringify( target , null , 2 );
+      var tag = 'textarea';
+
+      ret = $('<textarea/>',{
+          text  : json  ,
+          width : size[0]-6  + 'px' ,
+          height: size[1]-25 + 'px', 
+        })
+        .css('top','19px')
+        .css('position','absolute');
+    }
+
+    return ret;
   },
 
   

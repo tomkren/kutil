@@ -18,10 +18,10 @@ $(function(){
   	draggable : true ,
     inside    : [
       { type: 'watch', 
-        target: '_1',
+        target: '_2',
         id: '_2',  
         pos: '100 200',
-        shape: '400 200' },
+        shape: '250 300' },
       { id: '_3' , 
         pos:'10 30', 
         html : 'cde' },

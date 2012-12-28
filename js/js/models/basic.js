@@ -4,6 +4,7 @@ App.models.Basic = Backbone.Model.extend({
   //idAttribute: '_id',
 
   defaults: {
+    id        : undefined,
     type      : 'basic',
     pos       : '10 10',
     shape     : '16 16', // obecne 'prefix arg1 arg2 ...'
@@ -12,6 +13,7 @@ App.models.Basic = Backbone.Model.extend({
     color     : 'yellow',
     draggable : true ,
     inside    : [],
+    target    : '',
   },
 
   initialize : function(){
