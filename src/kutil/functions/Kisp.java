@@ -127,7 +127,14 @@ public class Kisp {
         if( "plus3"      .equals(str) ) return new Plus3();
         if( "input"      .equals(str) ) return new Input();
         if( "output"     .equals(str) ) return new Output();
-
+        
+        //interakce s fishtronem
+        if( "k1"        .equals(str) ) return new K1();
+        if( "s2"        .equals(str) ) return new S2();
+        if( "Just"      .equals(str) ) return new Just();
+        if( "listCase"  .equals(str) ) return new ListCase();
+        
+        
 
         return null;
     }
@@ -147,6 +154,8 @@ public class Kisp {
         if( "[up]"       .equals(str) ) return new Direction(Direction.Vals.up);
         if( "[down]"     .equals(str) ) return new Direction(Direction.Vals.down);
         if( "[randdir]"  .equals(str) ) return new Direction(Direction.Vals.randdir);
+        
+        if( "[Nothing]"  .equals(str) ) return new Box();
 
         return null;
     }
@@ -844,6 +853,73 @@ class Times extends BinarImplementation {
         return o1;
     }
 }
+
+class K1 extends UnarImplementation {
+    public K1(){ super("k1",7); }
+    public KObject compute( KObject o ) {
+
+        Function ret = new Function( "const " + o.toKisp() );
+        KObjectFactory.insertKObjectToSystem(ret, null);
+
+        return ret;
+    }    
+}
+
+class S2 extends BinarImplementation {
+    public S2(){ super("s2",25); }
+    public KObject compute( KObject o1 , KObject o2 ) {
+        
+        Function ret = new Function( "(\\ x ( " + o1.toKisp() + " x " + " ( " + o2.toKisp() + " x )  ) )" );
+        KObjectFactory.insertKObjectToSystem(ret, null);
+
+        return ret;
+    }
+}
+
+class Just extends UnarImplementation {
+    public Just(){ super("Just",7); }
+    public KObject compute( KObject o ) {
+
+        Box box = new Box();
+        KObjectFactory.insertKObjectToSystem(box, null);
+        
+        box.add(o);
+        
+        return box;
+    }    
+}
+
+class ListCase extends TernarImplementation {
+    public ListCase(){ super("listCase",0); }
+    public KObject compute( KObject o1 , KObject o2,KObject o3 ) {
+        
+        if( o1 instanceof Box ){
+           
+            Box box = (Box) o1;
+            
+            if( box.isEmpty() ){
+                return o2;
+            } else {
+                
+                
+                KObject first = box.popFirst();
+                box.step();
+
+                
+                //(TODO - ROZDELANý !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                Function ret = new Function( "( o3 first box )" );
+                KObjectFactory.insertKObjectToSystem(ret, null);
+                
+                return null;
+            }
+            
+        }
+        
+        return null;
+        
+    }
+}
+
 
 class Const extends BinarImplementation {
     public Const(){ super("const",15); }

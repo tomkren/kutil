@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kutil>
-  <object type="function" id="1" val="plus3" target="" pos="100 300" />
+  <object target="_c_1_:0" type="in" id="_in_1" pos="100 -200" physical="true" attached="true" />
+  <object target="1_2_1:0" type="in" id="_in_2" pos="200 -200" physical="true" attached="true" />
+  <object type="function" id="_c_1" val="copy" target="1_1_1:0 1_1_2:0" pos="100 0" />
+  <object type="function" id="_c_1_" val="copy" target="_c_1:0 1_3:0" pos="100 -100" />
+  <object type="function" id="1" val="plus3" target="_out_:0" pos="100 300" />
   <object type="function" id="1_1" val="+" target="1:0" pos="100 200" />
   <object type="function" id="1_1_1" val="id" target="1_1:0" pos="100 100" />
-  <object type="function" id="1_1_2" val="id" target="1_1:1" pos="200 100" />
+  <object type="function" id="1_1_2" val="const 3" target="1_1:1" pos="200 100" />
   <object type="function" id="1_2" val="inc" target="1:1" pos="200 200" />
-  <object type="function" id="1_2_1" val="id" target="1_2:0" pos="200 100" />
-  <object type="function" id="1_3" val="id" target="1:2" pos="300 200" />
+  <object type="function" id="1_2_1" val="id" target="1_2:0" pos="300 100" />
+  <object type="function" id="1_3" val="const 4" target="1:2" pos="300 200" />
+  <object type="out" id="_out_" pos="100 400" />
+  <object type="comment" val="\ x0 x1 -> plus3 (+ x0 3) (inc x1) 4" pos="-33 106" />
 </kutil>
