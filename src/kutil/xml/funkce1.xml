@@ -42,6 +42,9 @@
    </val>
 </object>
 
+
+    <object type="num" id="$187" pos="153 48" physical="true" val="42"/>
+    <object type="num" id="$188" pos="210 46" physical="true" val="23"/>
     <object id="$158" pos="357 574" shape="platform" physical="true" attached="true" takable="false"/>
     <object type="function" id="$159" pos="148 138" target="$162:0" val="+"/>
     <object type="in" id="$160" pos="138 88" physical="true" attached="true" target="$159:0"/>
