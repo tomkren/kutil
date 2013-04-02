@@ -300,7 +300,7 @@ public class Rucksack implements ActionListener{
         }
     }
 
-   
+    
     /**
      * Informuje rucksack o tom, že bylo kliknuto pravé tlačítko, aby
      * věděl že má otevřít popup.
@@ -419,6 +419,31 @@ public class Rucksack implements ActionListener{
                 console.printString("Neplatný výraz Kispu.");
             }
         }
+    }
+    
+    public KObject mkKObjectByString( String cmd ){
+
+        cmd = cmd.trim();
+
+        KObject o ;
+
+        Function f = new Function(cmd);
+
+        if( f.getImplementation() instanceof FakeImplementation ){
+            o = ( (FakeImplementation) (f.getImplementation()) ).get();
+        }
+        else if( f.getImplementation() instanceof  ErroneousImplementation ){
+            o = null;
+        }
+        else {
+            o = f;
+        }
+
+        if( o == null ){ return null; }
+
+        KObjectFactory.insertKObjectToSystem(o, null);
+        return o;
+        
     }
 
 

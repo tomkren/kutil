@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kutil>
+<object id="$185" pos="335 645" shape="platform" physical="true" attached="true" takable="false" onInit="bgcolor $universe 207 230 255"/>
+<object id="$186" pos="500 100" shape="cloud"/>
+<object id="$82" pos="-201 584" shape="rectangle 200 5" physical="true" attached="true"/>
+<object id="$83" pos="654 583" shape="rectangle 200 5" physical="true" attached="true"/>
+<object id="$84" pos="-206 -417" shape="rectangle 5 1000" physical="true" attached="true"/>
+<object id="$86" pos="-205 -426" shape="rectangle 1020 5" physical="true" attached="true"/>
+<object id="$85" pos="823 -420" shape="rectangle 5 1000" physical="true" attached="true"/>
+<object type="function" id="$187" pos="168 261" target="$191:0" val="listCase"/>
+<object type="in" id="$188" pos="158 211" physical="true" attached="true" target="$187:0"/>
+<object type="in" id="$189" pos="201 211" physical="true" attached="true" target="$187:1"/>
+<object type="out" id="$191" pos="201 341"/>
+<object type="box" id="$192" pos="167 146" physical="true">
+    <object type="num" id="$193" pos="100 100" physical="true" val="42"/>
+</object>
+<object type="in" id="$190" pos="258 126" physical="true" attached="true" target="$194:0"/>
+<object type="function" id="$194" pos="246 184" target="$187:2" val="const (\ (x y) (x))"/>
+<object type="bool" id="$195" pos="272 96" physical="true" val="false"/>
+<object type="num" id="$196" pos="221 137" physical="true" val="8"/>
+</kutil>

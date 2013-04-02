@@ -24,6 +24,7 @@ import kutil.kobjects.WebOutput;
 import kutil.core.Global;
 import kutil.core.Int2D;
 import kutil.core.Log;
+import kutil.core.Rucksack;
 import kutil.core.WebSlot;
 import kutil.kobjects.*;
 
@@ -903,14 +904,14 @@ class ListCase extends TernarImplementation {
                 
                 
                 KObject first = box.popFirst();
-                box.step();
+                //box.step(); // to tam bylo v miste odkud sem se inspiroval ale bez toho to facha
 
+                KObject ret = Global.rucksack().mkKObjectByString( 
+                 "( "+o3.toKisp()+" "+first.toKisp()+" "+ box.toKisp() +"  )" );
+                        
                 
-                //(TODO - ROZDELANý !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                Function ret = new Function( "( o3 first box )" );
-                KObjectFactory.insertKObjectToSystem(ret, null);
                 
-                return null;
+                return ret;
             }
             
         }
