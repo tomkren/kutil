@@ -859,7 +859,7 @@ class K1 extends UnarImplementation {
     public K1(){ super("k1",7); }
     public KObject compute( KObject o ) {
 
-        Function ret = new Function( "const " + o.toKisp() );
+        Function ret = new Function( "( const " + o.toKisp() + " )" );
         KObjectFactory.insertKObjectToSystem(ret, null);
 
         return ret;
@@ -906,10 +906,14 @@ class ListCase extends TernarImplementation {
                 KObject first = box.popFirst();
                 //box.step(); // to tam bylo v miste odkud sem se inspiroval ale bez toho to facha
 
-                KObject ret = Global.rucksack().mkKObjectByString( 
-                 "( "+o3.toKisp()+" "+first.toKisp()+" "+ box.toKisp() +"  )" );
-                        
+                String kispStr = "( "+o3.toKisp()+" "+first.toKisp()+" "+ box.toKisp() +"  )" ;
                 
+                KObject ret = Global.rucksack().mkKObjectByString( kispStr );
+                  
+                //problem:  v Consoli nefunguje výraz ((( const Just ) 1 ) 2)
+                // presneji receno nejde : ( id id ) 1
+                 
+                Log.it(kispStr);
                 
                 return ret;
             }
