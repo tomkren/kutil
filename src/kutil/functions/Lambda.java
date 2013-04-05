@@ -68,7 +68,7 @@ public class Lambda implements FunctionImplemetation {
      * @param o co dosazujeme
      * @return nová FunctionImplemetation
      */
-    public FunctionImplemetation betaReduction( KObject o ){
+    public FunctionImplemetation dosadKObject( KObject o ){
 
         String expr = body.replaceAll( vars[0] , "( ' "+o.toKisp()+" )" );
 
@@ -101,7 +101,7 @@ public class Lambda implements FunctionImplemetation {
         FunctionImplemetation fi = this;
 
         for( int i=0 ; i< objects.length  ;i++ ){
-            fi = ((Lambda)fi).betaReduction(objects[i]);
+            fi = ((Lambda)fi).dosadKObject(objects[i]);
         }
 
         if( fi instanceof FakeImplementation ){

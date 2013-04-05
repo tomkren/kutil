@@ -2,6 +2,7 @@ package kutil.functions;
 
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 import kutil.kobjects.Basic;
 import kutil.kobjects.Bool;
@@ -161,6 +162,8 @@ public class Kisp {
         return null;
     }
 
+    private static final boolean useExpreInstedOfLambda = ! false ;
+    
     /**
      * DŮLEŽITÁ - převádí Kispové výrazy na FunctionImplemetation.
      * @param str Kispový výraz
@@ -176,7 +179,11 @@ public class Kisp {
 
 
         if( isLambdaTerm( str ) ){
-
+            
+            if( useExpreInstedOfLambda ){
+                return new Expre(str) ;
+            }
+            
             LinkedList<String> parts = iqSplit( iqTrim( str ) );
             String var  = parts.get(1);
             String body = parts.get(2);
@@ -187,11 +194,9 @@ public class Kisp {
         int lastSpace = cutLastBracketSegment(str);
 
         if( lastSpace != -1 ){
-
+            
             String part1 = str.substring(0, lastSpace);
             String part2 = str.substring(lastSpace+1);
-
-
 
             if( part1.equals("'") ){
 
@@ -199,6 +204,11 @@ public class Kisp {
                 KObjectFactory.insertKObjectToSystem(o, null);
                 return new FakeImplementation( o );
             }
+            
+            if( useExpreInstedOfLambda ){
+                return Expre.mkFunctionImplemetation(str);
+            }
+            
 
             
             FunctionImplemetation operator = newImplementation( part1 , f );
@@ -234,7 +244,14 @@ public class Kisp {
                         return new FakeImplementation( fce.call(new KObject[]{ getArg(operand) } )[0]);
                     }
                 }
-                return new ErroneousImplementation();
+                else if( o instanceof Function ){   // nedávno přidaná část...               
+                    Function fce = (Function) o;
+                    return new FakeImplementation( fce.call(new KObject[]{ getArg(operand) } )[0]); 
+                }
+                else {
+                    Log.it("Tak tady to nefacha! [POZICE ALBATROS]" + o.toKisp() );
+                    return new ErroneousImplementation();
+                }
             }
 
             if( operator instanceof Eval ){
@@ -243,7 +260,7 @@ public class Kisp {
 
             if( operator instanceof Lambda ){
                 Lambda lambda = (Lambda) operator;
-                return lambda.betaReduction( getArg(operand) );
+                return lambda.dosadKObject( getArg(operand) );
             }
             
             if( operator instanceof UnarImplementation ){
@@ -253,6 +270,10 @@ public class Kisp {
             if( operator instanceof BinarImplementation ){
                 BinarImplementation bi = (BinarImplementation) operator;
                 return new UnarFromBinar( bi , getArg( operand ) , str , 0 );
+            }
+            if( operator instanceof TernarImplementation ){
+                TernarImplementation ter = (TernarImplementation) operator;
+                return new BinarFromTernar( ter , getArg( operand ) , str , 0 );
             }
 
 
@@ -313,6 +334,10 @@ public class Kisp {
         return -1;
     }
 
+    public static List<String> cutToParts( String str ){
+        return iqSplit( iqTrim( str ) );
+    }
+    
     private static LinkedList<String> iqSplit( String str ){
 
         LinkedList<String> ret = new LinkedList<String>();
@@ -859,7 +884,7 @@ class K1 extends UnarImplementation {
     public K1(){ super("k1",7); }
     public KObject compute( KObject o ) {
 
-        Function ret = new Function( "( const " + o.toKisp() + " )" );
+        Function ret = new Function( "( const " + o.toKisp2() + " )" );
         KObjectFactory.insertKObjectToSystem(ret, null);
 
         return ret;
@@ -870,7 +895,12 @@ class S2 extends BinarImplementation {
     public S2(){ super("s2",25); }
     public KObject compute( KObject o1 , KObject o2 ) {
         
-        Function ret = new Function( "(\\ x ( " + o1.toKisp() + " x " + " ( " + o2.toKisp() + " x )  ) )" );
+        
+        String omgStr = "(\\ x ( " + o1.toKisp2() + " x " + " ( " + o2.toKisp2() + " x )  ) )";
+        
+        Log.it("!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + omgStr);
+        
+        Function ret = new Function( omgStr );
         KObjectFactory.insertKObjectToSystem(ret, null);
 
         return ret;
@@ -885,6 +915,7 @@ class Just extends UnarImplementation {
         KObjectFactory.insertKObjectToSystem(box, null);
         
         box.add(o);
+        box.step();
         
         return box;
     }    
@@ -904,15 +935,11 @@ class ListCase extends TernarImplementation {
                 
                 
                 KObject first = box.popFirst();
-                //box.step(); // to tam bylo v miste odkud sem se inspiroval ale bez toho to facha
 
-                String kispStr = "( "+o3.toKisp()+" "+first.toKisp()+" "+ box.toKisp() +"  )" ;
+                String kispStr = "( "+o3.toKisp2()+" "+first.toKisp2()+" "+ box.toKisp2() +"  )" ;
                 
                 KObject ret = Global.rucksack().mkKObjectByString( kispStr );
-                  
-                //problem:  v Consoli nefunguje výraz ((( const Just ) 1 ) 2)
-                // presneji receno nejde : ( id id ) 1
-                 
+
                 Log.it(kispStr);
                 
                 return ret;

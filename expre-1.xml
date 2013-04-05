@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kutil>
+<object type="comment" id="$184" pos="249 299" val="Vítám tě v KUTILOVI! # Já jsem Inženýr Houbička # a budu tvým průvodcem. # # Pokud ještě nevíš co a jak, # klikni na 'Návod' a já tě # tu provedu. #" actualPage="0"/>
+<object type="function" id="$186" pos="86 366" target="$188:0" val="(\ x (\y (+ x y) ) )"/>
+<object type="in" id="$187" pos="86 316" physical="true" attached="true" target="$186:0"/>
+<object type="out" id="$188" pos="86 446"/>
+<object type="num" id="$189" pos="103 225" physical="true" val="9"/>
+</kutil>

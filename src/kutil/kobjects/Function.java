@@ -11,18 +11,13 @@ import kutil.items.StringItem;
 import kutil.core.Global;
 import kutil.core.Int2D;
 import kutil.core.KAtts;
+import kutil.functions.*;
 import kutil.shapes.BinarShape;
 import kutil.shapes.FunctionShape;
 import kutil.shapes.NularShape;
 import kutil.shapes.UnarBinarShape;
 import kutil.shapes.UnarNularShape;
 import kutil.shapes.UnarShape;
-import kutil.functions.Call;
-import kutil.functions.Eval;
-import kutil.functions.Lambda;
-import kutil.functions.TernarImplementation;
-import kutil.functions.UnarCall;
-import kutil.functions.UnarEval;
 import kutil.shapes.TernarShape;
 
 
@@ -89,7 +84,7 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( kAtts, "insideTarget"  , null );
         outsideTargetString = items().addString( kAtts, "outsideTarget" , null );
         val                 = items().addString( kAtts, "val"           , null );
-        create();
+        create(null);
     }
 
     /**
@@ -102,7 +97,7 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( "insideTarget"  , null  );
         outsideTargetString = items().addString( "outsideTarget" , null  );
         val                 = items().addString( "val"           , value );
-        create();
+        create(null);
     }
 
 
@@ -115,18 +110,30 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( "insideTarget"  , f.insideTargetString.get()  );
         outsideTargetString = items().addString( "outsideTarget" , f.outsideTargetString.get() );
         val                 = items().addString( "val"           , f.val.get()                 );
-        create();
+        create(null);
     }
 
+    public Function( Expre expre  ){
+        super( );
+        targetString        = items().addString( "target"        , null  );
+        insideTargetString  = items().addString( "insideTarget"  , null  );
+        outsideTargetString = items().addString( "outsideTarget" , null  );
+        val                 = items().addString( "val"           , expre.title() );
+
+        setPhysical( true );
+        
+        create(expre);
+    }
+    
 
     @Override
     public KObject copy() {
         return new Function( this );
     }
 
-    private void create(){
+    private void create(FunctionImplemetation fi){
         setType( "function" );
-        resolveImplementation();
+        resolveImplementation(fi);
     }
 
     @Override
@@ -144,15 +151,22 @@ public class Function extends Basic implements Inputable,Outputable {
         return val.get();
     }
 
+    @Override
+    public String toKisp2() {
+        return toKisp();
+    }
+    
+    
+
     /**
      * Na základě položky val určí implementaci funkce, tvar funkce a typ funkce.
      */
-    private void resolveImplementation(){
+    private void resolveImplementation(FunctionImplemetation fi){
         isUserDefined = ( !inside().isEmpty() && val.get() == null ) ;
 
-        implementation = Kisp.newImplementation( val.get() , this ) ;
+        implementation = ( fi != null ? fi : Kisp.newImplementation( val.get() , this ) ) ;
         
-        if (implementation instanceof Lambda ){
+        if (implementation instanceof Lambda || implementation instanceof Expre ){
             switch( implementation.numArgs() ){
                 case 1  : fType = FType.unar;   break;
                 case 2  : fType = FType.binar;  break;
@@ -187,7 +201,7 @@ public class Function extends Basic implements Inputable,Outputable {
      */
     public void resetVal( String str ){
         val.set(str);
-        resolveImplementation();
+        resolveImplementation(null);
     }
 
     @Override

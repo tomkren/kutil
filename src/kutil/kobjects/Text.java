@@ -109,6 +109,9 @@ public class Text implements KObject {
         return ""; //??
     }
 
+    public String toKisp2(){
+        return ""; //??
+    }
 
     public void step(){ }
 

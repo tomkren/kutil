@@ -49,6 +49,8 @@ public interface KObject {
      * Vrací Kispovou reprezentaci tohoto objektu.
      */
     public String  toKisp();
+    public String  toKisp2(); //-- prida ještě ' když je třeba
+    
     /**
      * Vrací seznam vnitřních objektů tohoto objektu.
      */

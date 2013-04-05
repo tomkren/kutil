@@ -331,6 +331,12 @@ public class Basic implements KObject {
         return sb.toString();
     }
     
+    public String toKisp2(){
+        String kispStr = toKisp();
+        boolean addQuote = ( kispStr.charAt(0) == '(' );
+        return ( addQuote ? "'" : "" ) + kispStr ;
+    }
+    
     public Basic getBasic(){
         return this;
     }
