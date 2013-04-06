@@ -18,6 +18,9 @@ import kutil.kobjects.KObjectFactory;
  */
 
 
+//!!!!!!!!!!!!!!!!!!!! TODO : aby to umělo :   const (+ 1) 9
+
+
 public class Expre implements FunctionImplemetation {
 
     private LC.Expr expr;

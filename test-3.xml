@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kutil>
+  <object target="_c_1___:0" type="in" id="_in_1" pos="100 -400" physical="true" attached="true" />
+  <object type="function" id="_c_1" val="copy" target="1_1:0 1_2:0" pos="100 0" />
+  <object type="function" id="_c_1_" val="copy" target="_c_1:0 1_3_1_1:0" pos="100 -100" />
+  <object type="function" id="_c_1__" val="copy" target="_c_1_:0 1_3_2_1_1:0" pos="100 -200" />
+  <object type="function" id="_c_1___" val="copy" target="_c_1__:0 1_3_2_2:0" pos="100 -300" />
+  <object type="function" id="1" val="listCase" target="_out_:0" pos="100 500" />
+  <object type="function" id="1_1" val="id" target="1:0" pos="100 400" />
+  <object type="function" id="1_2" val="const [Nothing]" target="1:1" pos="200 400" />
+  <object type="function" id="1_3" val="s2" target="1:2" pos="300 400" />
+  <object type="function" id="1_3_1" val="k1" target="1_3:0" pos="100 300" />
+  <object type="function" id="1_3_1_1" val="const const" target="1_3_1:0" pos="100 200" />
+  <object type="function" id="1_3_2" val="s2" target="1_3:1" pos="200 300" />
+  <object type="function" id="1_3_2_1" val="k1" target="1_3_2:0" pos="200 200" />
+  <object type="function" id="1_3_2_1_1" val="const Just" target="1_3_2_1:0" pos="100 100" />
+  <object type="function" id="1_3_2_2" val="const id" target="1_3_2:1" pos="300 200" />
+  <object type="out" id="_out_" pos="100 600" />
+  <object type="comment" val="\ x0 -> listCase x0 Nothing (s (k k) (s (k Just) i))" pos="-33 106" />
+</kutil> 

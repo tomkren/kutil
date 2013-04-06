@@ -3,6 +3,7 @@ package kutil.functions;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Stack;
 import kutil.kobjects.Basic;
 import kutil.kobjects.Bool;
@@ -135,6 +136,9 @@ public class Kisp {
         if( "s2"        .equals(str) ) return new S2();
         if( "Just"      .equals(str) ) return new Just();
         if( "listCase"  .equals(str) ) return new ListCase();
+        if( "if_"       .equals(str) ) return new If_();
+        if( "foldr"     .equals(str) ) return new Foldr();
+        
         
         
 
@@ -922,7 +926,7 @@ class Just extends UnarImplementation {
 }
 
 class ListCase extends TernarImplementation {
-    public ListCase(){ super("listCase",0); }
+    public ListCase(){ super("listCase",5); }
     public KObject compute( KObject o1 , KObject o2,KObject o3 ) {
         
         if( o1 instanceof Box ){
@@ -949,6 +953,50 @@ class ListCase extends TernarImplementation {
         
         return null;
         
+    }
+}
+
+class If_ extends TernarImplementation {
+    public If_(){ super("if_",35); }
+    public KObject compute( KObject o1 , KObject o2 , KObject o3 ) {
+
+
+        if( o1 instanceof Bool ){
+            if( !((Bool)o1).get() ){
+                return o3;
+            }
+        }
+        else if( o1 instanceof Num ){
+            if( ((Num)o1).get() == 0 ){
+                return o3;
+            }
+        }
+        else if( o1 instanceof Box ){
+            if( ((Box)o1).isEmpty() ){
+                return o3;
+            }
+        }
+
+        return o2;
+    }
+}
+
+class Foldr extends TernarImplementation {
+    public Foldr(){ super("foldr",35); }
+    public KObject compute( KObject fun , KObject acc , KObject o ) {
+        // foldr :: (a -> b -> b) -> b -> [a] -> b
+        
+        List<KObject> xs = o.inside();
+        
+        ListIterator<KObject> li = xs.listIterator(xs.size());
+
+        while(li.hasPrevious()) {
+            KObject x = li.previous();
+            String kispStr = "( "+fun.toKisp2()+" "+x.toKisp2()+" "+ acc.toKisp2() +"  )" ;
+            acc = Global.rucksack().mkKObjectByString( kispStr );            
+        }      
+
+        return acc;
     }
 }
 
