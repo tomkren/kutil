@@ -316,11 +316,11 @@
                     </object>
 
                     <object type="tool" pos="85 95" size="75 64" cam="-5 -7" title="Push">
-                        <object type="function" val=":" />
+                        <object type="function" val=":" forcedNumInputs="2" />
                     </object>
 
                     <object type="tool" pos="165 95" size="75 64" cam="-5 -7" title="Pop">
-                        <object type="function" val=":2" />
+                        <object type="function" val=":2"   />
                     </object>
 
                     <object type="tool" pos="245 95" size="75 64" cam="-5 -7" title="Zpáruj">

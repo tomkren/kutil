@@ -138,7 +138,7 @@ public class Kisp {
         if( "listCase"  .equals(str) ) return new ListCase();
         if( "if_"       .equals(str) ) return new If_();
         if( "foldr"     .equals(str) ) return new Foldr();
-        
+        if( "s"         .equals(str) ) return new S();
         
         
 
@@ -895,6 +895,17 @@ class K1 extends UnarImplementation {
     }    
 }
 
+
+class S extends TernarImplementation {
+    public S(){ super("s",25); }
+    public KObject compute( KObject o1 , KObject o2 , KObject o3 ) {
+        
+        String str = "( " + o1.toKisp2() + " "+ o3.toKisp2() + " ( " + o2.toKisp2() + " " + o3.toKisp2() +" ) )";  
+
+        return Global.rucksack().mkKObjectByString( str );
+    }    
+}
+
 class S2 extends BinarImplementation {
     public S2(){ super("s2",25); }
     public KObject compute( KObject o1 , KObject o2 ) {
@@ -902,7 +913,7 @@ class S2 extends BinarImplementation {
         
         String omgStr = "(\\ x ( " + o1.toKisp2() + " x " + " ( " + o2.toKisp2() + " x )  ) )";
         
-        Log.it("!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + omgStr);
+        //Log.it("!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + omgStr);
         
         Function ret = new Function( omgStr );
         KObjectFactory.insertKObjectToSystem(ret, null);
@@ -955,6 +966,7 @@ class ListCase extends TernarImplementation {
         
     }
 }
+
 
 class If_ extends TernarImplementation {
     public If_(){ super("if_",35); }

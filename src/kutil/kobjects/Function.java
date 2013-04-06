@@ -12,6 +12,7 @@ import kutil.core.Global;
 import kutil.core.Int2D;
 import kutil.core.KAtts;
 import kutil.functions.*;
+import kutil.items.IntegerItem;
 import kutil.shapes.BinarShape;
 import kutil.shapes.FunctionShape;
 import kutil.shapes.NularShape;
@@ -39,6 +40,8 @@ public class Function extends Basic implements Inputable,Outputable {
                                                  // černé funkce jak výstup
     private StringItem      val; // textová Kispová reprezentace implementace této funkce
 
+    private IntegerItem     forcedNumInputs ; // pokud je nastaveno donutí aby funkce měla požadovaný počet vstupů (pokud to dává smysl a je to v rozmezí)
+    
     /**
      * Podporované typy funkcí, typem myslíme počet vstupů a výstupů.
      */
@@ -84,6 +87,7 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( kAtts, "insideTarget"  , null );
         outsideTargetString = items().addString( kAtts, "outsideTarget" , null );
         val                 = items().addString( kAtts, "val"           , null );
+        forcedNumInputs     = items().addInteger(kAtts, "forcedNumInputs",null );
         create(null);
     }
 
@@ -97,6 +101,7 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( "insideTarget"  , null  );
         outsideTargetString = items().addString( "outsideTarget" , null  );
         val                 = items().addString( "val"           , value );
+        forcedNumInputs     = items().addInteger("forcedNumInputs",null  );
         create(null);
     }
 
@@ -110,6 +115,7 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( "insideTarget"  , f.insideTargetString.get()  );
         outsideTargetString = items().addString( "outsideTarget" , f.outsideTargetString.get() );
         val                 = items().addString( "val"           , f.val.get()                 );
+        forcedNumInputs     = items().addInteger("forcedNumInputs",f.forcedNumInputs.get()     );
         create(null);
     }
 
@@ -119,8 +125,9 @@ public class Function extends Basic implements Inputable,Outputable {
         insideTargetString  = items().addString( "insideTarget"  , null  );
         outsideTargetString = items().addString( "outsideTarget" , null  );
         val                 = items().addString( "val"           , expre.title() );
+        forcedNumInputs     = items().addInteger("forcedNumInputs",null );
 
-        setPhysical( true );
+        //setPhysical( true );
         
         create(expre);
     }
@@ -166,7 +173,17 @@ public class Function extends Basic implements Inputable,Outputable {
 
         implementation = ( fi != null ? fi : Kisp.newImplementation( val.get() , this ) ) ;
         
-        if (implementation instanceof Lambda || implementation instanceof Expre ){
+        // předělání podle forcedNumInputs .. :
+        if( forcedNumInputs.get() != null ){
+            
+            if( implementation.numArgs() != forcedNumInputs.get() ){
+                implementation = new ForceNumInputs(implementation, val.get(), forcedNumInputs.get() );
+            }
+            
+        }
+        
+        
+        if (implementation instanceof Lambda || implementation instanceof Expre || implementation instanceof ForceNumInputs ){
             switch( implementation.numArgs() ){
                 case 1  : fType = FType.unar;   break;
                 case 2  : fType = FType.binar;  break;

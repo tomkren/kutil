@@ -115,7 +115,11 @@ class LC {
         //Expr expr = LambdaCalculus.fromStr( "(\\ x (inc x) ) 41" );
         //Expr expr = LambdaCalculus.fromStr( "(\\ (x y) (+ x y) ) 23 42" );
         //Expr expr = LC.fromStr( "head '(23 42)" );
-        Expr expr = LC.fromStr("(\\ x ( ( const const ) x  ( (\\ x ( ( const Just ) x  ( id x )  ) ) x )  ) )");
+        //Expr expr = LC.fromStr("(\\ x ( ( const const ) x  ( (\\ x ( ( const Just ) x  ( id x )  ) ) x )  ) )");
+        //Expr expr = LC.fromStr("id (+ 1)");
+        //Expr expr = LC.fromStr("const (+ 1) 9");
+        Expr expr =   LC.fromStr("foldr (+) (+ 0 0) '(1 2 3 4)");
+        //Expr expr =  
         //Expr expr = LC.fromStr( "plus3 1 2 3" );
         //Expr expr = LambdaCalculus.fromStr( "(\\ (x y) (y x 1) ) + (\\ (a b) (a 2 b) )" );
         
@@ -181,51 +185,114 @@ class LC {
                 
             } else {
             
-                if( app.p instanceof Val && app.q instanceof Val ){
+//                if( app.p instanceof Val && app.q instanceof Val ){
+//
+//                    Val pVal = (Val) app.p;
+//                    Val qVal = (Val) app.q;
+//
+//                    if( pVal.kObject instanceof Function ){
+//                      
+//                        FunctionImplemetation fi = ((Function) pVal.kObject).getImplementation();
+//                        
+//                        if( fi instanceof UnarImplementation ){                           
+//                            return new Val( ((UnarImplementation) fi).compute( qVal.kObject ) );
+//                        }
+//                    }
+//                } else if( app.p instanceof App && app.q instanceof Val ){
+//                    
+//                    App pApp = (App) app.p;
+//                    Val qVal = (Val) app.q;
+//                    
+//                    if( pApp.p instanceof Val && pApp.q instanceof Val ){
+//                        
+//                        Val ppVal = (Val) pApp.p ;
+//                        Val pqVal = (Val) pApp.q ;
+//                                                
+//                        if( ppVal.kObject instanceof Function ){
+//                            FunctionImplemetation fi = ((Function) ppVal.kObject).getImplementation();
+//                            
+//                            if( fi instanceof BinarImplementation ){                           
+//                                return new Val( ((BinarImplementation) fi).compute( pqVal.kObject , qVal.kObject ) );
+//                            }
+//                        }
+//                    } else if( pApp.p instanceof App && pApp.q instanceof Val ){
+//                        
+//                        App ppApp = (App) pApp.p ;
+//                        Val pqVal = (Val) pApp.q ;
+//                        
+//                        if( ppApp.p instanceof Val && ppApp.q instanceof Val ){
+//                            
+//                            Val pppVal = (Val) ppApp.p ;
+//                            Val ppqVal = (Val) ppApp.q ;
+//                            
+//                            if( pppVal.kObject instanceof Function ){
+//                                FunctionImplemetation fi = ((Function) pppVal.kObject).getImplementation();
+//                            
+//                                if( fi instanceof TernarImplementation ){                           
+//                                    return new Val( ((TernarImplementation) fi).compute( ppqVal.kObject , pqVal.kObject , qVal.kObject ) );
+//                                }
+//                            }
+//                            
+//                        }
+//                        
+//                    }
+//                    
+//                }
+
+                
+                if( app.p instanceof Val ){
 
                     Val pVal = (Val) app.p;
-                    Val qVal = (Val) app.q;
-
+                    
                     if( pVal.kObject instanceof Function ){
                       
                         FunctionImplemetation fi = ((Function) pVal.kObject).getImplementation();
                         
-                        if( fi instanceof UnarImplementation ){                           
-                            return new Val( ((UnarImplementation) fi).compute( qVal.kObject ) );
+                        if( fi instanceof UnarImplementation && hasNoFreeVars( app.q )  ){                  
+                            
+                            KObject ko = Global.rucksack().mkKObjectByString( app.q.toString() );
+                            
+                            return new Val( ((UnarImplementation) fi).compute( ko ) );
                         }
                     }
-                } else if( app.p instanceof App && app.q instanceof Val ){
+                } else if( app.p instanceof App ){
                     
                     App pApp = (App) app.p;
-                    Val qVal = (Val) app.q;
+                    //Val qVal = (Val) app.q;  // třetí potřebuje, pak smazat
                     
-                    if( pApp.p instanceof Val && pApp.q instanceof Val ){
+                    if( pApp.p instanceof Val  ){
                         
                         Val ppVal = (Val) pApp.p ;
-                        Val pqVal = (Val) pApp.q ;
                                                 
                         if( ppVal.kObject instanceof Function ){
                             FunctionImplemetation fi = ((Function) ppVal.kObject).getImplementation();
-                            
-                            if( fi instanceof BinarImplementation ){                           
-                                return new Val( ((BinarImplementation) fi).compute( pqVal.kObject , qVal.kObject ) );
+                                                        
+                            if( fi instanceof BinarImplementation && hasNoFreeVars( app.q ) && hasNoFreeVars( pApp.q ) ){ 
+                                
+                                KObject ko1 = Global.rucksack().mkKObjectByString( pApp.q.toString() );
+                                KObject ko2 = Global.rucksack().mkKObjectByString(  app.q.toString() );
+                                
+                                return new Val( ((BinarImplementation) fi).compute( ko1 , ko2 ) );
                             }
                         }
-                    } else if( pApp.p instanceof App && pApp.q instanceof Val ){
+                    } else if( pApp.p instanceof App ){
                         
                         App ppApp = (App) pApp.p ;
-                        Val pqVal = (Val) pApp.q ;
                         
-                        if( ppApp.p instanceof Val && ppApp.q instanceof Val ){
+                        if( ppApp.p instanceof Val ){
                             
                             Val pppVal = (Val) ppApp.p ;
-                            Val ppqVal = (Val) ppApp.q ;
                             
                             if( pppVal.kObject instanceof Function ){
                                 FunctionImplemetation fi = ((Function) pppVal.kObject).getImplementation();
                             
-                                if( fi instanceof TernarImplementation ){                           
-                                    return new Val( ((TernarImplementation) fi).compute( ppqVal.kObject , pqVal.kObject , qVal.kObject ) );
+                                if( fi instanceof TernarImplementation && hasNoFreeVars( app.q ) && hasNoFreeVars( pApp.q ) && hasNoFreeVars( ppApp.q ) ){      
+                                    
+                                    KObject ko1 = Global.rucksack().mkKObjectByString( ppApp.q.toString() );
+                                    KObject ko2 = Global.rucksack().mkKObjectByString(  pApp.q.toString() );
+                                    KObject ko3 = Global.rucksack().mkKObjectByString(   app.q.toString() );
+                                
+                                    return new Val( ((TernarImplementation) fi).compute( ko1 , ko2 , ko3 ) );
                                 }
                             }
                             
@@ -234,6 +301,7 @@ class LC {
                     }
                     
                 }
+                
                 
                 
                 Expr pReduced = reduceOne_(app.p);
@@ -307,6 +375,35 @@ class LC {
         }
         
         return expr;
+    }
+    
+    private static boolean hasNoFreeVars( Expr expr ){
+        return hasNoFreeVars_(expr,new LinkedList<String>());
+    }
+    
+    
+    private static boolean hasNoFreeVars_( Expr expr , List<String> boundVars ){
+        
+        if( expr instanceof App ){
+            return hasNoFreeVars_(((App) expr).p ,boundVars ) 
+                && hasNoFreeVars_(((App) expr).q ,boundVars )  ;
+        }
+        
+        if( expr instanceof Lam ){
+            Lam lam = (Lam) expr;
+            boundVars.add( lam.var );
+            boolean ret = hasNoFreeVars_(lam.body, boundVars);
+            boundVars.remove(lam.var);
+            return ret;
+                    
+        }
+        
+        if( expr instanceof Var ){
+            Var var = (Var) expr;
+            return boundVars.contains( var.var );
+        }
+        
+        return true;
     }
     
     
@@ -473,7 +570,7 @@ class LC {
         public Val( String str ){
             
 
-            Log.it("vytvařim ze str : "+str);
+            //Log.it("vytvařim ze str : "+str);
             kObject = Global.rucksack().mkKObjectByString(str);
         }
 

@@ -36,5 +36,6 @@ public interface FunctionImplemetation {
      * @return titulek
      */
     public int       getTitleShift();
-
+    
+    //public boolean fooAble();
 }
